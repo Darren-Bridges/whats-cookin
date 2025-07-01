@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -217,11 +217,25 @@ export default function ShoppingListPage() {
     return `(${recipes[0].name} +${recipes.length - 1} more)`;
   };
 
+  const parseMultipleItems = (input: string) => {
+    // Match each line or comma-separated value, robust to whitespace
+    return input
+      .split(/(?:\r?\n|,)/)
+      .map((line) => line.trim())
+      .map((line) => line.replace(/^[-*]\s?/, "")) // remove bullet
+      .map((line) => line.replace(/^\[ \]\s?/, "")) // remove task checkbox
+      .map((line) => line.replace(/^\- \[ \]\s?/, "")) // remove '- [ ] '
+      .map((line) => line.replace(/^\d+\.\s?/, "")) // remove numbered list
+      .filter((line) => line.length > 0);
+  };
+
   // Update handlers to use mutations
   const handleAddItem = (e: React.FormEvent) => {
     e.preventDefault();
     if (!newItem.trim() || !user) return;
-    addCustomItem.mutate(newItem);
+    const items = parseMultipleItems(newItem);
+    items.forEach((item) => addCustomItem.mutate(item));
+    setNewItem("");
   };
 
   const handleRemoveItem = (id: string, item: string) => {
@@ -278,6 +292,37 @@ export default function ShoppingListPage() {
         </div>
         <Button variant="ghost" size="icon" onClick={() => setWeekStart(addDays(weekStart, 7))} aria-label="Next Week">
           <ChevronRight className="w-5 h-5" />
+        </Button>
+      </div>
+      {/* Copy buttons */}
+      <div className="flex gap-2 w-full max-w-2xl mb-4 justify-end">
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => {
+            const items = [
+              ...autoItems.map((item: any) => `${item.ingredient}`),
+              ...customItems.map((i: any) => i.item),
+            ];
+            const text = items.map((i) => `- ${i}`).join("\n");
+            navigator.clipboard.writeText(text);
+          }}
+        >
+          Copy as Bullet List
+        </Button>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => {
+            const items = [
+              ...autoItems.map((item: any) => `${item.ingredient}`),
+              ...customItems.map((i: any) => i.item),
+            ];
+            const text = items.map((i) => `- [ ] ${i}`).join("\n");
+            navigator.clipboard.writeText(text);
+          }}
+        >
+          Copy as Task List
         </Button>
       </div>
       <Card className="w-full max-w-2xl mb-8">
