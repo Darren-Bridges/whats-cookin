@@ -610,5 +610,804 @@ export const sampleRecipes = [
       "Heat the oil in a saucepan, then add the mushrooms and leek. Cook for 10-15 mins until softened and beginning to colour, then add the soy sauce and Marmite and water mixture and stir. Bring to the boil for 5 mins.",
       "Divide the noodles between two deep bowls, then ladle over the hot broth. Top with the chilli slices, mint leaves and peanuts, and serve with some sriracha on the side."
     ]
+  },
+  {
+    id: "wc25",
+    name: "Korean Bibimbap",
+    cuisine: "Korean",
+    mood: "Healthy",
+    allergens: ["soy", "sesame"],
+    price: "$$",
+    ingredients: [
+      { name: "short-grain rice", quantity: { amount: 200, unit: "g", ingredient: "short-grain rice" } },
+      { name: "spinach", quantity: { amount: 100, unit: "g", ingredient: "spinach" } },
+      { name: "carrots", quantity: { amount: 2, unit: "pieces", ingredient: "carrots" } },
+      { name: "cucumber", quantity: { amount: 1, unit: "pieces", ingredient: "cucumber" } },
+      { name: "bean sprouts", quantity: { amount: 100, unit: "g", ingredient: "bean sprouts" } },
+      { name: "eggs", quantity: { amount: 2, unit: "eggs", ingredient: "eggs" } },
+      { name: "gochujang", quantity: { amount: 30, unit: "g", ingredient: "gochujang" } },
+      { name: "sesame oil", quantity: { amount: 15, unit: "ml", ingredient: "sesame oil" } },
+      { name: "soy sauce", quantity: { amount: 30, unit: "ml", ingredient: "soy sauce" } }
+    ],
+    time: 40,
+    steps: [
+      "Cook rice according to package instructions.",
+      "Blanch spinach and season with sesame oil and soy sauce.",
+      "Julienne carrots and cucumber, sauté carrots until tender.",
+      "Fry eggs sunny-side up.",
+      "Arrange all vegetables and egg over rice, serve with gochujang."
+    ]
+  },
+  {
+    id: "wc26",
+    name: "Coq au Vin",
+    cuisine: "French",
+    mood: "Classic",
+    allergens: ["dairy"],
+    price: "$$$",
+    ingredients: [
+      { name: "chicken thighs", quantity: { amount: 800, unit: "g", ingredient: "chicken thighs" } },
+      { name: "red wine", quantity: { amount: 500, unit: "ml", ingredient: "red wine" } },
+      { name: "bacon", quantity: { amount: 150, unit: "g", ingredient: "bacon" } },
+      { name: "mushrooms", quantity: { amount: 300, unit: "g", ingredient: "mushrooms" } },
+      { name: "pearl onions", quantity: { amount: 200, unit: "g", ingredient: "pearl onions" } },
+      { name: "garlic", quantity: { amount: 4, unit: "cloves", ingredient: "garlic" } },
+      { name: "butter", quantity: { amount: 30, unit: "g", ingredient: "butter" } },
+      { name: "flour", quantity: { amount: 30, unit: "g", ingredient: "flour" } },
+      { name: "thyme", quantity: { amount: 2, unit: "tsp", ingredient: "thyme" } }
+    ],
+    time: 90,
+    steps: [
+      "Marinate chicken in red wine with herbs for 2 hours.",
+      "Brown chicken and bacon in butter.",
+      "Add mushrooms, onions, and garlic, cook until softened.",
+      "Add wine marinade and simmer for 1 hour.",
+      "Thicken with flour and butter mixture, serve hot."
+    ]
+  },
+  {
+    id: "wc27",
+    name: "Moussaka",
+    cuisine: "Greek",
+    mood: "Indulgent",
+    allergens: ["dairy", "eggs", "gluten"],
+    price: "$$$",
+    ingredients: [
+      { name: "eggplant", quantity: { amount: 2, unit: "pieces", ingredient: "eggplant" } },
+      { name: "ground lamb", quantity: { amount: 500, unit: "g", ingredient: "ground lamb" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "tomato sauce", quantity: { amount: 400, unit: "ml", ingredient: "tomato sauce" } },
+      { name: "cinnamon", quantity: { amount: 1, unit: "tsp", ingredient: "cinnamon" } },
+      { name: "butter", quantity: { amount: 50, unit: "g", ingredient: "butter" } },
+      { name: "flour", quantity: { amount: 50, unit: "g", ingredient: "flour" } },
+      { name: "milk", quantity: { amount: 500, unit: "ml", ingredient: "milk" } },
+      { name: "eggs", quantity: { amount: 2, unit: "eggs", ingredient: "eggs" } },
+      { name: "parmesan", quantity: { amount: 100, unit: "g", ingredient: "parmesan" } }
+    ],
+    time: 120,
+    steps: [
+      "Slice and salt eggplant, let sit for 30 minutes.",
+      "Brown lamb with onion and spices, add tomato sauce.",
+      "Make béchamel sauce with butter, flour, milk, and eggs.",
+      "Layer eggplant, meat sauce, and béchamel in baking dish.",
+      "Bake at 180°C for 45 minutes until golden."
+    ]
+  },
+  {
+    id: "wc28",
+    name: "Mexican Street Tacos",
+    cuisine: "Mexican",
+    mood: "Party",
+    allergens: ["gluten"],
+    price: "$",
+    ingredients: [
+      { name: "corn tortillas", quantity: { amount: 12, unit: "pieces", ingredient: "corn tortillas" } },
+      { name: "pork shoulder", quantity: { amount: 600, unit: "g", ingredient: "pork shoulder" } },
+      { name: "lime", quantity: { amount: 3, unit: "pieces", ingredient: "lime" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "cilantro", quantity: { amount: 30, unit: "g", ingredient: "cilantro" } },
+      { name: "salsa verde", quantity: { amount: 100, unit: "ml", ingredient: "salsa verde" } },
+      { name: "chili powder", quantity: { amount: 2, unit: "tsp", ingredient: "chili powder" } },
+      { name: "cumin", quantity: { amount: 1, unit: "tsp", ingredient: "cumin" } }
+    ],
+    time: 180,
+    steps: [
+      "Season pork with spices and slow cook for 3 hours.",
+      "Shred pork and mix with lime juice.",
+      "Warm tortillas on griddle.",
+      "Fill with pork, onion, cilantro, and salsa.",
+      "Serve with lime wedges."
+    ]
+  },
+  {
+    id: "wc29",
+    name: "Turkish Kebabs",
+    cuisine: "Turkish",
+    mood: "Adventurous",
+    allergens: ["dairy"],
+    price: "$$",
+    ingredients: [
+      { name: "lamb mince", quantity: { amount: 500, unit: "g", ingredient: "lamb mince" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "parsley", quantity: { amount: 20, unit: "g", ingredient: "parsley" } },
+      { name: "cumin", quantity: { amount: 1, unit: "tsp", ingredient: "cumin" } },
+      { name: "sumac", quantity: { amount: 1, unit: "tsp", ingredient: "sumac" } },
+      { name: "yogurt", quantity: { amount: 200, unit: "ml", ingredient: "yogurt" } },
+      { name: "cucumber", quantity: { amount: 1, unit: "pieces", ingredient: "cucumber" } },
+      { name: "mint", quantity: { amount: 10, unit: "g", ingredient: "mint" } },
+      { name: "pita bread", quantity: { amount: 4, unit: "pieces", ingredient: "pita bread" } }
+    ],
+    time: 35,
+    steps: [
+      "Mix lamb with onion, parsley, and spices.",
+      "Form into kebab shapes and grill for 8-10 minutes.",
+      "Make tzatziki with yogurt, cucumber, and mint.",
+      "Warm pita bread.",
+      "Serve kebabs in pita with tzatziki."
+    ]
+  },
+  {
+    id: "wc30",
+    name: "Schnitzel",
+    cuisine: "German",
+    mood: "Hearty",
+    allergens: ["gluten", "eggs"],
+    price: "$$",
+    ingredients: [
+      { name: "pork cutlets", quantity: { amount: 400, unit: "g", ingredient: "pork cutlets" } },
+      { name: "flour", quantity: { amount: 100, unit: "g", ingredient: "flour" } },
+      { name: "eggs", quantity: { amount: 2, unit: "eggs", ingredient: "eggs" } },
+      { name: "breadcrumbs", quantity: { amount: 150, unit: "g", ingredient: "breadcrumbs" } },
+      { name: "lemon", quantity: { amount: 1, unit: "pieces", ingredient: "lemon" } },
+      { name: "parsley", quantity: { amount: 15, unit: "g", ingredient: "parsley" } },
+      { name: "potatoes", quantity: { amount: 400, unit: "g", ingredient: "potatoes" } },
+      { name: "vegetable oil", quantity: { amount: 100, unit: "ml", ingredient: "vegetable oil" } }
+    ],
+    time: 45,
+    steps: [
+      "Pound pork cutlets thin between plastic wrap.",
+      "Dredge in flour, dip in beaten eggs, coat with breadcrumbs.",
+      "Fry in hot oil until golden brown.",
+      "Boil potatoes and mash with butter.",
+      "Serve schnitzel with potatoes and lemon wedges."
+    ]
+  },
+  {
+    id: "wc31",
+    name: "Chinese Dim Sum",
+    cuisine: "Chinese",
+    mood: "Celebration",
+    allergens: ["gluten", "shrimp"],
+    price: "$$$",
+    ingredients: [
+      { name: "shrimp", quantity: { amount: 300, unit: "g", ingredient: "shrimp" } },
+      { name: "pork mince", quantity: { amount: 200, unit: "g", ingredient: "pork mince" } },
+      { name: "wonton wrappers", quantity: { amount: 24, unit: "pieces", ingredient: "wonton wrappers" } },
+      { name: "ginger", quantity: { amount: 20, unit: "g", ingredient: "ginger" } },
+      { name: "soy sauce", quantity: { amount: 30, unit: "ml", ingredient: "soy sauce" } },
+      { name: "sesame oil", quantity: { amount: 15, unit: "ml", ingredient: "sesame oil" } },
+      { name: "green onions", quantity: { amount: 4, unit: "pieces", ingredient: "green onions" } },
+      { name: "chili sauce", quantity: { amount: 30, unit: "ml", ingredient: "chili sauce" } }
+    ],
+    time: 60,
+    steps: [
+      "Mix shrimp, pork, ginger, and seasonings.",
+      "Fill wonton wrappers and fold into dumplings.",
+      "Steam dumplings for 8-10 minutes.",
+      "Make dipping sauce with soy sauce and chili.",
+      "Serve hot with dipping sauce."
+    ]
+  },
+  {
+    id: "wc32",
+    name: "Paella",
+    cuisine: "Spanish",
+    mood: "Party",
+    allergens: ["shellfish", "fish"],
+    price: "$$$",
+    ingredients: [
+      { name: "arborio rice", quantity: { amount: 300, unit: "g", ingredient: "arborio rice" } },
+      { name: "shrimp", quantity: { amount: 200, unit: "g", ingredient: "shrimp" } },
+      { name: "mussels", quantity: { amount: 300, unit: "g", ingredient: "mussels" } },
+      { name: "chicken", quantity: { amount: 300, unit: "g", ingredient: "chicken" } },
+      { name: "saffron", quantity: { amount: 1, unit: "tsp", ingredient: "saffron" } },
+      { name: "bell peppers", quantity: { amount: 2, unit: "pieces", ingredient: "bell peppers" } },
+      { name: "tomatoes", quantity: { amount: 200, unit: "g", ingredient: "tomatoes" } },
+      { name: "chicken stock", quantity: { amount: 1000, unit: "ml", ingredient: "chicken stock" } },
+      { name: "olive oil", quantity: { amount: 60, unit: "ml", ingredient: "olive oil" } }
+    ],
+    time: 50,
+    steps: [
+      "Sauté chicken in olive oil until browned.",
+      "Add rice and saffron, stir to coat.",
+      "Add stock and simmer for 15 minutes.",
+      "Add seafood and vegetables.",
+      "Cook until rice is tender and seafood is done."
+    ]
+  },
+  {
+    id: "wc33",
+    name: "Vietnamese Banh Mi",
+    cuisine: "Vietnamese",
+    mood: "Savory",
+    allergens: ["gluten", "soy"],
+    price: "$",
+    ingredients: [
+      { name: "baguette", quantity: { amount: 2, unit: "pieces", ingredient: "baguette" } },
+      { name: "pork belly", quantity: { amount: 300, unit: "g", ingredient: "pork belly" } },
+      { name: "carrots", quantity: { amount: 2, unit: "pieces", ingredient: "carrots" } },
+      { name: "daikon", quantity: { amount: 1, unit: "pieces", ingredient: "daikon" } },
+      { name: "cilantro", quantity: { amount: 20, unit: "g", ingredient: "cilantro" } },
+      { name: "fish sauce", quantity: { amount: 30, unit: "ml", ingredient: "fish sauce" } },
+      { name: "vinegar", quantity: { amount: 60, unit: "ml", ingredient: "vinegar" } },
+      { name: "sugar", quantity: { amount: 30, unit: "g", ingredient: "sugar" } },
+      { name: "mayonnaise", quantity: { amount: 60, unit: "ml", ingredient: "mayonnaise" } }
+    ],
+    time: 40,
+    steps: [
+      "Marinate pork belly in fish sauce and sugar.",
+      "Pickle carrots and daikon in vinegar and sugar.",
+      "Grill pork until crispy.",
+      "Toast baguette and spread with mayonnaise.",
+      "Fill with pork, pickled vegetables, and cilantro."
+    ]
+  },
+  {
+    id: "wc34",
+    name: "Shepherd's Pie",
+    cuisine: "Irish",
+    mood: "Comfort",
+    allergens: ["dairy"],
+    price: "$$",
+    ingredients: [
+      { name: "lamb mince", quantity: { amount: 500, unit: "g", ingredient: "lamb mince" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "carrots", quantity: { amount: 3, unit: "pieces", ingredient: "carrots" } },
+      { name: "potatoes", quantity: { amount: 600, unit: "g", ingredient: "potatoes" } },
+      { name: "beef stock", quantity: { amount: 300, unit: "ml", ingredient: "beef stock" } },
+      { name: "butter", quantity: { amount: 50, unit: "g", ingredient: "butter" } },
+      { name: "milk", quantity: { amount: 100, unit: "ml", ingredient: "milk" } },
+      { name: "worcestershire sauce", quantity: { amount: 15, unit: "ml", ingredient: "worcestershire sauce" } },
+      { name: "thyme", quantity: { amount: 2, unit: "tsp", ingredient: "thyme" } }
+    ],
+    time: 80,
+    steps: [
+      "Brown lamb with onion and carrots.",
+      "Add stock and simmer for 30 minutes.",
+      "Boil and mash potatoes with butter and milk.",
+      "Layer meat mixture in baking dish.",
+      "Top with mashed potatoes and bake for 30 minutes."
+    ]
+  },
+  {
+    id: "wc35",
+    name: "Middle Eastern Falafel",
+    cuisine: "Middle Eastern",
+    mood: "Healthy",
+    allergens: ["sesame"],
+    price: "$",
+    ingredients: [
+      { name: "chickpeas", quantity: { amount: 400, unit: "g", ingredient: "chickpeas" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "garlic", quantity: { amount: 4, unit: "cloves", ingredient: "garlic" } },
+      { name: "parsley", quantity: { amount: 30, unit: "g", ingredient: "parsley" } },
+      { name: "cumin", quantity: { amount: 2, unit: "tsp", ingredient: "cumin" } },
+      { name: "coriander", quantity: { amount: 2, unit: "tsp", ingredient: "coriander" } },
+      { name: "tahini", quantity: { amount: 60, unit: "ml", ingredient: "tahini" } },
+      { name: "lemon juice", quantity: { amount: 30, unit: "ml", ingredient: "lemon juice" } },
+      { name: "pita bread", quantity: { amount: 4, unit: "pieces", ingredient: "pita bread" } }
+    ],
+    time: 45,
+    steps: [
+      "Soak chickpeas overnight, drain and rinse.",
+      "Blend chickpeas with onion, garlic, herbs, and spices.",
+      "Form into balls and chill for 30 minutes.",
+      "Fry falafel until golden brown.",
+      "Serve in pita with tahini sauce and vegetables."
+    ]
+  },
+  {
+    id: "wc36",
+    name: "Salmon Gravlax",
+    cuisine: "Nordic",
+    mood: "Celebration",
+    allergens: ["fish"],
+    price: "$$$",
+    ingredients: [
+      { name: "salmon fillet", quantity: { amount: 500, unit: "g", ingredient: "salmon fillet" } },
+      { name: "salt", quantity: { amount: 100, unit: "g", ingredient: "salt" } },
+      { name: "sugar", quantity: { amount: 100, unit: "g", ingredient: "sugar" } },
+      { name: "dill", quantity: { amount: 50, unit: "g", ingredient: "dill" } },
+      { name: "black pepper", quantity: { amount: 2, unit: "tsp", ingredient: "black pepper" } },
+      { name: "rye bread", quantity: { amount: 8, unit: "slices", ingredient: "rye bread" } },
+      { name: "mustard sauce", quantity: { amount: 100, unit: "ml", ingredient: "mustard sauce" } },
+      { name: "cucumber", quantity: { amount: 1, unit: "pieces", ingredient: "cucumber" } }
+    ],
+    time: 2880,
+    steps: [
+      "Mix salt, sugar, and pepper.",
+      "Coat salmon with mixture and dill.",
+      "Wrap in plastic and refrigerate for 48 hours.",
+      "Slice thinly and serve on rye bread.",
+      "Garnish with mustard sauce and cucumber."
+    ]
+  },
+  {
+    id: "wc37",
+    name: "Southern Fried Chicken",
+    cuisine: "Southern",
+    mood: "Comfort",
+    allergens: ["gluten", "eggs"],
+    price: "$$",
+    ingredients: [
+      { name: "chicken pieces", quantity: { amount: 1000, unit: "g", ingredient: "chicken pieces" } },
+      { name: "buttermilk", quantity: { amount: 500, unit: "ml", ingredient: "buttermilk" } },
+      { name: "flour", quantity: { amount: 200, unit: "g", ingredient: "flour" } },
+      { name: "cornmeal", quantity: { amount: 100, unit: "g", ingredient: "cornmeal" } },
+      { name: "paprika", quantity: { amount: 2, unit: "tsp", ingredient: "paprika" } },
+      { name: "garlic powder", quantity: { amount: 2, unit: "tsp", ingredient: "garlic powder" } },
+      { name: "vegetable oil", quantity: { amount: 500, unit: "ml", ingredient: "vegetable oil" } },
+      { name: "hot sauce", quantity: { amount: 30, unit: "ml", ingredient: "hot sauce" } }
+    ],
+    time: 60,
+    steps: [
+      "Marinate chicken in buttermilk and hot sauce for 4 hours.",
+      "Mix flour, cornmeal, and spices.",
+      "Dredge chicken in flour mixture.",
+      "Fry in hot oil until golden and cooked through.",
+      "Drain on paper towels and serve hot."
+    ]
+  },
+  {
+    id: "wc38",
+    name: "Cajun Jambalaya",
+    cuisine: "Cajun",
+    mood: "Spicy",
+    allergens: ["shellfish"],
+    price: "$$",
+    ingredients: [
+      { name: "long-grain rice", quantity: { amount: 300, unit: "g", ingredient: "long-grain rice" } },
+      { name: "chicken", quantity: { amount: 400, unit: "g", ingredient: "chicken" } },
+      { name: "shrimp", quantity: { amount: 300, unit: "g", ingredient: "shrimp" } },
+      { name: "andouille sausage", quantity: { amount: 200, unit: "g", ingredient: "andouille sausage" } },
+      { name: "bell peppers", quantity: { amount: 2, unit: "pieces", ingredient: "bell peppers" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "celery", quantity: { amount: 3, unit: "pieces", ingredient: "celery" } },
+      { name: "cajun seasoning", quantity: { amount: 2, unit: "tbsp", ingredient: "cajun seasoning" } },
+      { name: "chicken stock", quantity: { amount: 750, unit: "ml", ingredient: "chicken stock" } }
+    ],
+    time: 55,
+    steps: [
+      "Sauté chicken and sausage until browned.",
+      "Add vegetables and cook until softened.",
+      "Add rice, stock, and cajun seasoning.",
+      "Simmer for 20 minutes, add shrimp.",
+      "Cook until rice is tender and shrimp is pink."
+    ]
+  },
+  {
+    id: "wc39",
+    name: "Matzo Ball Soup",
+    cuisine: "Jewish",
+    mood: "Comfort",
+    allergens: ["eggs", "gluten"],
+    price: "$$",
+    ingredients: [
+      { name: "chicken", quantity: { amount: 1000, unit: "g", ingredient: "chicken" } },
+      { name: "carrots", quantity: { amount: 4, unit: "pieces", ingredient: "carrots" } },
+      { name: "celery", quantity: { amount: 4, unit: "pieces", ingredient: "celery" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "matzo meal", quantity: { amount: 100, unit: "g", ingredient: "matzo meal" } },
+      { name: "eggs", quantity: { amount: 2, unit: "eggs", ingredient: "eggs" } },
+      { name: "chicken fat", quantity: { amount: 30, unit: "ml", ingredient: "chicken fat" } },
+      { name: "dill", quantity: { amount: 20, unit: "g", ingredient: "dill" } },
+      { name: "noodles", quantity: { amount: 200, unit: "g", ingredient: "noodles" } }
+    ],
+    time: 120,
+    steps: [
+      "Simmer chicken with vegetables for 2 hours.",
+      "Mix matzo meal with eggs and chicken fat.",
+      "Form into balls and chill for 30 minutes.",
+      "Add matzo balls to soup and simmer for 20 minutes.",
+      "Add noodles and cook until tender."
+    ]
+  },
+  {
+    id: "wc40",
+    name: "Mediterranean Quinoa Bowl",
+    cuisine: "Mediterranean",
+    mood: "Healthy",
+    allergens: ["nuts"],
+    price: "$$",
+    ingredients: [
+      { name: "quinoa", quantity: { amount: 200, unit: "g", ingredient: "quinoa" } },
+      { name: "cherry tomatoes", quantity: { amount: 200, unit: "g", ingredient: "cherry tomatoes" } },
+      { name: "cucumber", quantity: { amount: 1, unit: "pieces", ingredient: "cucumber" } },
+      { name: "kalamata olives", quantity: { amount: 100, unit: "g", ingredient: "kalamata olives" } },
+      { name: "feta cheese", quantity: { amount: 100, unit: "g", ingredient: "feta cheese" } },
+      { name: "pine nuts", quantity: { amount: 50, unit: "g", ingredient: "pine nuts" } },
+      { name: "olive oil", quantity: { amount: 60, unit: "ml", ingredient: "olive oil" } },
+      { name: "lemon juice", quantity: { amount: 30, unit: "ml", ingredient: "lemon juice" } },
+      { name: "oregano", quantity: { amount: 2, unit: "tsp", ingredient: "oregano" } }
+    ],
+    time: 25,
+    steps: [
+      "Cook quinoa according to package instructions.",
+      "Chop vegetables and mix with quinoa.",
+      "Add olives, feta, and pine nuts.",
+      "Make dressing with olive oil, lemon, and oregano.",
+      "Toss everything together and serve."
+    ]
+  },
+  {
+    id: "wc41",
+    name: "Pierogi",
+    cuisine: "Eastern European",
+    mood: "Hearty",
+    allergens: ["gluten", "dairy"],
+    price: "$$",
+    ingredients: [
+      { name: "flour", quantity: { amount: 300, unit: "g", ingredient: "flour" } },
+      { name: "eggs", quantity: { amount: 2, unit: "eggs", ingredient: "eggs" } },
+      { name: "potatoes", quantity: { amount: 400, unit: "g", ingredient: "potatoes" } },
+      { name: "cheddar cheese", quantity: { amount: 150, unit: "g", ingredient: "cheddar cheese" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "butter", quantity: { amount: 50, unit: "g", ingredient: "butter" } },
+      { name: "sour cream", quantity: { amount: 200, unit: "ml", ingredient: "sour cream" } },
+      { name: "salt", quantity: { amount: 2, unit: "tsp", ingredient: "salt" } }
+    ],
+    time: 90,
+    steps: [
+      "Make dough with flour, eggs, and water.",
+      "Boil and mash potatoes with cheese and onion.",
+      "Roll dough and cut into circles.",
+      "Fill with potato mixture and seal edges.",
+      "Boil pierogi until they float, serve with sour cream."
+    ]
+  },
+  {
+    id: "wc42",
+    name: "Fusion Sushi Burrito",
+    cuisine: "Fusion",
+    mood: "Adventurous",
+    allergens: ["fish", "soy"],
+    price: "$$$",
+    ingredients: [
+      { name: "sushi rice", quantity: { amount: 200, unit: "g", ingredient: "sushi rice" } },
+      { name: "nori sheets", quantity: { amount: 4, unit: "pieces", ingredient: "nori sheets" } },
+      { name: "salmon", quantity: { amount: 200, unit: "g", ingredient: "salmon" } },
+      { name: "avocado", quantity: { amount: 1, unit: "pieces", ingredient: "avocado" } },
+      { name: "cucumber", quantity: { amount: 1, unit: "pieces", ingredient: "cucumber" } },
+      { name: "mango", quantity: { amount: 1, unit: "pieces", ingredient: "mango" } },
+      { name: "spicy mayo", quantity: { amount: 60, unit: "ml", ingredient: "spicy mayo" } },
+      { name: "soy sauce", quantity: { amount: 30, unit: "ml", ingredient: "soy sauce" } },
+      { name: "wasabi", quantity: { amount: 10, unit: "g", ingredient: "wasabi" } }
+    ],
+    time: 40,
+    steps: [
+      "Cook sushi rice and season with vinegar.",
+      "Lay nori sheet and spread rice evenly.",
+      "Add salmon, avocado, cucumber, and mango.",
+      "Roll tightly like a burrito.",
+      "Slice and serve with soy sauce and wasabi."
+    ]
+  },
+  {
+    id: "wc43",
+    name: "Fish Pie",
+    cuisine: "British",
+    mood: "Comfort",
+    allergens: ["fish", "dairy", "gluten"],
+    price: "$$",
+    ingredients: [
+      { name: "white fish fillets", quantity: { amount: 500, unit: "g", ingredient: "white fish fillets" } },
+      { name: "salmon", quantity: { amount: 200, unit: "g", ingredient: "salmon" } },
+      { name: "shrimp", quantity: { amount: 150, unit: "g", ingredient: "shrimp" } },
+      { name: "potatoes", quantity: { amount: 600, unit: "g", ingredient: "potatoes" } },
+      { name: "milk", quantity: { amount: 300, unit: "ml", ingredient: "milk" } },
+      { name: "butter", quantity: { amount: 50, unit: "g", ingredient: "butter" } },
+      { name: "flour", quantity: { amount: 30, unit: "g", ingredient: "flour" } },
+      { name: "parsley", quantity: { amount: 20, unit: "g", ingredient: "parsley" } },
+      { name: "lemon", quantity: { amount: 1, unit: "pieces", ingredient: "lemon" } }
+    ],
+    time: 75,
+    steps: [
+      "Poach fish in milk until just cooked.",
+      "Make white sauce with butter, flour, and poaching liquid.",
+      "Boil and mash potatoes with butter.",
+      "Layer fish and sauce in baking dish.",
+      "Top with mashed potatoes and bake until golden."
+    ]
+  },
+  {
+    id: "wc44",
+    name: "American BBQ Ribs",
+    cuisine: "American",
+    mood: "Party",
+    allergens: [],
+    price: "$$$",
+    ingredients: [
+      { name: "pork ribs", quantity: { amount: 1000, unit: "g", ingredient: "pork ribs" } },
+      { name: "barbecue sauce", quantity: { amount: 300, unit: "ml", ingredient: "barbecue sauce" } },
+      { name: "brown sugar", quantity: { amount: 100, unit: "g", ingredient: "brown sugar" } },
+      { name: "paprika", quantity: { amount: 2, unit: "tsp", ingredient: "paprika" } },
+      { name: "garlic powder", quantity: { amount: 2, unit: "tsp", ingredient: "garlic powder" } },
+      { name: "onion powder", quantity: { amount: 2, unit: "tsp", ingredient: "onion powder" } },
+      { name: "apple cider vinegar", quantity: { amount: 60, unit: "ml", ingredient: "apple cider vinegar" } },
+      { name: "honey", quantity: { amount: 60, unit: "ml", ingredient: "honey" } }
+    ],
+    time: 240,
+    steps: [
+      "Rub ribs with dry spices and brown sugar.",
+      "Wrap in foil and bake at 150°C for 2 hours.",
+      "Unwrap and brush with barbecue sauce.",
+      "Grill or bake until sauce caramelizes.",
+      "Rest for 10 minutes before serving."
+    ]
+  },
+  {
+    id: "wc45",
+    name: "Classic Cheeseburger",
+    cuisine: "American",
+    mood: "Comfort",
+    allergens: ["gluten", "dairy"],
+    price: "$$",
+    ingredients: [
+      { name: "ground beef", quantity: { amount: 400, unit: "g", ingredient: "ground beef" } },
+      { name: "burger buns", quantity: { amount: 4, unit: "pieces", ingredient: "burger buns" } },
+      { name: "cheddar cheese", quantity: { amount: 120, unit: "g", ingredient: "cheddar cheese" } },
+      { name: "lettuce", quantity: { amount: 100, unit: "g", ingredient: "lettuce" } },
+      { name: "tomato", quantity: { amount: 1, unit: "pieces", ingredient: "tomato" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "pickles", quantity: { amount: 50, unit: "g", ingredient: "pickles" } },
+      { name: "ketchup", quantity: { amount: 60, unit: "ml", ingredient: "ketchup" } },
+      { name: "mustard", quantity: { amount: 30, unit: "ml", ingredient: "mustard" } }
+    ],
+    time: 25,
+    steps: [
+      "Form beef into 4 patties, season with salt and pepper.",
+      "Grill or pan-fry burgers for 4-5 minutes per side.",
+      "Add cheese during last minute of cooking.",
+      "Toast burger buns.",
+      "Assemble with lettuce, tomato, onion, pickles, and condiments."
+    ]
+  },
+  {
+    id: "wc46",
+    name: "Texas Chili Con Carne",
+    cuisine: "American",
+    mood: "Hearty",
+    allergens: [],
+    price: "$$",
+    ingredients: [
+      { name: "ground beef", quantity: { amount: 600, unit: "g", ingredient: "ground beef" } },
+      { name: "kidney beans", quantity: { amount: 400, unit: "g", ingredient: "kidney beans" } },
+      { name: "tomatoes", quantity: { amount: 400, unit: "g", ingredient: "tomatoes" } },
+      { name: "onion", quantity: { amount: 2, unit: "pieces", ingredient: "onion" } },
+      { name: "garlic", quantity: { amount: 6, unit: "cloves", ingredient: "garlic" } },
+      { name: "chili powder", quantity: { amount: 3, unit: "tbsp", ingredient: "chili powder" } },
+      { name: "cumin", quantity: { amount: 2, unit: "tsp", ingredient: "cumin" } },
+      { name: "beef stock", quantity: { amount: 500, unit: "ml", ingredient: "beef stock" } },
+      { name: "jalapeños", quantity: { amount: 2, unit: "pieces", ingredient: "jalapeños" } }
+    ],
+    time: 90,
+    steps: [
+      "Brown ground beef in large pot.",
+      "Add chopped onions and garlic, cook until softened.",
+      "Add chili powder, cumin, and jalapeños.",
+      "Add tomatoes, beans, and beef stock.",
+      "Simmer for 1 hour until thickened and flavors meld."
+    ]
+  },
+  {
+    id: "wc47",
+    name: "Loaded Nachos",
+    cuisine: "American",
+    mood: "Party",
+    allergens: ["dairy", "gluten"],
+    price: "$$",
+    ingredients: [
+      { name: "tortilla chips", quantity: { amount: 300, unit: "g", ingredient: "tortilla chips" } },
+      { name: "cheddar cheese", quantity: { amount: 200, unit: "g", ingredient: "cheddar cheese" } },
+      { name: "monterey jack", quantity: { amount: 100, unit: "g", ingredient: "monterey jack" } },
+      { name: "ground beef", quantity: { amount: 300, unit: "g", ingredient: "ground beef" } },
+      { name: "black beans", quantity: { amount: 200, unit: "g", ingredient: "black beans" } },
+      { name: "jalapeños", quantity: { amount: 4, unit: "pieces", ingredient: "jalapeños" } },
+      { name: "sour cream", quantity: { amount: 150, unit: "ml", ingredient: "sour cream" } },
+      { name: "guacamole", quantity: { amount: 200, unit: "g", ingredient: "guacamole" } },
+      { name: "salsa", quantity: { amount: 150, unit: "ml", ingredient: "salsa" } }
+    ],
+    time: 30,
+    steps: [
+      "Brown ground beef with taco seasoning.",
+      "Layer tortilla chips on baking sheet.",
+      "Sprinkle with cheese, beef, and beans.",
+      "Bake at 200°C until cheese melts.",
+      "Top with jalapeños, sour cream, guacamole, and salsa."
+    ]
+  },
+  {
+    id: "wc48",
+    name: "New York Style Pizza",
+    cuisine: "American",
+    mood: "Classic",
+    allergens: ["gluten", "dairy"],
+    price: "$$",
+    ingredients: [
+      { name: "pizza dough", quantity: { amount: 400, unit: "g", ingredient: "pizza dough" } },
+      { name: "tomato sauce", quantity: { amount: 200, unit: "ml", ingredient: "tomato sauce" } },
+      { name: "mozzarella", quantity: { amount: 300, unit: "g", ingredient: "mozzarella" } },
+      { name: "pepperoni", quantity: { amount: 150, unit: "g", ingredient: "pepperoni" } },
+      { name: "basil", quantity: { amount: 20, unit: "g", ingredient: "basil" } },
+      { name: "olive oil", quantity: { amount: 30, unit: "ml", ingredient: "olive oil" } },
+      { name: "oregano", quantity: { amount: 2, unit: "tsp", ingredient: "oregano" } },
+      { name: "garlic powder", quantity: { amount: 1, unit: "tsp", ingredient: "garlic powder" } }
+    ],
+    time: 45,
+    steps: [
+      "Stretch pizza dough to 14-inch round.",
+      "Spread tomato sauce and sprinkle with oregano.",
+      "Add mozzarella and pepperoni slices.",
+      "Bake at 260°C for 12-15 minutes.",
+      "Garnish with fresh basil and drizzle with olive oil."
+    ]
+  },
+  {
+    id: "wc49",
+    name: "Buffalo Wings",
+    cuisine: "American",
+    mood: "Party",
+    allergens: ["dairy"],
+    price: "$$",
+    ingredients: [
+      { name: "chicken wings", quantity: { amount: 1000, unit: "g", ingredient: "chicken wings" } },
+      { name: "hot sauce", quantity: { amount: 200, unit: "ml", ingredient: "hot sauce" } },
+      { name: "butter", quantity: { amount: 100, unit: "g", ingredient: "butter" } },
+      { name: "blue cheese", quantity: { amount: 150, unit: "g", ingredient: "blue cheese" } },
+      { name: "celery", quantity: { amount: 4, unit: "pieces", ingredient: "celery" } },
+      { name: "flour", quantity: { amount: 100, unit: "g", ingredient: "flour" } },
+      { name: "garlic powder", quantity: { amount: 2, unit: "tsp", ingredient: "garlic powder" } },
+      { name: "vegetable oil", quantity: { amount: 500, unit: "ml", ingredient: "vegetable oil" } }
+    ],
+    time: 50,
+    steps: [
+      "Coat wings in flour and garlic powder.",
+      "Fry wings in hot oil until crispy and cooked through.",
+      "Mix hot sauce with melted butter.",
+      "Toss wings in buffalo sauce.",
+      "Serve with blue cheese dip and celery sticks."
+    ]
+  },
+  {
+    id: "wc50",
+    name: "Mushroom Risotto",
+    cuisine: "Italian",
+    mood: "Indulgent",
+    allergens: ["dairy"],
+    price: "$$$",
+    ingredients: [
+      { name: "arborio rice", quantity: { amount: 300, unit: "g", ingredient: "arborio rice" } },
+      { name: "chicken stock", quantity: { amount: 1000, unit: "ml", ingredient: "chicken stock" } },
+      { name: "white wine", quantity: { amount: 150, unit: "ml", ingredient: "white wine" } },
+      { name: "parmesan", quantity: { amount: 100, unit: "g", ingredient: "parmesan" } },
+      { name: "butter", quantity: { amount: 60, unit: "g", ingredient: "butter" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "garlic", quantity: { amount: 3, unit: "cloves", ingredient: "garlic" } },
+      { name: "mushrooms", quantity: { amount: 200, unit: "g", ingredient: "mushrooms" } },
+      { name: "parsley", quantity: { amount: 20, unit: "g", ingredient: "parsley" } }
+    ],
+    time: 35,
+    steps: [
+      "Sauté onion and garlic in butter until soft.",
+      "Add rice and toast for 2 minutes.",
+      "Add wine and stir until absorbed.",
+      "Gradually add hot stock, stirring constantly.",
+      "Finish with parmesan, butter, and parsley."
+    ]
+  },
+  {
+    id: "wc51",
+    name: "Tiramisu",
+    cuisine: "Italian",
+    mood: "Indulgent",
+    allergens: ["eggs", "dairy"],
+    price: "$$$",
+    ingredients: [
+      { name: "ladyfinger cookies", quantity: { amount: 200, unit: "g", ingredient: "ladyfinger cookies" } },
+      { name: "mascarpone", quantity: { amount: 500, unit: "g", ingredient: "mascarpone" } },
+      { name: "eggs", quantity: { amount: 4, unit: "eggs", ingredient: "eggs" } },
+      { name: "sugar", quantity: { amount: 100, unit: "g", ingredient: "sugar" } },
+      { name: "espresso", quantity: { amount: 300, unit: "ml", ingredient: "espresso" } },
+      { name: "cocoa powder", quantity: { amount: 30, unit: "g", ingredient: "cocoa powder" } },
+      { name: "vanilla extract", quantity: { amount: 1, unit: "tsp", ingredient: "vanilla extract" } },
+      { name: "marsala wine", quantity: { amount: 60, unit: "ml", ingredient: "marsala wine" } }
+    ],
+    time: 60,
+    steps: [
+      "Separate eggs and beat yolks with sugar until pale.",
+      "Fold in mascarpone and vanilla.",
+      "Beat egg whites to stiff peaks and fold in.",
+      "Dip ladyfingers in coffee and layer in dish.",
+      "Alternate layers of cream and cookies, dust with cocoa."
+    ]
+  },
+  {
+    id: "wc52",
+    name: "Lasagna",
+    cuisine: "Italian",
+    mood: "Hearty",
+    allergens: ["gluten", "dairy", "eggs"],
+    price: "$$",
+    ingredients: [
+      { name: "lasagna noodles", quantity: { amount: 12, unit: "pieces", ingredient: "lasagna noodles" } },
+      { name: "ground beef", quantity: { amount: 500, unit: "g", ingredient: "ground beef" } },
+      { name: "ricotta", quantity: { amount: 400, unit: "g", ingredient: "ricotta" } },
+      { name: "mozzarella", quantity: { amount: 300, unit: "g", ingredient: "mozzarella" } },
+      { name: "parmesan", quantity: { amount: 100, unit: "g", ingredient: "parmesan" } },
+      { name: "tomato sauce", quantity: { amount: 600, unit: "ml", ingredient: "tomato sauce" } },
+      { name: "eggs", quantity: { amount: 2, unit: "eggs", ingredient: "eggs" } },
+      { name: "basil", quantity: { amount: 20, unit: "g", ingredient: "basil" } },
+      { name: "garlic", quantity: { amount: 4, unit: "cloves", ingredient: "garlic" } }
+    ],
+    time: 90,
+    steps: [
+      "Brown beef with garlic and add tomato sauce.",
+      "Mix ricotta with eggs and parmesan.",
+      "Layer noodles, meat sauce, ricotta, and mozzarella.",
+      "Repeat layers and top with remaining cheese.",
+      "Bake at 180°C for 45 minutes until bubbly."
+    ]
+  },
+  {
+    id: "wc53",
+    name: "Focaccia bread with cherry tomatoes",
+    cuisine: "Italian",
+    mood: "Classic",
+    allergens: ["gluten"],
+    price: "$",
+    ingredients: [
+      { name: "bread flour", quantity: { amount: 500, unit: "g", ingredient: "bread flour" } },
+      { name: "olive oil", quantity: { amount: 100, unit: "ml", ingredient: "olive oil" } },
+      { name: "active dry yeast", quantity: { amount: 7, unit: "g", ingredient: "active dry yeast" } },
+      { name: "warm water", quantity: { amount: 400, unit: "ml", ingredient: "warm water" } },
+      { name: "rosemary", quantity: { amount: 20, unit: "g", ingredient: "rosemary" } },
+      { name: "sea salt", quantity: { amount: 2, unit: "tsp", ingredient: "sea salt" } },
+      { name: "garlic", quantity: { amount: 4, unit: "cloves", ingredient: "garlic" } },
+      { name: "cherry tomatoes", quantity: { amount: 200, unit: "g", ingredient: "cherry tomatoes" } }
+    ],
+    time: 180,
+    steps: [
+      "Mix flour, yeast, water, and olive oil to form dough.",
+      "Knead for 10 minutes, let rise for 1 hour.",
+      "Press dough into oiled baking sheet.",
+      "Dimple surface and add rosemary, garlic, tomatoes.",
+      "Drizzle with olive oil and bake at 200°C for 25 minutes."
+    ]
+  },
+  {
+    id: "wc54",
+    name: "Strawberry & Lemon Gelato",
+    cuisine: "Italian",
+    mood: "Indulgent",
+    allergens: ["dairy", "eggs"],
+    price: "$$",
+    ingredients: [
+      { name: "whole milk", quantity: { amount: 500, unit: "ml", ingredient: "whole milk" } },
+      { name: "heavy cream", quantity: { amount: 300, unit: "ml", ingredient: "heavy cream" } },
+      { name: "egg yolks", quantity: { amount: 6, unit: "eggs", ingredient: "egg yolks" } },
+      { name: "sugar", quantity: { amount: 150, unit: "g", ingredient: "sugar" } },
+      { name: "vanilla bean", quantity: { amount: 1, unit: "pieces", ingredient: "vanilla bean" } },
+      { name: "strawberries", quantity: { amount: 300, unit: "g", ingredient: "strawberries" } },
+      { name: "lemon zest", quantity: { amount: 1, unit: "tsp", ingredient: "lemon zest" } },
+      { name: "salt", quantity: { amount: 1, unit: "tsp", ingredient: "salt" } }
+    ],
+    time: 120,
+    steps: [
+      "Heat milk and cream with vanilla bean.",
+      "Whisk egg yolks with sugar until pale.",
+      "Temper eggs with hot milk mixture.",
+      "Cook until thickened, strain and chill.",
+      "Churn in ice cream maker, add strawberries."
+    ]
   }
 ]; 
