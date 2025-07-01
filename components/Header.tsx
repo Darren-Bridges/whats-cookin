@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { useRouter } from "next/navigation";
+import { ModeToggle } from "@/components/ui/mode-toggle"
 
 export default function Header() {
   const [authOpen, setAuthOpen] = useState(false);
@@ -90,6 +91,7 @@ export default function Header() {
           <Link href="/favorites">
             <Button variant="ghost" className="text-base font-normal">My Favorites</Button>
           </Link>
+          <ModeToggle />
           {user ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -196,6 +198,7 @@ export default function Header() {
                 <div className="border-t my-2" />
               </div>
               <div className="p-4 border-t">
+                <ModeToggle />
                 {user ? (
                   <>
                     <span className="block text-sm font-medium truncate max-w-[180px] mb-2">{user.user_metadata?.full_name || user.user_metadata?.name || user.email}</span>
