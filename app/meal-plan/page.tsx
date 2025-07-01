@@ -74,7 +74,8 @@ function DraggableMealCard({ meal, recipe, disabled, handleRemoveMeal }: { meal:
 function DroppableMealSlot({ dateStr, mealType, children, isOver, isPast }: { dateStr: string, mealType: string, children: React.ReactNode, isOver: boolean, isPast: boolean }) {
   const { setNodeRef } = useDroppable({
     id: `${dateStr}_${mealType}`,
-    disabled: isPast,
+    // Allow drop even if isPast
+    // disabled: isPast,
   });
   return (
     <div
@@ -197,9 +198,9 @@ export default function MealPlanPage() {
     const meal_type = mealTypeParts.join('_');
     const meal = mealPlans.find((m) => m.id === active.id);
     if (!meal) return;
-    // Only allow moving to current/future dates
-    const targetDate = new Date(date);
-    if (targetDate < today) return;
+    // Allow moving to any date (including past)
+    // const targetDate = new Date(date);
+    // if (targetDate < today) return;
     updateMeal.mutate({ id: meal.id, date, meal_type });
   }
   if (userLoading) {
