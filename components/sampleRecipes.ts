@@ -1409,5 +1409,1083 @@ export const sampleRecipes = [
       "Cook until thickened, strain and chill.",
       "Churn in ice cream maker, add strawberries."
     ]
+  },
+  {
+    id: "wc55",
+    name: "Butter Chicken",
+    cuisine: "Indian",
+    mood: "Comfort",
+    allergens: ["dairy"],
+    price: "$$",
+    ingredients: [
+      { name: "chicken thighs", quantity: { amount: 600, unit: "g", ingredient: "chicken thighs" } },
+      { name: "yogurt", quantity: { amount: 200, unit: "ml", ingredient: "yogurt" } },
+      { name: "garam masala", quantity: { amount: 2, unit: "tsp", ingredient: "garam masala" } },
+      { name: "tomato puree", quantity: { amount: 200, unit: "ml", ingredient: "tomato puree" } },
+      { name: "heavy cream", quantity: { amount: 200, unit: "ml", ingredient: "heavy cream" } },
+      { name: "butter", quantity: { amount: 60, unit: "g", ingredient: "butter" } },
+      { name: "garlic", quantity: { amount: 4, unit: "cloves", ingredient: "garlic" } },
+      { name: "ginger", quantity: { amount: 20, unit: "g", ingredient: "ginger" } },
+      { name: "kasoori methi", quantity: { amount: 1, unit: "tsp", ingredient: "kasoori methi" } }
+    ],
+    time: 60,
+    steps: [
+      "Marinate chicken in yogurt and spices for 2 hours.",
+      "Grill chicken until charred and cooked through.",
+      "Sauté garlic and ginger in butter.",
+      "Add tomato puree and simmer for 10 minutes.",
+      "Add cream, chicken, and kasoori methi, simmer for 15 minutes."
+    ]
+  },
+  {
+    id: "wc56",
+    name: "Biryani",
+    cuisine: "Indian",
+    mood: "Celebration",
+    allergens: ["dairy"],
+    price: "$$$",
+    ingredients: [
+      { name: "basmati rice", quantity: { amount: 400, unit: "g", ingredient: "basmati rice" } },
+      { name: "lamb", quantity: { amount: 500, unit: "g", ingredient: "lamb" } },
+      { name: "onion", quantity: { amount: 2, unit: "pieces", ingredient: "onion" } },
+      { name: "saffron", quantity: { amount: 1, unit: "tsp", ingredient: "saffron" } },
+      { name: "ghee", quantity: { amount: 60, unit: "ml", ingredient: "ghee" } },
+      { name: "cardamom", quantity: { amount: 6, unit: "pieces", ingredient: "cardamom" } },
+      { name: "cinnamon", quantity: { amount: 2, unit: "pieces", ingredient: "cinnamon" } },
+      { name: "bay leaves", quantity: { amount: 2, unit: "pieces", ingredient: "bay leaves" } },
+      { name: "mint", quantity: { amount: 30, unit: "g", ingredient: "mint" } },
+      { name: "coriander", quantity: { amount: 30, unit: "g", ingredient: "coriander" } }
+    ],
+    time: 90,
+    steps: [
+      "Marinate lamb with spices and yogurt for 2 hours.",
+      "Cook lamb until tender, set aside.",
+      "Parboil rice with whole spices.",
+      "Layer rice and meat in heavy pot.",
+      "Steam on low heat for 30 minutes, garnish with herbs."
+    ]
+  },
+  {
+    id: "wc57",
+    name: "Samosa",
+    cuisine: "Indian",
+    mood: "Party",
+    allergens: ["gluten"],
+    price: "$",
+    ingredients: [
+      { name: "all-purpose flour", quantity: { amount: 300, unit: "g", ingredient: "all-purpose flour" } },
+      { name: "potatoes", quantity: { amount: 400, unit: "g", ingredient: "potatoes" } },
+      { name: "peas", quantity: { amount: 100, unit: "g", ingredient: "peas" } },
+      { name: "cumin seeds", quantity: { amount: 1, unit: "tsp", ingredient: "cumin seeds" } },
+      { name: "coriander powder", quantity: { amount: 2, unit: "tsp", ingredient: "coriander powder" } },
+      { name: "turmeric", quantity: { amount: 1, unit: "tsp", ingredient: "turmeric" } },
+      { name: "ginger", quantity: { amount: 20, unit: "g", ingredient: "ginger" } },
+      { name: "vegetable oil", quantity: { amount: 100, unit: "ml", ingredient: "vegetable oil" } },
+      { name: "mint chutney", quantity: { amount: 100, unit: "ml", ingredient: "mint chutney" } }
+    ],
+    time: 75,
+    steps: [
+      "Make dough with flour, oil, and water.",
+      "Boil and mash potatoes with peas and spices.",
+      "Roll dough and cut into triangles.",
+      "Fill with potato mixture and seal edges.",
+      "Deep fry until golden brown, serve with chutney."
+    ]
+  },
+  {
+    id: "wc58",
+    name: "Dal Makhani",
+    cuisine: "Indian",
+    mood: "Comfort",
+    allergens: ["dairy"],
+    price: "$$",
+    ingredients: [
+      { name: "black lentils", quantity: { amount: 200, unit: "g", ingredient: "black lentils" } },
+      { name: "kidney beans", quantity: { amount: 100, unit: "g", ingredient: "kidney beans" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "tomatoes", quantity: { amount: 200, unit: "g", ingredient: "tomatoes" } },
+      { name: "garlic", quantity: { amount: 6, unit: "cloves", ingredient: "garlic" } },
+      { name: "ginger", quantity: { amount: 30, unit: "g", ingredient: "ginger" } },
+      { name: "butter", quantity: { amount: 50, unit: "g", ingredient: "butter" } },
+      { name: "cream", quantity: { amount: 100, unit: "ml", ingredient: "cream" } },
+      { name: "garam masala", quantity: { amount: 2, unit: "tsp", ingredient: "garam masala" } }
+    ],
+    time: 120,
+    steps: [
+      "Soak lentils and beans overnight.",
+      "Pressure cook lentils and beans until soft.",
+      "Sauté onion, garlic, and ginger in butter.",
+      "Add tomatoes and spices, cook until thick.",
+      "Add lentils, cream, and simmer for 30 minutes."
+    ]
+  },
+  {
+    id: "wc59",
+    name: "Naan Bread",
+    cuisine: "Indian",
+    mood: "Classic",
+    allergens: ["gluten", "dairy"],
+    price: "$",
+    ingredients: [
+      { name: "all-purpose flour", quantity: { amount: 400, unit: "g", ingredient: "all-purpose flour" } },
+      { name: "active dry yeast", quantity: { amount: 7, unit: "g", ingredient: "active dry yeast" } },
+      { name: "warm water", quantity: { amount: 200, unit: "ml", ingredient: "warm water" } },
+      { name: "yogurt", quantity: { amount: 100, unit: "ml", ingredient: "yogurt" } },
+      { name: "ghee", quantity: { amount: 30, unit: "ml", ingredient: "ghee" } },
+      { name: "sugar", quantity: { amount: 15, unit: "g", ingredient: "sugar" } },
+      { name: "salt", quantity: { amount: 1, unit: "tsp", ingredient: "salt" } },
+      { name: "nigella seeds", quantity: { amount: 2, unit: "tsp", ingredient: "nigella seeds" } }
+    ],
+    time: 120,
+    steps: [
+      "Mix flour, yeast, sugar, and warm water.",
+      "Add yogurt and knead to smooth dough.",
+      "Let rise for 1 hour until doubled.",
+      "Divide into balls and roll into ovals.",
+      "Cook on hot griddle until puffed and charred."
+    ]
+  },
+  {
+    id: "wc60",
+    name: "Tandoori Chicken",
+    cuisine: "Indian",
+    mood: "Spicy",
+    allergens: ["dairy"],
+    price: "$$",
+    ingredients: [
+      { name: "chicken", quantity: { amount: 800, unit: "g", ingredient: "chicken" } },
+      { name: "yogurt", quantity: { amount: 300, unit: "ml", ingredient: "yogurt" } },
+      { name: "lemon juice", quantity: { amount: 60, unit: "ml", ingredient: "lemon juice" } },
+      { name: "garlic", quantity: { amount: 8, unit: "cloves", ingredient: "garlic" } },
+      { name: "ginger", quantity: { amount: 40, unit: "g", ingredient: "ginger" } },
+      { name: "paprika", quantity: { amount: 2, unit: "tsp", ingredient: "paprika" } },
+      { name: "cayenne pepper", quantity: { amount: 1, unit: "tsp", ingredient: "cayenne pepper" } },
+      { name: "garam masala", quantity: { amount: 2, unit: "tsp", ingredient: "garam masala" } },
+      { name: "mustard oil", quantity: { amount: 30, unit: "ml", ingredient: "mustard oil" } }
+    ],
+    time: 90,
+    steps: [
+      "Mix yogurt with spices, garlic, and ginger.",
+      "Marinate chicken in mixture for 4 hours.",
+      "Preheat oven to 220°C or prepare grill.",
+      "Cook chicken for 25-30 minutes until charred.",
+      "Serve with mint chutney and onion salad."
+    ]
+  },
+  {
+    id: "wc61",
+    name: "Palak Paneer",
+    cuisine: "Indian",
+    mood: "Healthy",
+    allergens: ["dairy"],
+    price: "$$",
+    ingredients: [
+      { name: "spinach", quantity: { amount: 500, unit: "g", ingredient: "spinach" } },
+      { name: "paneer", quantity: { amount: 200, unit: "g", ingredient: "paneer" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "tomatoes", quantity: { amount: 2, unit: "pieces", ingredient: "tomatoes" } },
+      { name: "garlic", quantity: { amount: 4, unit: "cloves", ingredient: "garlic" } },
+      { name: "ginger", quantity: { amount: 20, unit: "g", ingredient: "ginger" } },
+      { name: "cumin", quantity: { amount: 1, unit: "tsp", ingredient: "cumin" } },
+      { name: "garam masala", quantity: { amount: 1, unit: "tsp", ingredient: "garam masala" } },
+      { name: "cream", quantity: { amount: 100, unit: "ml", ingredient: "cream" } }
+    ],
+    time: 45,
+    steps: [
+      "Blanch spinach and blend to smooth paste.",
+      "Sauté onion, garlic, and ginger until soft.",
+      "Add tomatoes and spices, cook until thick.",
+      "Add spinach paste and simmer for 10 minutes.",
+      "Add paneer cubes and cream, cook for 5 minutes."
+    ]
+  },
+  {
+    id: "wc62",
+    name: "Gulab Jamun",
+    cuisine: "Indian",
+    mood: "Indulgent",
+    allergens: ["dairy", "gluten"],
+    price: "$$",
+    ingredients: [
+      { name: "milk powder", quantity: { amount: 200, unit: "g", ingredient: "milk powder" } },
+      { name: "all-purpose flour", quantity: { amount: 50, unit: "g", ingredient: "all-purpose flour" } },
+      { name: "baking powder", quantity: { amount: 1, unit: "tsp", ingredient: "baking powder" } },
+      { name: "ghee", quantity: { amount: 30, unit: "ml", ingredient: "ghee" } },
+      { name: "milk", quantity: { amount: 100, unit: "ml", ingredient: "milk" } },
+      { name: "sugar", quantity: { amount: 300, unit: "g", ingredient: "sugar" } },
+      { name: "water", quantity: { amount: 300, unit: "ml", ingredient: "water" } },
+      { name: "cardamom", quantity: { amount: 4, unit: "pieces", ingredient: "cardamom" } },
+      { name: "saffron", quantity: { amount: 1, unit: "tsp", ingredient: "saffron" } }
+    ],
+    time: 60,
+    steps: [
+      "Mix milk powder, flour, and baking powder.",
+      "Add ghee and milk to form soft dough.",
+      "Shape into small balls and deep fry until golden.",
+      "Make sugar syrup with cardamom and saffron.",
+      "Soak fried balls in warm syrup for 2 hours."
+    ]
+  },
+  {
+    id: "wc63",
+    name: "Masala Dosa",
+    cuisine: "Indian",
+    mood: "Breakfast",
+    allergens: ["dairy"],
+    price: "$$",
+    ingredients: [
+      { name: "rice", quantity: { amount: 300, unit: "g", ingredient: "rice" } },
+      { name: "urad dal", quantity: { amount: 100, unit: "g", ingredient: "urad dal" } },
+      { name: "potatoes", quantity: { amount: 400, unit: "g", ingredient: "potatoes" } },
+      { name: "onion", quantity: { amount: 2, unit: "pieces", ingredient: "onion" } },
+      { name: "mustard seeds", quantity: { amount: 1, unit: "tsp", ingredient: "mustard seeds" } },
+      { name: "curry leaves", quantity: { amount: 20, unit: "g", ingredient: "curry leaves" } },
+      { name: "turmeric", quantity: { amount: 1, unit: "tsp", ingredient: "turmeric" } },
+      { name: "coconut chutney", quantity: { amount: 200, unit: "g", ingredient: "coconut chutney" } },
+      { name: "sambar", quantity: { amount: 300, unit: "ml", ingredient: "sambar" } }
+    ],
+    time: 180,
+    steps: [
+      "Soak rice and dal overnight, grind to smooth batter.",
+      "Ferment batter for 8-12 hours.",
+      "Make potato filling with onions and spices.",
+      "Spread batter on hot griddle to make thin crepe.",
+      "Fill with potato mixture, fold, serve with chutney."
+    ]
+  },
+  {
+    id: "wc64",
+    name: "Rogan Josh",
+    cuisine: "Indian",
+    mood: "Hearty",
+    allergens: ["dairy"],
+    price: "$$$",
+    ingredients: [
+      { name: "lamb shoulder", quantity: { amount: 800, unit: "g", ingredient: "lamb shoulder" } },
+      { name: "onion", quantity: { amount: 2, unit: "pieces", ingredient: "onion" } },
+      { name: "garlic", quantity: { amount: 8, unit: "cloves", ingredient: "garlic" } },
+      { name: "ginger", quantity: { amount: 40, unit: "g", ingredient: "ginger" } },
+      { name: "kashmiri red chili", quantity: { amount: 2, unit: "tsp", ingredient: "kashmiri red chili" } },
+      { name: "fennel powder", quantity: { amount: 2, unit: "tsp", ingredient: "fennel powder" } },
+      { name: "cardamom", quantity: { amount: 6, unit: "pieces", ingredient: "cardamom" } },
+      { name: "yogurt", quantity: { amount: 200, unit: "ml", ingredient: "yogurt" } },
+      { name: "ghee", quantity: { amount: 60, unit: "ml", ingredient: "ghee" } }
+    ],
+    time: 120,
+    steps: [
+      "Brown lamb pieces in ghee until sealed.",
+      "Sauté onions, garlic, and ginger until golden.",
+      "Add spices and cook until fragrant.",
+      "Add lamb, yogurt, and water, simmer for 1 hour.",
+      "Cook until meat is tender and sauce is thick."
+    ]
+  },
+  {
+    id: "wc65",
+    name: "Souvlaki",
+    cuisine: "Greek",
+    mood: "Party",
+    allergens: ["gluten", "dairy"],
+    price: "$$",
+    ingredients: [
+      { name: "pork shoulder", quantity: { amount: 600, unit: "g", ingredient: "pork shoulder" } },
+      { name: "olive oil", quantity: { amount: 60, unit: "ml", ingredient: "olive oil" } },
+      { name: "lemon juice", quantity: { amount: 60, unit: "ml", ingredient: "lemon juice" } },
+      { name: "oregano", quantity: { amount: 2, unit: "tsp", ingredient: "oregano" } },
+      { name: "garlic", quantity: { amount: 6, unit: "cloves", ingredient: "garlic" } },
+      { name: "pita bread", quantity: { amount: 6, unit: "pieces", ingredient: "pita bread" } },
+      { name: "tomato", quantity: { amount: 2, unit: "pieces", ingredient: "tomato" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "tzatziki", quantity: { amount: 200, unit: "ml", ingredient: "tzatziki" } }
+    ],
+    time: 45,
+    steps: [
+      "Marinate pork in olive oil, lemon, oregano, and garlic for 2 hours.",
+      "Thread meat onto skewers and grill for 8-10 minutes.",
+      "Warm pita bread on grill.",
+      "Chop tomatoes and onions.",
+      "Serve souvlaki in pita with vegetables and tzatziki."
+    ]
+  },
+  {
+    id: "wc66",
+    name: "Greek Salad",
+    cuisine: "Greek",
+    mood: "Healthy",
+    allergens: ["dairy"],
+    price: "$",
+    ingredients: [
+      { name: "cucumber", quantity: { amount: 2, unit: "pieces", ingredient: "cucumber" } },
+      { name: "tomatoes", quantity: { amount: 4, unit: "pieces", ingredient: "tomatoes" } },
+      { name: "red onion", quantity: { amount: 1, unit: "pieces", ingredient: "red onion" } },
+      { name: "feta cheese", quantity: { amount: 200, unit: "g", ingredient: "feta cheese" } },
+      { name: "kalamata olives", quantity: { amount: 150, unit: "g", ingredient: "kalamata olives" } },
+      { name: "olive oil", quantity: { amount: 60, unit: "ml", ingredient: "olive oil" } },
+      { name: "red wine vinegar", quantity: { amount: 30, unit: "ml", ingredient: "red wine vinegar" } },
+      { name: "oregano", quantity: { amount: 2, unit: "tsp", ingredient: "oregano" } },
+      { name: "salt", quantity: { amount: 1, unit: "tsp", ingredient: "salt" } }
+    ],
+    time: 15,
+    steps: [
+      "Chop cucumber, tomatoes, and red onion into chunks.",
+      "Crumble feta cheese over vegetables.",
+      "Add kalamata olives.",
+      "Make dressing with olive oil, vinegar, oregano, and salt.",
+      "Toss salad with dressing and serve immediately."
+    ]
+  },
+  {
+    id: "wc67",
+    name: "Spanakopita",
+    cuisine: "Greek",
+    mood: "Classic",
+    allergens: ["gluten", "dairy", "eggs"],
+    price: "$$",
+    ingredients: [
+      { name: "phyllo dough", quantity: { amount: 400, unit: "g", ingredient: "phyllo dough" } },
+      { name: "spinach", quantity: { amount: 800, unit: "g", ingredient: "spinach" } },
+      { name: "feta cheese", quantity: { amount: 300, unit: "g", ingredient: "feta cheese" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "dill", quantity: { amount: 30, unit: "g", ingredient: "dill" } },
+      { name: "eggs", quantity: { amount: 2, unit: "eggs", ingredient: "eggs" } },
+      { name: "butter", quantity: { amount: 100, unit: "g", ingredient: "butter" } },
+      { name: "olive oil", quantity: { amount: 60, unit: "ml", ingredient: "olive oil" } },
+      { name: "nutmeg", quantity: { amount: 1, unit: "tsp", ingredient: "nutmeg" } }
+    ],
+    time: 90,
+    steps: [
+      "Sauté onion and wilt spinach, drain excess liquid.",
+      "Mix spinach with crumbled feta, dill, eggs, and nutmeg.",
+      "Layer phyllo sheets, brushing each with butter and oil.",
+      "Add spinach mixture and fold into triangles.",
+      "Bake at 180°C for 30 minutes until golden brown."
+    ]
+  },
+  {
+    id: "wc68",
+    name: "Pastitsio",
+    cuisine: "Greek",
+    mood: "Hearty",
+    allergens: ["gluten", "dairy", "eggs"],
+    price: "$$$",
+    ingredients: [
+      { name: "penne pasta", quantity: { amount: 400, unit: "g", ingredient: "penne pasta" } },
+      { name: "ground beef", quantity: { amount: 600, unit: "g", ingredient: "ground beef" } },
+      { name: "onion", quantity: { amount: 2, unit: "pieces", ingredient: "onion" } },
+      { name: "tomato sauce", quantity: { amount: 400, unit: "ml", ingredient: "tomato sauce" } },
+      { name: "cinnamon", quantity: { amount: 1, unit: "tsp", ingredient: "cinnamon" } },
+      { name: "nutmeg", quantity: { amount: 1, unit: "tsp", ingredient: "nutmeg" } },
+      { name: "butter", quantity: { amount: 80, unit: "g", ingredient: "butter" } },
+      { name: "flour", quantity: { amount: 60, unit: "g", ingredient: "flour" } },
+      { name: "milk", quantity: { amount: 600, unit: "ml", ingredient: "milk" } },
+      { name: "eggs", quantity: { amount: 3, unit: "eggs", ingredient: "eggs" } }
+    ],
+    time: 120,
+    steps: [
+      "Cook pasta and set aside.",
+      "Brown beef with onions and add tomato sauce with spices.",
+      "Make béchamel sauce with butter, flour, milk, and eggs.",
+      "Layer pasta, meat sauce, and béchamel in baking dish.",
+      "Bake at 180°C for 45 minutes until golden and bubbly."
+    ]
+  },
+  {
+    id: "wc69",
+    name: "Dolmades",
+    cuisine: "Greek",
+    mood: "Adventurous",
+    allergens: [],
+    price: "$$",
+    ingredients: [
+      { name: "grape leaves", quantity: { amount: 50, unit: "pieces", ingredient: "grape leaves" } },
+      { name: "rice", quantity: { amount: 200, unit: "g", ingredient: "rice" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "dill", quantity: { amount: 30, unit: "g", ingredient: "dill" } },
+      { name: "mint", quantity: { amount: 20, unit: "g", ingredient: "mint" } },
+      { name: "lemon juice", quantity: { amount: 60, unit: "ml", ingredient: "lemon juice" } },
+      { name: "olive oil", quantity: { amount: 60, unit: "ml", ingredient: "olive oil" } },
+      { name: "vegetable stock", quantity: { amount: 500, unit: "ml", ingredient: "vegetable stock" } },
+      { name: "pine nuts", quantity: { amount: 50, unit: "g", ingredient: "pine nuts" } }
+    ],
+    time: 90,
+    steps: [
+      "Rinse grape leaves and blanch for 2 minutes.",
+      "Cook rice with onion, herbs, and pine nuts.",
+      "Place rice mixture on grape leaves and roll tightly.",
+      "Layer dolmades in pot with lemon juice and stock.",
+      "Simmer for 45 minutes until rice is tender."
+    ]
+  },
+  {
+    id: "wc70",
+    name: "Baklava",
+    cuisine: "Greek",
+    mood: "Indulgent",
+    allergens: ["gluten", "nuts"],
+    price: "$$$",
+    ingredients: [
+      { name: "phyllo dough", quantity: { amount: 400, unit: "g", ingredient: "phyllo dough" } },
+      { name: "pistachios", quantity: { amount: 300, unit: "g", ingredient: "pistachios" } },
+      { name: "walnuts", quantity: { amount: 200, unit: "g", ingredient: "walnuts" } },
+      { name: "butter", quantity: { amount: 200, unit: "g", ingredient: "butter" } },
+      { name: "sugar", quantity: { amount: 400, unit: "g", ingredient: "sugar" } },
+      { name: "honey", quantity: { amount: 200, unit: "ml", ingredient: "honey" } },
+      { name: "cinnamon", quantity: { amount: 2, unit: "tsp", ingredient: "cinnamon" } },
+      { name: "cloves", quantity: { amount: 1, unit: "tsp", ingredient: "cloves" } },
+      { name: "lemon juice", quantity: { amount: 30, unit: "ml", ingredient: "lemon juice" } }
+    ],
+    time: 120,
+    steps: [
+      "Chop nuts and mix with cinnamon and cloves.",
+      "Layer phyllo sheets, brushing each with melted butter.",
+      "Add nut mixture every 4-5 layers.",
+      "Cut into diamonds and bake at 160°C for 50 minutes.",
+      "Pour hot syrup over cooled baklava and let soak."
+    ]
+  },
+  {
+    id: "wc71",
+    name: "Avgolemono Soup",
+    cuisine: "Greek",
+    mood: "Comfort",
+    allergens: ["eggs"],
+    price: "$$",
+    ingredients: [
+      { name: "chicken", quantity: { amount: 500, unit: "g", ingredient: "chicken" } },
+      { name: "rice", quantity: { amount: 100, unit: "g", ingredient: "rice" } },
+      { name: "chicken stock", quantity: { amount: 1000, unit: "ml", ingredient: "chicken stock" } },
+      { name: "eggs", quantity: { amount: 3, unit: "eggs", ingredient: "eggs" } },
+      { name: "lemon juice", quantity: { amount: 90, unit: "ml", ingredient: "lemon juice" } },
+      { name: "dill", quantity: { amount: 20, unit: "g", ingredient: "dill" } },
+      { name: "carrot", quantity: { amount: 2, unit: "pieces", ingredient: "carrot" } },
+      { name: "celery", quantity: { amount: 2, unit: "pieces", ingredient: "celery" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } }
+    ],
+    time: 60,
+    steps: [
+      "Simmer chicken with vegetables in stock for 30 minutes.",
+      "Remove chicken and shred meat.",
+      "Add rice to stock and cook for 15 minutes.",
+      "Whisk eggs with lemon juice and temper with hot stock.",
+      "Add egg mixture back to soup with chicken and dill."
+    ]
+  },
+  {
+    id: "wc72",
+    name: "Saganaki",
+    cuisine: "Greek",
+    mood: "Party",
+    allergens: ["dairy", "gluten"],
+    price: "$$",
+    ingredients: [
+      { name: "kefalograviera cheese", quantity: { amount: 300, unit: "g", ingredient: "kefalograviera cheese" } },
+      { name: "flour", quantity: { amount: 50, unit: "g", ingredient: "flour" } },
+      { name: "olive oil", quantity: { amount: 60, unit: "ml", ingredient: "olive oil" } },
+      { name: "lemon", quantity: { amount: 2, unit: "pieces", ingredient: "lemon" } },
+      { name: "oregano", quantity: { amount: 1, unit: "tsp", ingredient: "oregano" } },
+      { name: "bread", quantity: { amount: 4, unit: "slices", ingredient: "bread" } },
+      { name: "brandy", quantity: { amount: 30, unit: "ml", ingredient: "brandy" } },
+      { name: "black pepper", quantity: { amount: 1, unit: "tsp", ingredient: "black pepper" } }
+    ],
+    time: 20,
+    steps: [
+      "Cut cheese into thick slices and dust with flour.",
+      "Heat olive oil in skillet until very hot.",
+      "Fry cheese for 2-3 minutes until golden and crispy.",
+      "Add brandy and flambé briefly.",
+      "Serve with lemon wedges, oregano, and bread."
+    ]
+  },
+  {
+    id: "wc73",
+    name: "Galaktoboureko",
+    cuisine: "Greek",
+    mood: "Indulgent",
+    allergens: ["gluten", "dairy", "eggs"],
+    price: "$$$",
+    ingredients: [
+      { name: "phyllo dough", quantity: { amount: 400, unit: "g", ingredient: "phyllo dough" } },
+      { name: "milk", quantity: { amount: 1000, unit: "ml", ingredient: "milk" } },
+      { name: "semolina", quantity: { amount: 150, unit: "g", ingredient: "semolina" } },
+      { name: "sugar", quantity: { amount: 200, unit: "g", ingredient: "sugar" } },
+      { name: "eggs", quantity: { amount: 4, unit: "eggs", ingredient: "eggs" } },
+      { name: "butter", quantity: { amount: 150, unit: "g", ingredient: "butter" } },
+      { name: "vanilla extract", quantity: { amount: 2, unit: "tsp", ingredient: "vanilla extract" } },
+      { name: "honey", quantity: { amount: 100, unit: "ml", ingredient: "honey" } },
+      { name: "cinnamon", quantity: { amount: 1, unit: "tsp", ingredient: "cinnamon" } }
+    ],
+    time: 90,
+    steps: [
+      "Heat milk with sugar and vanilla until simmering.",
+      "Whisk in semolina and cook until thickened.",
+      "Temper eggs into hot mixture and let cool.",
+      "Layer phyllo sheets with butter and custard.",
+      "Bake at 180°C for 40 minutes, drizzle with honey syrup."
+    ]
+  },
+  {
+    id: "wc74",
+    name: "Gemista",
+    cuisine: "Greek",
+    mood: "Healthy",
+    allergens: [],
+    price: "$$",
+    ingredients: [
+      { name: "tomatoes", quantity: { amount: 6, unit: "pieces", ingredient: "tomatoes" } },
+      { name: "bell peppers", quantity: { amount: 4, unit: "pieces", ingredient: "bell peppers" } },
+      { name: "rice", quantity: { amount: 200, unit: "g", ingredient: "rice" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "garlic", quantity: { amount: 4, unit: "cloves", ingredient: "garlic" } },
+      { name: "mint", quantity: { amount: 20, unit: "g", ingredient: "mint" } },
+      { name: "parsley", quantity: { amount: 30, unit: "g", ingredient: "parsley" } },
+      { name: "olive oil", quantity: { amount: 60, unit: "ml", ingredient: "olive oil" } },
+      { name: "tomato paste", quantity: { amount: 30, unit: "g", ingredient: "tomato paste" } }
+    ],
+    time: 75,
+    steps: [
+      "Hollow out tomatoes and peppers, reserve pulp.",
+      "Sauté onion, garlic, and rice with tomato pulp.",
+      "Add herbs and seasonings to rice mixture.",
+      "Stuff vegetables with rice mixture.",
+      "Bake at 180°C for 45 minutes until vegetables are tender."
+    ]
+  },
+  {
+    id: "wc75",
+    name: "Enchiladas",
+    cuisine: "Mexican",
+    mood: "Comfort",
+    allergens: ["gluten", "dairy"],
+    price: "$$",
+    ingredients: [
+      { name: "corn tortillas", quantity: { amount: 12, unit: "pieces", ingredient: "corn tortillas" } },
+      { name: "chicken", quantity: { amount: 500, unit: "g", ingredient: "chicken" } },
+      { name: "enchilada sauce", quantity: { amount: 400, unit: "ml", ingredient: "enchilada sauce" } },
+      { name: "cheddar cheese", quantity: { amount: 200, unit: "g", ingredient: "cheddar cheese" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "sour cream", quantity: { amount: 150, unit: "ml", ingredient: "sour cream" } },
+      { name: "black olives", quantity: { amount: 100, unit: "g", ingredient: "black olives" } },
+      { name: "avocado", quantity: { amount: 1, unit: "pieces", ingredient: "avocado" } },
+      { name: "cilantro", quantity: { amount: 20, unit: "g", ingredient: "cilantro" } }
+    ],
+    time: 60,
+    steps: [
+      "Shred cooked chicken and mix with onion.",
+      "Dip tortillas in enchilada sauce to soften.",
+      "Fill with chicken and cheese, roll up.",
+      "Place in baking dish, cover with remaining sauce and cheese.",
+      "Bake at 180°C for 20 minutes, garnish with toppings."
+    ]
+  },
+  {
+    id: "wc76",
+    name: "Guacamole",
+    cuisine: "Mexican",
+    mood: "Party",
+    allergens: [],
+    price: "$",
+    ingredients: [
+      { name: "avocados", quantity: { amount: 4, unit: "pieces", ingredient: "avocados" } },
+      { name: "lime juice", quantity: { amount: 60, unit: "ml", ingredient: "lime juice" } },
+      { name: "tomato", quantity: { amount: 2, unit: "pieces", ingredient: "tomato" } },
+      { name: "red onion", quantity: { amount: 1, unit: "pieces", ingredient: "red onion" } },
+      { name: "jalapeño", quantity: { amount: 1, unit: "pieces", ingredient: "jalapeño" } },
+      { name: "cilantro", quantity: { amount: 30, unit: "g", ingredient: "cilantro" } },
+      { name: "garlic", quantity: { amount: 2, unit: "cloves", ingredient: "garlic" } },
+      { name: "salt", quantity: { amount: 1, unit: "tsp", ingredient: "salt" } },
+      { name: "tortilla chips", quantity: { amount: 200, unit: "g", ingredient: "tortilla chips" } }
+    ],
+    time: 15,
+    steps: [
+      "Mash avocados in a bowl until smooth but chunky.",
+      "Finely dice tomato, onion, jalapeño, and cilantro.",
+      "Add lime juice, garlic, and salt to avocados.",
+      "Fold in diced vegetables gently.",
+      "Serve immediately with tortilla chips."
+    ]
+  },
+  {
+    id: "wc77",
+    name: "Churros",
+    cuisine: "Mexican",
+    mood: "Indulgent",
+    allergens: ["gluten", "eggs"],
+    price: "$$",
+    ingredients: [
+      { name: "all-purpose flour", quantity: { amount: 200, unit: "g", ingredient: "all-purpose flour" } },
+      { name: "water", quantity: { amount: 250, unit: "ml", ingredient: "water" } },
+      { name: "butter", quantity: { amount: 60, unit: "g", ingredient: "butter" } },
+      { name: "sugar", quantity: { amount: 30, unit: "g", ingredient: "sugar" } },
+      { name: "salt", quantity: { amount: 1, unit: "tsp", ingredient: "salt" } },
+      { name: "eggs", quantity: { amount: 2, unit: "eggs", ingredient: "eggs" } },
+      { name: "vanilla extract", quantity: { amount: 1, unit: "tsp", ingredient: "vanilla extract" } },
+      { name: "cinnamon sugar", quantity: { amount: 100, unit: "g", ingredient: "cinnamon sugar" } },
+      { name: "vegetable oil", quantity: { amount: 500, unit: "ml", ingredient: "vegetable oil" } }
+    ],
+    time: 45,
+    steps: [
+      "Bring water, butter, sugar, and salt to boil.",
+      "Add flour and stir until dough forms.",
+      "Beat in eggs and vanilla until smooth.",
+      "Pipe dough into hot oil in churro shapes.",
+      "Fry until golden, roll in cinnamon sugar."
+    ]
+  },
+  {
+    id: "wc78",
+    name: "Pozole",
+    cuisine: "Mexican",
+    mood: "Hearty",
+    allergens: [],
+    price: "$$",
+    ingredients: [
+      { name: "pork shoulder", quantity: { amount: 800, unit: "g", ingredient: "pork shoulder" } },
+      { name: "hominy", quantity: { amount: 400, unit: "g", ingredient: "hominy" } },
+      { name: "chicken stock", quantity: { amount: 1500, unit: "ml", ingredient: "chicken stock" } },
+      { name: "onion", quantity: { amount: 2, unit: "pieces", ingredient: "onion" } },
+      { name: "garlic", quantity: { amount: 6, unit: "cloves", ingredient: "garlic" } },
+      { name: "dried chilies", quantity: { amount: 4, unit: "pieces", ingredient: "dried chilies" } },
+      { name: "oregano", quantity: { amount: 2, unit: "tsp", ingredient: "oregano" } },
+      { name: "lime", quantity: { amount: 4, unit: "pieces", ingredient: "lime" } },
+      { name: "radishes", quantity: { amount: 100, unit: "g", ingredient: "radishes" } },
+      { name: "cabbage", quantity: { amount: 200, unit: "g", ingredient: "cabbage" } }
+    ],
+    time: 180,
+    steps: [
+      "Simmer pork with onion and garlic for 2 hours.",
+      "Add hominy and continue cooking for 30 minutes.",
+      "Toast and rehydrate dried chilies, blend to paste.",
+      "Add chili paste and oregano to soup.",
+      "Serve with lime wedges, radishes, and cabbage."
+    ]
+  },
+  {
+    id: "wc79",
+    name: "Quesadillas",
+    cuisine: "Mexican",
+    mood: "Comfort",
+    allergens: ["gluten", "dairy"],
+    price: "$",
+    ingredients: [
+      { name: "flour tortillas", quantity: { amount: 8, unit: "pieces", ingredient: "flour tortillas" } },
+      { name: "cheddar cheese", quantity: { amount: 300, unit: "g", ingredient: "cheddar cheese" } },
+      { name: "monterey jack", quantity: { amount: 200, unit: "g", ingredient: "monterey jack" } },
+      { name: "chicken", quantity: { amount: 300, unit: "g", ingredient: "chicken" } },
+      { name: "bell peppers", quantity: { amount: 2, unit: "pieces", ingredient: "bell peppers" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "salsa", quantity: { amount: 200, unit: "ml", ingredient: "salsa" } },
+      { name: "sour cream", quantity: { amount: 150, unit: "ml", ingredient: "sour cream" } },
+      { name: "vegetable oil", quantity: { amount: 30, unit: "ml", ingredient: "vegetable oil" } }
+    ],
+    time: 25,
+    steps: [
+      "Sauté chicken with peppers and onion until cooked.",
+      "Place cheese and chicken mixture on half of tortilla.",
+      "Fold tortilla over and press gently.",
+      "Cook in hot skillet until cheese melts and tortilla is golden.",
+      "Cut into wedges and serve with salsa and sour cream."
+    ]
+  },
+  {
+    id: "wc80",
+    name: "Chiles Rellenos",
+    cuisine: "Mexican",
+    mood: "Adventurous",
+    allergens: ["gluten", "eggs", "dairy"],
+    price: "$$",
+    ingredients: [
+      { name: "poblano peppers", quantity: { amount: 6, unit: "pieces", ingredient: "poblano peppers" } },
+      { name: "queso fresco", quantity: { amount: 300, unit: "g", ingredient: "queso fresco" } },
+      { name: "eggs", quantity: { amount: 4, unit: "eggs", ingredient: "eggs" } },
+      { name: "flour", quantity: { amount: 100, unit: "g", ingredient: "flour" } },
+      { name: "tomatoes", quantity: { amount: 400, unit: "g", ingredient: "tomatoes" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "garlic", quantity: { amount: 4, unit: "cloves", ingredient: "garlic" } },
+      { name: "vegetable oil", quantity: { amount: 200, unit: "ml", ingredient: "vegetable oil" } },
+      { name: "rice", quantity: { amount: 200, unit: "g", ingredient: "rice" } }
+    ],
+    time: 75,
+    steps: [
+      "Roast poblano peppers until charred, peel and slit.",
+      "Stuff peppers with queso fresco and secure with toothpicks.",
+      "Separate eggs and beat whites to stiff peaks, fold in yolks.",
+      "Dust peppers with flour, dip in egg batter, and fry.",
+      "Serve with tomato sauce and rice."
+    ]
+  },
+  {
+    id: "wc81",
+    name: "Horchata",
+    cuisine: "Mexican",
+    mood: "Refreshment",
+    allergens: [],
+    price: "$",
+    ingredients: [
+      { name: "white rice", quantity: { amount: 200, unit: "g", ingredient: "white rice" } },
+      { name: "almonds", quantity: { amount: 100, unit: "g", ingredient: "almonds" } },
+      { name: "cinnamon sticks", quantity: { amount: 2, unit: "pieces", ingredient: "cinnamon sticks" } },
+      { name: "vanilla extract", quantity: { amount: 2, unit: "tsp", ingredient: "vanilla extract" } },
+      { name: "sugar", quantity: { amount: 150, unit: "g", ingredient: "sugar" } },
+      { name: "water", quantity: { amount: 1000, unit: "ml", ingredient: "water" } },
+      { name: "milk", quantity: { amount: 500, unit: "ml", ingredient: "milk" } },
+      { name: "ice cubes", quantity: { amount: 20, unit: "pieces", ingredient: "ice cubes" } }
+    ],
+    time: 480,
+    steps: [
+      "Soak rice, almonds, and cinnamon in water for 8 hours.",
+      "Blend mixture until smooth and strain through cheesecloth.",
+      "Add sugar, vanilla, and milk to strained liquid.",
+      "Chill in refrigerator for 2 hours.",
+      "Serve over ice with a sprinkle of cinnamon."
+    ]
+  },
+  {
+    id: "wc82",
+    name: "Tamales",
+    cuisine: "Mexican",
+    mood: "Celebration",
+    allergens: ["gluten"],
+    price: "$$",
+    ingredients: [
+      { name: "masa harina", quantity: { amount: 400, unit: "g", ingredient: "masa harina" } },
+      { name: "corn husks", quantity: { amount: 20, unit: "pieces", ingredient: "corn husks" } },
+      { name: "pork shoulder", quantity: { amount: 500, unit: "g", ingredient: "pork shoulder" } },
+      { name: "chili powder", quantity: { amount: 2, unit: "tsp", ingredient: "chili powder" } },
+      { name: "garlic", quantity: { amount: 4, unit: "cloves", ingredient: "garlic" } },
+      { name: "cumin", quantity: { amount: 1, unit: "tsp", ingredient: "cumin" } },
+      { name: "lard", quantity: { amount: 100, unit: "g", ingredient: "lard" } },
+      { name: "chicken stock", quantity: { amount: 300, unit: "ml", ingredient: "chicken stock" } },
+      { name: "salsa verde", quantity: { amount: 200, unit: "ml", ingredient: "salsa verde" } }
+    ],
+    time: 240,
+    steps: [
+      "Soak corn husks in warm water for 1 hour.",
+      "Cook pork with spices until tender and shred.",
+      "Mix masa with lard and stock to form dough.",
+      "Spread masa on husks, add pork filling, and wrap.",
+      "Steam tamales for 1 hour until masa is firm."
+    ]
+  },
+  {
+    id: "wc83",
+    name: "Flan",
+    cuisine: "Mexican",
+    mood: "Indulgent",
+    allergens: ["dairy", "eggs"],
+    price: "$$",
+    ingredients: [
+      { name: "sugar", quantity: { amount: 200, unit: "g", ingredient: "sugar" } },
+      { name: "eggs", quantity: { amount: 6, unit: "eggs", ingredient: "eggs" } },
+      { name: "condensed milk", quantity: { amount: 400, unit: "ml", ingredient: "condensed milk" } },
+      { name: "evaporated milk", quantity: { amount: 400, unit: "ml", ingredient: "evaporated milk" } },
+      { name: "vanilla extract", quantity: { amount: 2, unit: "tsp", ingredient: "vanilla extract" } },
+      { name: "salt", quantity: { amount: 1, unit: "tsp", ingredient: "salt" } },
+      { name: "water", quantity: { amount: 60, unit: "ml", ingredient: "water" } }
+    ],
+    time: 120,
+    steps: [
+      "Caramelize sugar in ramekins until golden brown.",
+      "Whisk eggs, milks, vanilla, and salt until smooth.",
+      "Pour custard mixture over caramel.",
+      "Bake in water bath at 160°C for 45 minutes.",
+      "Chill for 4 hours, invert to serve."
+    ]
+  },
+  {
+    id: "wc84",
+    name: "Ceviche",
+    cuisine: "Mexican",
+    mood: "Healthy",
+    allergens: ["fish"],
+    price: "$$$",
+    ingredients: [
+      { name: "fresh fish", quantity: { amount: 500, unit: "g", ingredient: "fresh fish" } },
+      { name: "lime juice", quantity: { amount: 200, unit: "ml", ingredient: "lime juice" } },
+      { name: "lemon juice", quantity: { amount: 100, unit: "ml", ingredient: "lemon juice" } },
+      { name: "red onion", quantity: { amount: 1, unit: "pieces", ingredient: "red onion" } },
+      { name: "tomatoes", quantity: { amount: 2, unit: "pieces", ingredient: "tomatoes" } },
+      { name: "jalapeño", quantity: { amount: 1, unit: "pieces", ingredient: "jalapeño" } },
+      { name: "cilantro", quantity: { amount: 30, unit: "g", ingredient: "cilantro" } },
+      { name: "avocado", quantity: { amount: 1, unit: "pieces", ingredient: "avocado" } },
+      { name: "tortilla chips", quantity: { amount: 150, unit: "g", ingredient: "tortilla chips" } }
+    ],
+    time: 30,
+    steps: [
+      "Cut fish into small cubes and place in glass bowl.",
+      "Cover fish with lime and lemon juice, marinate for 20 minutes.",
+      "Dice onion, tomatoes, jalapeño, and cilantro.",
+      "Drain excess citrus juice and mix with vegetables.",
+      "Serve with avocado and tortilla chips."
+    ]
+  },
+  {
+    id: "wc85",
+    name: "Fettuccine Alfredo",
+    cuisine: "Italian",
+    mood: "Indulgent",
+    allergens: ["gluten", "dairy"],
+    price: "$$",
+    ingredients: [
+      { name: "fettuccine", quantity: { amount: 400, unit: "g", ingredient: "fettuccine" } },
+      { name: "butter", quantity: { amount: 100, unit: "g", ingredient: "butter" } },
+      { name: "heavy cream", quantity: { amount: 300, unit: "ml", ingredient: "heavy cream" } },
+      { name: "parmesan", quantity: { amount: 150, unit: "g", ingredient: "parmesan" } },
+      { name: "garlic", quantity: { amount: 4, unit: "cloves", ingredient: "garlic" } },
+      { name: "black pepper", quantity: { amount: 2, unit: "tsp", ingredient: "black pepper" } },
+      { name: "salt", quantity: { amount: 1, unit: "tsp", ingredient: "salt" } },
+      { name: "parsley", quantity: { amount: 20, unit: "g", ingredient: "parsley" } },
+      { name: "nutmeg", quantity: { amount: 1, unit: "tsp", ingredient: "nutmeg" } }
+    ],
+    time: 25,
+    steps: [
+      "Cook fettuccine in salted water until al dente.",
+      "Melt butter in large pan and sauté garlic.",
+      "Add cream and simmer until slightly thickened.",
+      "Add parmesan and stir until melted and smooth.",
+      "Toss with pasta, season with pepper and nutmeg, garnish with parsley."
+    ]
+  },
+  {
+    id: "wc86",
+    name: "Pasta Primavera",
+    cuisine: "Italian",
+    mood: "Healthy",
+    allergens: ["gluten", "dairy"],
+    price: "$$",
+    ingredients: [
+      { name: "penne", quantity: { amount: 400, unit: "g", ingredient: "penne" } },
+      { name: "broccoli", quantity: { amount: 200, unit: "g", ingredient: "broccoli" } },
+      { name: "carrots", quantity: { amount: 2, unit: "pieces", ingredient: "carrots" } },
+      { name: "bell peppers", quantity: { amount: 2, unit: "pieces", ingredient: "bell peppers" } },
+      { name: "zucchini", quantity: { amount: 2, unit: "pieces", ingredient: "zucchini" } },
+      { name: "olive oil", quantity: { amount: 60, unit: "ml", ingredient: "olive oil" } },
+      { name: "garlic", quantity: { amount: 4, unit: "cloves", ingredient: "garlic" } },
+      { name: "parmesan", quantity: { amount: 100, unit: "g", ingredient: "parmesan" } },
+      { name: "basil", quantity: { amount: 30, unit: "g", ingredient: "basil" } }
+    ],
+    time: 30,
+    steps: [
+      "Cook penne in salted water until al dente.",
+      "Sauté garlic in olive oil until fragrant.",
+      "Add vegetables and cook until crisp-tender.",
+      "Add cooked pasta and toss with olive oil.",
+      "Garnish with parmesan and fresh basil."
+    ]
+  },
+  {
+    id: "wc87",
+    name: "Pasta Puttanesca",
+    cuisine: "Italian",
+    mood: "Spicy",
+    allergens: ["gluten", "fish"],
+    price: "$$",
+    ingredients: [
+      { name: "spaghetti", quantity: { amount: 400, unit: "g", ingredient: "spaghetti" } },
+      { name: "tomatoes", quantity: { amount: 400, unit: "g", ingredient: "tomatoes" } },
+      { name: "anchovies", quantity: { amount: 50, unit: "g", ingredient: "anchovies" } },
+      { name: "capers", quantity: { amount: 30, unit: "g", ingredient: "capers" } },
+      { name: "kalamata olives", quantity: { amount: 100, unit: "g", ingredient: "kalamata olives" } },
+      { name: "garlic", quantity: { amount: 6, unit: "cloves", ingredient: "garlic" } },
+      { name: "red chili flakes", quantity: { amount: 2, unit: "tsp", ingredient: "red chili flakes" } },
+      { name: "olive oil", quantity: { amount: 60, unit: "ml", ingredient: "olive oil" } },
+      { name: "parsley", quantity: { amount: 20, unit: "g", ingredient: "parsley" } }
+    ],
+    time: 25,
+    steps: [
+      "Cook spaghetti in salted water until al dente.",
+      "Sauté garlic and anchovies in olive oil until anchovies dissolve.",
+      "Add tomatoes, capers, olives, and chili flakes.",
+      "Simmer sauce for 10 minutes until thickened.",
+      "Toss with pasta and garnish with parsley."
+    ]
+  },
+  {
+    id: "wc88",
+    name: "Mac and Cheese",
+    cuisine: "American",
+    mood: "Comfort",
+    allergens: ["gluten", "dairy"],
+    price: "$$",
+    ingredients: [
+      { name: "macaroni", quantity: { amount: 400, unit: "g", ingredient: "macaroni" } },
+      { name: "cheddar cheese", quantity: { amount: 300, unit: "g", ingredient: "cheddar cheese" } },
+      { name: "milk", quantity: { amount: 500, unit: "ml", ingredient: "milk" } },
+      { name: "butter", quantity: { amount: 60, unit: "g", ingredient: "butter" } },
+      { name: "flour", quantity: { amount: 60, unit: "g", ingredient: "flour" } },
+      { name: "breadcrumbs", quantity: { amount: 100, unit: "g", ingredient: "breadcrumbs" } },
+      { name: "mustard", quantity: { amount: 1, unit: "tsp", ingredient: "mustard" } },
+      { name: "paprika", quantity: { amount: 1, unit: "tsp", ingredient: "paprika" } },
+      { name: "salt", quantity: { amount: 1, unit: "tsp", ingredient: "salt" } }
+    ],
+    time: 35,
+    steps: [
+      "Cook macaroni in salted water until al dente.",
+      "Make roux with butter and flour, add milk gradually.",
+      "Add cheese and stir until melted and smooth.",
+      "Mix with pasta and transfer to baking dish.",
+      "Top with breadcrumbs and bake at 180°C for 15 minutes."
+    ]
+  },
+  {
+    id: "wc89",
+    name: "Pad Thai",
+    cuisine: "Thai",
+    mood: "Adventurous",
+    allergens: ["gluten", "peanuts", "eggs"],
+    price: "$$",
+    ingredients: [
+      { name: "rice noodles", quantity: { amount: 300, unit: "g", ingredient: "rice noodles" } },
+      { name: "shrimp", quantity: { amount: 200, unit: "g", ingredient: "shrimp" } },
+      { name: "eggs", quantity: { amount: 2, unit: "eggs", ingredient: "eggs" } },
+      { name: "tofu", quantity: { amount: 150, unit: "g", ingredient: "tofu" } },
+      { name: "bean sprouts", quantity: { amount: 100, unit: "g", ingredient: "bean sprouts" } },
+      { name: "peanuts", quantity: { amount: 50, unit: "g", ingredient: "peanuts" } },
+      { name: "tamarind paste", quantity: { amount: 30, unit: "g", ingredient: "tamarind paste" } },
+      { name: "fish sauce", quantity: { amount: 30, unit: "ml", ingredient: "fish sauce" } },
+      { name: "palm sugar", quantity: { amount: 30, unit: "g", ingredient: "palm sugar" } }
+    ],
+    time: 30,
+    steps: [
+      "Soak rice noodles in warm water for 30 minutes.",
+      "Stir-fry shrimp and tofu until cooked.",
+      "Push ingredients aside and scramble eggs.",
+      "Add noodles, tamarind, fish sauce, and sugar.",
+      "Toss with bean sprouts and peanuts, serve hot."
+    ]
+  },
+  {
+    id: "wc90",
+    name: "Pasta Carbonara",
+    cuisine: "Italian",
+    mood: "Classic",
+    allergens: ["gluten", "eggs", "dairy"],
+    price: "$$",
+    ingredients: [
+      { name: "spaghetti", quantity: { amount: 400, unit: "g", ingredient: "spaghetti" } },
+      { name: "pancetta", quantity: { amount: 200, unit: "g", ingredient: "pancetta" } },
+      { name: "eggs", quantity: { amount: 4, unit: "eggs", ingredient: "eggs" } },
+      { name: "parmesan", quantity: { amount: 100, unit: "g", ingredient: "parmesan" } },
+      { name: "pecorino", quantity: { amount: 100, unit: "g", ingredient: "pecorino" } },
+      { name: "black pepper", quantity: { amount: 2, unit: "tsp", ingredient: "black pepper" } },
+      { name: "garlic", quantity: { amount: 2, unit: "cloves", ingredient: "garlic" } },
+      { name: "olive oil", quantity: { amount: 30, unit: "ml", ingredient: "olive oil" } },
+      { name: "salt", quantity: { amount: 1, unit: "tsp", ingredient: "salt" } }
+    ],
+    time: 25,
+    steps: [
+      "Cook spaghetti in salted water until al dente.",
+      "Fry pancetta until crispy, add garlic.",
+      "Whisk eggs with grated cheeses and pepper.",
+      "Add hot pasta to pancetta, remove from heat.",
+      "Quickly toss with egg mixture to create creamy sauce."
+    ]
+  },
+  {
+    id: "wc91",
+    name: "Pasta Arrabbiata",
+    cuisine: "Italian",
+    mood: "Spicy",
+    allergens: ["gluten"],
+    price: "$$",
+    ingredients: [
+      { name: "penne", quantity: { amount: 400, unit: "g", ingredient: "penne" } },
+      { name: "tomatoes", quantity: { amount: 400, unit: "g", ingredient: "tomatoes" } },
+      { name: "garlic", quantity: { amount: 6, unit: "cloves", ingredient: "garlic" } },
+      { name: "red chili peppers", quantity: { amount: 3, unit: "pieces", ingredient: "red chili peppers" } },
+      { name: "olive oil", quantity: { amount: 60, unit: "ml", ingredient: "olive oil" } },
+      { name: "parsley", quantity: { amount: 20, unit: "g", ingredient: "parsley" } },
+      { name: "basil", quantity: { amount: 20, unit: "g", ingredient: "basil" } },
+      { name: "salt", quantity: { amount: 1, unit: "tsp", ingredient: "salt" } },
+      { name: "parmesan", quantity: { amount: 100, unit: "g", ingredient: "parmesan" } }
+    ],
+    time: 25,
+    steps: [
+      "Cook penne in salted water until al dente.",
+      "Sauté garlic and chili peppers in olive oil.",
+      "Add tomatoes and simmer for 15 minutes.",
+      "Season with salt and add herbs.",
+      "Toss with pasta and serve with parmesan."
+    ]
+  },
+  {
+    id: "wc92",
+    name: "Pasta alla Norma",
+    cuisine: "Italian",
+    mood: "Classic",
+    allergens: ["gluten", "dairy"],
+    price: "$$",
+    ingredients: [
+      { name: "rigatoni", quantity: { amount: 400, unit: "g", ingredient: "rigatoni" } },
+      { name: "eggplant", quantity: { amount: 2, unit: "pieces", ingredient: "eggplant" } },
+      { name: "tomatoes", quantity: { amount: 400, unit: "g", ingredient: "tomatoes" } },
+      { name: "ricotta salata", quantity: { amount: 100, unit: "g", ingredient: "ricotta salata" } },
+      { name: "basil", quantity: { amount: 30, unit: "g", ingredient: "basil" } },
+      { name: "garlic", quantity: { amount: 4, unit: "cloves", ingredient: "garlic" } },
+      { name: "olive oil", quantity: { amount: 60, unit: "ml", ingredient: "olive oil" } },
+      { name: "salt", quantity: { amount: 1, unit: "tsp", ingredient: "salt" } },
+      { name: "black pepper", quantity: { amount: 1, unit: "tsp", ingredient: "black pepper" } }
+    ],
+    time: 35,
+    steps: [
+      "Salt eggplant slices and let drain for 30 minutes.",
+      "Fry eggplant in olive oil until golden and crispy.",
+      "Sauté garlic and add tomatoes, simmer for 15 minutes.",
+      "Cook rigatoni in salted water until al dente.",
+      "Toss pasta with sauce, eggplant, and grated ricotta salata."
+    ]
+  },
+  {
+    id: "wc93",
+    name: "Pasta with Pesto",
+    cuisine: "Italian",
+    mood: "Fresh",
+    allergens: ["gluten", "nuts"],
+    price: "$$",
+    ingredients: [
+      { name: "linguine", quantity: { amount: 400, unit: "g", ingredient: "linguine" } },
+      { name: "basil", quantity: { amount: 100, unit: "g", ingredient: "basil" } },
+      { name: "pine nuts", quantity: { amount: 50, unit: "g", ingredient: "pine nuts" } },
+      { name: "parmesan", quantity: { amount: 100, unit: "g", ingredient: "parmesan" } },
+      { name: "garlic", quantity: { amount: 3, unit: "cloves", ingredient: "garlic" } },
+      { name: "olive oil", quantity: { amount: 120, unit: "ml", ingredient: "olive oil" } },
+      { name: "lemon juice", quantity: { amount: 15, unit: "ml", ingredient: "lemon juice" } },
+      { name: "salt", quantity: { amount: 1, unit: "tsp", ingredient: "salt" } },
+      { name: "black pepper", quantity: { amount: 1, unit: "tsp", ingredient: "black pepper" } }
+    ],
+    time: 20,
+    steps: [
+      "Toast pine nuts in dry pan until golden.",
+      "Blend basil, pine nuts, garlic, and parmesan.",
+      "Gradually add olive oil while blending to smooth paste.",
+      "Cook linguine in salted water until al dente.",
+      "Toss pasta with pesto, lemon juice, and seasonings."
+    ]
+  },
+  {
+    id: "wc94",
+    name: "Pasta with Clams",
+    cuisine: "Italian",
+    mood: "Seafood",
+    allergens: ["gluten", "shellfish"],
+    price: "$$$",
+    ingredients: [
+      { name: "linguine", quantity: { amount: 400, unit: "g", ingredient: "linguine" } },
+      { name: "clams", quantity: { amount: 500, unit: "g", ingredient: "clams" } },
+      { name: "garlic", quantity: { amount: 6, unit: "cloves", ingredient: "garlic" } },
+      { name: "white wine", quantity: { amount: 200, unit: "ml", ingredient: "white wine" } },
+      { name: "olive oil", quantity: { amount: 60, unit: "ml", ingredient: "olive oil" } },
+      { name: "parsley", quantity: { amount: 30, unit: "g", ingredient: "parsley" } },
+      { name: "red chili flakes", quantity: { amount: 1, unit: "tsp", ingredient: "red chili flakes" } },
+      { name: "lemon", quantity: { amount: 1, unit: "pieces", ingredient: "lemon" } },
+      { name: "butter", quantity: { amount: 30, unit: "g", ingredient: "butter" } }
+    ],
+    time: 30,
+    steps: [
+      "Scrub clams and discard any that don't close.",
+      "Sauté garlic and chili in olive oil.",
+      "Add clams and white wine, cover and steam until open.",
+      "Cook linguine in salted water until al dente.",
+      "Toss pasta with clam sauce, parsley, and lemon juice."
+    ]
   }
 ]; 
