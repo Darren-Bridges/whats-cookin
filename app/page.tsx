@@ -24,6 +24,7 @@ import { MultiSelect, MultiSelectOption } from "@/components/ui/multi-select";
 import { CUISINES } from "@/constants/cuisines";
 import { MOODS } from "@/constants/moods";
 import { ALLERGENS } from "@/constants/allergens";
+import { IngredientMealPlanner } from "@/components/IngredientMealPlanner";
 
 const moodOptions: MultiSelectOption[] = MOODS.map(mood => ({ value: mood, label: mood }));
 const allergenOptions: MultiSelectOption[] = ALLERGENS.map(allergen => ({ value: allergen, label: allergen }));
@@ -308,7 +309,8 @@ export default function Home() {
                 </AccordionItem>
               </Accordion>
               {user && (
-                <div className="flex items-center sm:mt-0 mt-1">
+                <div className="flex items-center gap-2 sm:mt-0 mt-1">
+                  <IngredientMealPlanner user={user} allRecipes={allRecipes} />
                   <Link href="/recipes/new">
                     <Button variant="default">Add Recipe</Button>
                   </Link>

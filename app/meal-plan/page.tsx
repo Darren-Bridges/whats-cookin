@@ -14,6 +14,7 @@ import { DndContext, closestCenter, PointerSensor, useSensor, useSensors } from 
 import { useDroppable, useDraggable } from '@dnd-kit/core';
 import { Tooltip } from "@/components/ui/tooltip";
 import { RecipePickerSheet } from "@/components/RecipePickerSheet";
+import { IngredientMealPlanner } from "@/components/IngredientMealPlanner";
 
 const mealTypes = ["breakfast", "lunch", "dinner", "snack"];
 
@@ -260,6 +261,9 @@ export default function MealPlanPage() {
     <main className="flex min-h-screen flex-col items-center px-2 sm:px-4 bg-background text-foreground pt-2 w-full">
       <h1 className="text-3xl font-bold mb-8 mt-8">My Meal Plan</h1>
       <div className="flex items-center justify-between w-full max-w-4xl mb-6">
+        <div className="flex items-center gap-2">
+          <IngredientMealPlanner user={user} allRecipes={allRecipes} />
+        </div>
         <Button variant="ghost" size="icon" onClick={() => setWeekStart(addDays(weekStart, -7))} aria-label="Previous Week">
           <ChevronLeft className="w-5 h-5" />
         </Button>
