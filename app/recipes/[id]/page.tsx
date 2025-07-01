@@ -21,6 +21,8 @@ import { Label } from "@/components/ui/label";
 import { CUISINES } from "@/constants/cuisines";
 import { MOODS } from "@/constants/moods";
 import { ALLERGENS } from "@/constants/allergens";
+import { IngredientInput } from "@/components/IngredientInput";
+import { type Ingredient } from "@/constants/units";
 
 export default function RecipeDetails() {
   const params = useParams();
@@ -182,7 +184,22 @@ export default function RecipeDetails() {
             <Badge variant="default">{recipe.price}</Badge>
           </div>
           <div className="mb-2">
-            <span className="font-semibold">Ingredients:</span> {recipe.ingredients.join(", ")}
+            <span className="font-semibold">Ingredients:</span>
+            <ul className="list-disc list-inside mt-1 space-y-1">
+              {recipe.ingredients.map((ing: any, idx: number) => {
+                if (typeof ing === 'string') {
+                  return <li key={idx}>{ing}</li>;
+                }
+                if (ing.quantity) {
+                  return (
+                    <li key={idx}>
+                      {ing.quantity.amount} {ing.quantity.unit} {ing.name}
+                    </li>
+                  );
+                }
+                return <li key={idx}>{ing.name}</li>;
+              })}
+            </ul>
           </div>
           {recipe.allergens.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-2">
@@ -236,16 +253,23 @@ function EditRecipeForm({ recipe, onClose, onUpdated }: { recipe: any, onClose: 
   const [mood, setMood] = useState(recipe.mood || "");
   const [selectedAllergens, setSelectedAllergens] = useState<string[]>(recipe.allergens || []);
   const [price, setPrice] = useState(recipe.price || "");
-  const [ingredients, setIngredients] = useState<string[]>(recipe.ingredients || [""]);
+  const [ingredients, setIngredients] = useState<Ingredient[]>(() => {
+    if (Array.isArray(recipe.ingredients)) {
+      return recipe.ingredients.map((ing: any) => 
+        typeof ing === 'string' ? { name: ing } : ing
+      );
+    }
+    return [{ name: "" }];
+  });
   const [time, setTime] = useState(recipe.time ? String(recipe.time) : "");
   const [steps, setSteps] = useState<string[]>(recipe.steps || [""]);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
 
-  const handleAddIngredient = () => setIngredients([...ingredients, ""]);
+  const handleAddIngredient = () => setIngredients([...ingredients, { name: "" }]);
   const handleRemoveIngredient = (idx: number) => setIngredients(ingredients.filter((_, i) => i !== idx));
-  const handleIngredientChange = (idx: number, value: string) => setIngredients(ingredients.map((ing, i) => i === idx ? value : ing));
+  const handleIngredientChange = (idx: number, ingredient: Ingredient) => setIngredients(ingredients.map((ing, i) => i === idx ? ingredient : ing));
 
   const handleAddStep = () => setSteps([...steps, ""]);
   const handleRemoveStep = (idx: number) => setSteps(steps.filter((_, i) => i !== idx));
@@ -264,7 +288,7 @@ function EditRecipeForm({ recipe, onClose, onUpdated }: { recipe: any, onClose: 
       mood,
       allergens: selectedAllergens,
       price,
-      ingredients: ingredients.filter(Boolean),
+      ingredients: ingredients.filter(ing => ing.name.trim()),
       time: time ? Number(time) : null,
       steps: steps.filter(Boolean),
     };
@@ -326,11 +350,14 @@ function EditRecipeForm({ recipe, onClose, onUpdated }: { recipe: any, onClose: 
       <div>
         <Label>Ingredients</Label>
         {ingredients.map((ing, idx) => (
-          <div key={idx} className="flex gap-2 mb-1">
-            <Input value={ing} onChange={e => handleIngredientChange(idx, e.target.value)} required className="flex-1" />
-            {ingredients.length > 1 && <Button type="button" variant="outline" size="icon" onClick={() => handleRemoveIngredient(idx)}>-</Button>}
-            {idx === ingredients.length - 1 && <Button type="button" variant="outline" size="icon" onClick={handleAddIngredient}>+</Button>}
-          </div>
+          <IngredientInput
+            key={idx}
+            ingredient={ing}
+            onChange={(ingredient) => handleIngredientChange(idx, ingredient)}
+            onRemove={() => handleRemoveIngredient(idx)}
+            showAddButton={idx === ingredients.length - 1}
+            onAdd={handleAddIngredient}
+          />
         ))}
       </div>
       <div>

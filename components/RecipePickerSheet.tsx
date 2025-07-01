@@ -46,7 +46,12 @@ export function RecipePickerSheet({
     return allRecipes.filter((recipe) => {
       const matchesSearch =
         recipe.name.toLowerCase().includes(search.toLowerCase()) ||
-        recipe.ingredients.some((ing: string) => ing.toLowerCase().includes(search.toLowerCase()));
+        recipe.ingredients.some((ing: any) => {
+          if (typeof ing === 'string') {
+            return ing.toLowerCase().includes(search.toLowerCase());
+          }
+          return ing.name.toLowerCase().includes(search.toLowerCase());
+        });
       const matchesCuisine = cuisines.length === 0 || cuisines.includes(recipe.cuisine);
       const matchesMood = moods.length === 0 || moods.includes(recipe.mood);
       const excludesAllergen = allergens.length === 0 || !recipe.allergens.some((allergen: string) => allergens.includes(allergen));
@@ -128,7 +133,22 @@ export function RecipePickerSheet({
                     <div className="text-xs text-muted-foreground mb-1">
                       {recipe.cuisine} &bull; {recipe.mood} &bull; {recipe.time} min
                     </div>
-                    <div className="text-xs">Ingredients: {recipe.ingredients.join(", ")}</div>
+                    <div className="text-xs">
+                      Ingredients: {recipe.ingredients.map((ingredient: any, idx: number) => {
+                        if (typeof ingredient === 'string') {
+                          return <span key={idx}>{ingredient}{idx < recipe.ingredients.length - 1 ? ', ' : ''}</span>;
+                        }
+                        if (ingredient.quantity) {
+                          return (
+                            <span key={idx}>
+                              {ingredient.quantity.amount} {ingredient.quantity.unit} {ingredient.name}
+                              {idx < recipe.ingredients.length - 1 ? ', ' : ''}
+                            </span>
+                          );
+                        }
+                        return <span key={idx}>{ingredient.name}{idx < recipe.ingredients.length - 1 ? ', ' : ''}</span>;
+                      })}
+                    </div>
                   </CardContent>
                 </Card>
               ))

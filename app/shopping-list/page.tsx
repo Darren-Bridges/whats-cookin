@@ -11,6 +11,7 @@ import { format, addDays } from "date-fns";
 import { ChevronLeft, ChevronRight, Trash2 } from "lucide-react";
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Skeleton } from '@/components/ui/skeleton';
+import { type IngredientQuantity } from "@/constants/units";
 
 export default function ShoppingListPage() {
   const [user, setUser] = useState<any>(null);
@@ -48,6 +49,9 @@ export default function ShoppingListPage() {
         .select("recipe_id")
         .eq("user_id", user.id)
         .in("date", weekDates);
+      
+
+      
       return data || [];
     },
     enabled: !!user,
@@ -182,32 +186,75 @@ export default function ShoppingListPage() {
     const ingredientsWithRecipes = recipeIds
       .map((id) => {
         const recipe = allRecipes.find((r: any) => String(r.id) === String(id));
-        return recipe ? recipe.ingredients.map((ingredient: string) => ({
-          ingredient,
+        return recipe ? recipe.ingredients.map((ingredient: any) => ({
+          ingredient: typeof ingredient === 'string' ? ingredient : ingredient.name,
+          quantity: typeof ingredient === 'string' ? null : ingredient.quantity,
           recipeName: recipe.name,
           recipeId: recipe.id
         })) : [];
       })
       .flat();
     
-    // Group by ingredient and collect recipe names
+    // Group by ingredient and collect recipe names and quantities
     const grouped = ingredientsWithRecipes.reduce((acc: any, item: any) => {
-      if (!acc[item.ingredient]) {
-        acc[item.ingredient] = {
+      const ingredientKey = item.ingredient;
+      if (!acc[ingredientKey]) {
+        acc[ingredientKey] = {
           ingredient: item.ingredient,
+          quantities: [],
           recipes: []
         };
       }
-      if (!acc[item.ingredient].recipes.find((r: any) => r.id === item.recipeId)) {
-        acc[item.ingredient].recipes.push({
+      
+      // Add quantity if it exists
+      if (item.quantity) {
+        acc[ingredientKey].quantities.push(item.quantity);
+      }
+      
+      // Add recipe if not already present
+      if (!acc[ingredientKey].recipes.find((r: any) => r.id === item.recipeId)) {
+        acc[ingredientKey].recipes.push({
           id: item.recipeId,
           name: item.recipeName
         });
       }
       return acc;
-    }, {} as { [key: string]: { ingredient: string; recipes: { id: string; name: string }[] } });
+    }, {} as { [key: string]: { 
+      ingredient: string; 
+      quantities: IngredientQuantity[]; 
+      recipes: { id: string; name: string }[] 
+    } });
     
-    return Object.values(grouped);
+    // Combine quantities for each ingredient
+    const result = Object.values(grouped).map((item: any) => {
+      if (item.quantities.length === 0) {
+        return item;
+      }
+      
+      // Group quantities by unit
+      const quantitiesByUnit = item.quantities.reduce((acc: any, qty: IngredientQuantity) => {
+        if (!acc[qty.unit]) {
+          acc[qty.unit] = [];
+        }
+        acc[qty.unit].push(qty.amount);
+        return acc;
+      }, {} as { [unit: string]: number[] });
+      
+      // Sum quantities for each unit
+      const combinedQuantities = Object.entries(quantitiesByUnit).map(([unit, amounts]) => ({
+        amount: (amounts as number[]).reduce((sum: number, amount: number) => sum + amount, 0),
+        unit: unit as any,
+        ingredient: item.ingredient
+      }));
+      
+      return {
+        ...item,
+        combinedQuantity: combinedQuantities.length === 1 ? combinedQuantities[0] : null,
+        allQuantities: combinedQuantities
+      };
+    });
+    
+    return result;
   }, [mealPlans, allRecipes]);
 
   // Helper function to format recipe names
@@ -301,7 +348,12 @@ export default function ShoppingListPage() {
           size="sm"
           onClick={() => {
             const items = [
-              ...autoItems.map((item: any) => `${item.ingredient}`),
+              ...autoItems.map((item: any) => {
+                if (item.combinedQuantity) {
+                  return `${item.combinedQuantity.amount} ${item.combinedQuantity.unit} ${item.ingredient}`;
+                }
+                return item.ingredient;
+              }),
               ...customItems.map((i: any) => i.item),
             ];
             const text = items.map((i) => `- ${i}`).join("\n");
@@ -315,7 +367,12 @@ export default function ShoppingListPage() {
           size="sm"
           onClick={() => {
             const items = [
-              ...autoItems.map((item: any) => `${item.ingredient}`),
+              ...autoItems.map((item: any) => {
+                if (item.combinedQuantity) {
+                  return `${item.combinedQuantity.amount} ${item.combinedQuantity.unit} ${item.ingredient}`;
+                }
+                return item.ingredient;
+              }),
               ...customItems.map((i: any) => i.item),
             ];
             const text = items.map((i) => `- [ ] ${i}`).join("\n");
@@ -355,7 +412,12 @@ export default function ShoppingListPage() {
                     id={`auto-${item.ingredient}`}
                   />
                   <label htmlFor={`auto-${item.ingredient}`} className="flex-1 cursor-pointer">
-                    <span className="font-medium">{item.ingredient}</span>
+                    <span className="font-medium">
+                      {item.combinedQuantity 
+                        ? `${item.combinedQuantity.amount} ${item.combinedQuantity.unit} ${item.ingredient}`
+                        : item.ingredient
+                      }
+                    </span>
                     <span className="text-sm text-muted-foreground ml-2">
                       {formatRecipeNames(item.recipes)}
                     </span>

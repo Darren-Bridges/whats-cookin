@@ -9,6 +9,8 @@ import { supabase } from "@/lib/supabaseClient";
 import { CUISINES } from "@/constants/cuisines";
 import { MOODS } from "@/constants/moods";
 import { ALLERGENS } from "@/constants/allergens";
+import { IngredientInput } from "@/components/IngredientInput";
+import { type Ingredient } from "@/constants/units";
 
 const moods = MOODS;
 const allergens = ALLERGENS;
@@ -22,7 +24,7 @@ export default function NewRecipePage() {
   const [mood, setMood] = useState("");
   const [selectedAllergens, setSelectedAllergens] = useState<string[]>([]);
   const [price, setPrice] = useState("");
-  const [ingredients, setIngredients] = useState<string[]>([""]);
+  const [ingredients, setIngredients] = useState<Ingredient[]>([{ name: "" }]);
   const [time, setTime] = useState("");
   const [steps, setSteps] = useState<string[]>([""]);
   const [loading, setLoading] = useState(false);
@@ -34,9 +36,9 @@ export default function NewRecipePage() {
     supabase.auth.getUser().then(({ data }) => setUser(data.user ?? null));
   });
 
-  const handleAddIngredient = () => setIngredients([...ingredients, ""]);
+  const handleAddIngredient = () => setIngredients([...ingredients, { name: "" }]);
   const handleRemoveIngredient = (idx: number) => setIngredients(ingredients.filter((_, i) => i !== idx));
-  const handleIngredientChange = (idx: number, value: string) => setIngredients(ingredients.map((ing, i) => i === idx ? value : ing));
+  const handleIngredientChange = (idx: number, ingredient: Ingredient) => setIngredients(ingredients.map((ing, i) => i === idx ? ingredient : ing));
 
   const handleAddStep = () => setSteps([...steps, ""]);
   const handleRemoveStep = (idx: number) => setSteps(steps.filter((_, i) => i !== idx));
@@ -61,7 +63,7 @@ export default function NewRecipePage() {
       mood,
       allergens: selectedAllergens,
       price,
-      ingredients: ingredients.filter(Boolean),
+      ingredients: ingredients.filter(ing => ing.name.trim()),
       time: time ? Number(time) : null,
       steps: steps.filter(Boolean),
     };
@@ -126,11 +128,14 @@ export default function NewRecipePage() {
           <div>
             <Label>Ingredients</Label>
             {ingredients.map((ing, idx) => (
-              <div key={idx} className="flex gap-2 mb-1">
-                <Input value={ing} onChange={e => handleIngredientChange(idx, e.target.value)} required className="flex-1" />
-                {ingredients.length > 1 && <Button type="button" variant="outline" size="icon" onClick={() => handleRemoveIngredient(idx)}>-</Button>}
-                {idx === ingredients.length - 1 && <Button type="button" variant="outline" size="icon" onClick={handleAddIngredient}>+</Button>}
-              </div>
+              <IngredientInput
+                key={idx}
+                ingredient={ing}
+                onChange={(ingredient) => handleIngredientChange(idx, ingredient)}
+                onRemove={() => handleRemoveIngredient(idx)}
+                showAddButton={idx === ingredients.length - 1}
+                onAdd={handleAddIngredient}
+              />
             ))}
           </div>
           <div>

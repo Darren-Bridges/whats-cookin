@@ -50,7 +50,15 @@ export function RecipeCard({
             <div className="text-sm text-muted-foreground mb-2">
               {recipe.cuisine} &bull; {recipe.mood} &bull; {recipe.time} min &bull; {recipe.price}
             </div>
-            <div className="text-sm mb-1">Ingredients: {recipe.ingredients.join(", ")}</div>
+            <div className="text-sm mb-1">
+              Ingredients: {recipe.ingredients.map((ing: any) => {
+                if (typeof ing === 'string') return ing;
+                if (ing.quantity) {
+                  return `${ing.quantity.amount} ${ing.quantity.unit} ${ing.name}`;
+                }
+                return ing.name;
+              }).join(", ")}
+            </div>
             {recipe.allergens.length > 0 && (
               <div className="text-xs text-destructive">Allergens: {recipe.allergens.join(", ")}</div>
             )}

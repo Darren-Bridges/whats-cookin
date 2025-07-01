@@ -6,7 +6,12 @@ export const sampleRecipes = [
     mood: "Adventurous",
     allergens: ["peanuts"],
     price: "$$",
-    ingredients: ["rice noodles", "peanuts", "chili", "soy sauce"],
+    ingredients: [
+      { name: "rice noodles", quantity: { amount: 200, unit: "g", ingredient: "rice noodles" } },
+      { name: "peanuts", quantity: { amount: 50, unit: "g", ingredient: "peanuts" } },
+      { name: "chili", quantity: { amount: 2, unit: "pieces", ingredient: "chili" } },
+      { name: "soy sauce", quantity: { amount: 60, unit: "ml", ingredient: "soy sauce" } }
+    ],
     time: 30,
     steps: [
       "Cook rice noodles according to package instructions.",
@@ -22,7 +27,12 @@ export const sampleRecipes = [
     mood: "Comfort",
     allergens: ["gluten", "dairy"],
     price: "$",
-    ingredients: ["flour", "tomato", "mozzarella", "basil"],
+    ingredients: [
+      { name: "flour", quantity: { amount: 300, unit: "g", ingredient: "flour" } },
+      { name: "tomato", quantity: { amount: 200, unit: "g", ingredient: "tomato" } },
+      { name: "mozzarella", quantity: { amount: 150, unit: "g", ingredient: "mozzarella" } },
+      { name: "basil", quantity: { amount: 10, unit: "g", ingredient: "basil" } }
+    ],
     time: 45,
     steps: [
       "Prepare pizza dough and let it rise.",
@@ -38,7 +48,12 @@ export const sampleRecipes = [
     mood: "Healthy",
     allergens: [],
     price: "$$",
-    ingredients: ["quinoa", "chickpeas", "avocado", "spinach"],
+    ingredients: [
+      { name: "quinoa", quantity: { amount: 100, unit: "g", ingredient: "quinoa" } },
+      { name: "chickpeas", quantity: { amount: 200, unit: "g", ingredient: "chickpeas" } },
+      { name: "avocado", quantity: { amount: 1, unit: "pieces", ingredient: "avocado" } },
+      { name: "spinach", quantity: { amount: 50, unit: "g", ingredient: "spinach" } }
+    ],
     time: 25,
     steps: [
       "Cook quinoa as per instructions.",
@@ -54,7 +69,12 @@ export const sampleRecipes = [
     mood: "Spicy",
     allergens: ["dairy"],
     price: "$$$",
-    ingredients: ["chicken", "yogurt", "spices", "tomato"],
+    ingredients: [
+      { name: "chicken", quantity: { amount: 500, unit: "g", ingredient: "chicken" } },
+      { name: "yogurt", quantity: { amount: 200, unit: "ml", ingredient: "yogurt" } },
+      { name: "spices", quantity: { amount: 2, unit: "tbsp", ingredient: "spices" } },
+      { name: "tomato", quantity: { amount: 400, unit: "g", ingredient: "tomato" } }
+    ],
     time: 50,
     steps: [
       "Marinate chicken in yogurt and spices.",
@@ -70,7 +90,12 @@ export const sampleRecipes = [
     mood: "Breakfast",
     allergens: ["eggs"],
     price: "$",
-    ingredients: ["gluten-free flour", "eggs", "milk", "baking powder"],
+    ingredients: [
+      { name: "gluten-free flour", quantity: { amount: 200, unit: "g", ingredient: "gluten-free flour" } },
+      { name: "eggs", quantity: { amount: 2, unit: "eggs", ingredient: "eggs" } },
+      { name: "milk", quantity: { amount: 300, unit: "ml", ingredient: "milk" } },
+      { name: "baking powder", quantity: { amount: 2, unit: "tsp", ingredient: "baking powder" } }
+    ],
     time: 20,
     steps: [
       "Mix all ingredients to form a batter.",
@@ -86,7 +111,16 @@ export const sampleRecipes = [
     mood: "Comfort",
     allergens: ["gluten", "dairy"],
     price: "$$",
-    ingredients: ["spaghetti", "ground beef", "tomato sauce", "onion", "garlic", "carrot", "mixed herbs", "parmesan"],
+    ingredients: [
+      { name: "spaghetti", quantity: { amount: 400, unit: "g", ingredient: "spaghetti" } },
+      { name: "ground beef", quantity: { amount: 500, unit: "g", ingredient: "ground beef" } },
+      { name: "tomato sauce", quantity: { amount: 400, unit: "ml", ingredient: "tomato sauce" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "garlic", quantity: { amount: 3, unit: "cloves", ingredient: "garlic" } },
+      { name: "carrot", quantity: { amount: 2, unit: "pieces", ingredient: "carrot" } },
+      { name: "mixed herbs", quantity: { amount: 2, unit: "tsp", ingredient: "mixed herbs" } },
+      { name: "parmesan", quantity: { amount: 50, unit: "g", ingredient: "parmesan" } }
+    ],
     time: 45,
     steps: [
       "Cook spaghetti according to package instructions.",
