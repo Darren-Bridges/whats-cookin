@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { supabase } from "@/lib/supabaseClient";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { Menu, Settings, Home, Calendar, ShoppingCart, Heart as HeartIcon } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -91,10 +91,20 @@ export default function Header() {
             <Button variant="ghost" className="text-base font-normal">My Favorites</Button>
           </Link>
           {user ? (
-            <>
-              <span className="text-sm font-medium truncate max-w-[150px]">{user.user_metadata?.full_name || user.user_metadata?.name || user.email}</span>
-              <Button variant="outline" onClick={handleLogout}>Logout</Button>
-            </>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon" aria-label="Settings">
+                  <Settings className="w-5 h-5" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56">
+                <div className="px-3 py-2 text-xs text-muted-foreground">Signed in as</div>
+                <div className="px-3 pb-2 text-sm font-medium truncate">{user.email}</div>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={handleLogout} className="text-destructive cursor-pointer">Logout</DropdownMenuItem>
+                {/* Future: <DropdownMenuItem>Profile</DropdownMenuItem> */}
+              </DropdownMenuContent>
+            </DropdownMenu>
           ) : (
             <Dialog open={authOpen} onOpenChange={setAuthOpen}>
               <DialogTrigger asChild>
@@ -160,25 +170,35 @@ export default function Header() {
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="p-0 w-64">
-              <div className="flex flex-col gap-2 p-4">
+            <SheetContent side="left" className="p-0 w-64 flex flex-col h-full">
+              <div className="flex flex-col gap-2 p-4 flex-1 overflow-y-auto">
                 <span className="text-2xl font-bold tracking-tight mb-2">What&apos;s Cookin</span>
                 <Link href="/" onClick={() => setMobileMenuOpen(false)}>
-                  <Button variant="ghost" className="w-full justify-start text-base font-normal">Recipes</Button>
+                  <Button variant="ghost" className="w-full justify-start text-base font-normal flex items-center gap-2">
+                    <Home className="w-5 h-5" /> Recipes
+                  </Button>
                 </Link>
                 <Link href="/meal-plan" onClick={() => setMobileMenuOpen(false)}>
-                  <Button variant="ghost" className="w-full justify-start text-base font-normal">Meal Plan</Button>
+                  <Button variant="ghost" className="w-full justify-start text-base font-normal flex items-center gap-2">
+                    <Calendar className="w-5 h-5" /> Meal Plan
+                  </Button>
                 </Link>
                 <Link href="/shopping-list" onClick={() => setMobileMenuOpen(false)}>
-                  <Button variant="ghost" className="w-full justify-start text-base font-normal">Shopping List</Button>
+                  <Button variant="ghost" className="w-full justify-start text-base font-normal flex items-center gap-2">
+                    <ShoppingCart className="w-5 h-5" /> Shopping List
+                  </Button>
                 </Link>
                 <Link href="/favorites" onClick={() => setMobileMenuOpen(false)}>
-                  <Button variant="ghost" className="w-full justify-start text-base font-normal">My Favorites</Button>
+                  <Button variant="ghost" className="w-full justify-start text-base font-normal flex items-center gap-2">
+                    <HeartIcon className="w-5 h-5" /> My Favorites
+                  </Button>
                 </Link>
                 <div className="border-t my-2" />
+              </div>
+              <div className="p-4 border-t">
                 {user ? (
                   <>
-                    <span className="text-sm font-medium truncate max-w-[180px] mb-2">{user.user_metadata?.full_name || user.user_metadata?.name || user.email}</span>
+                    <span className="block text-sm font-medium truncate max-w-[180px] mb-2">{user.user_metadata?.full_name || user.user_metadata?.name || user.email}</span>
                     <Button variant="outline" onClick={async () => { await handleLogout(); setMobileMenuOpen(false); }} className="w-full">Logout</Button>
                   </>
                 ) : (
