@@ -13,6 +13,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { DndContext, closestCenter, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { useDroppable, useDraggable } from '@dnd-kit/core';
 import { Tooltip } from "@/components/ui/tooltip";
+import { RecipePickerSheet } from "@/components/RecipePickerSheet";
 
 const mealTypes = ["breakfast", "lunch", "dinner", "snack"];
 
@@ -88,9 +89,9 @@ function DroppableMealSlot({ dateStr, mealType, children, isOver, isPast }: { da
   );
 }
 
-function PlaceholderCard({ mealType }: { mealType: string }) {
+function PlaceholderCard({ mealType, onClick }: { mealType: string, onClick?: () => void }) {
   return (
-    <Card className="mb-3 border-dashed border-2 border-muted-foreground/40 bg-muted/30">
+    <Card className="mb-3 border-dashed border-2 border-muted-foreground/40 bg-muted/30 cursor-pointer" onClick={onClick}>
       <CardContent className="p-4 flex flex-col items-center justify-center gap-2 text-muted-foreground">
         <PlusCircle className="w-8 h-8 opacity-30 mb-1" />
         <div className="text-sm font-medium capitalize">{mealType}</div>
@@ -121,6 +122,8 @@ export default function MealPlanPage() {
   const [overId, setOverId] = useState<string | null>(null);
   const today = new Date();
   today.setHours(0, 0, 0, 0);
+  const [pickerOpen, setPickerOpen] = useState(false);
+  const [pickerSlot, setPickerSlot] = useState<{ date: string, mealType: string } | null>(null);
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => {
       setUser(data.user ?? null);
@@ -203,6 +206,31 @@ export default function MealPlanPage() {
     // if (targetDate < today) return;
     updateMeal.mutate({ id: meal.id, date, meal_type });
   }
+  async function handleAddMealPlan(recipe: any, date: string, mealType: string) {
+    if (!user) return;
+    await supabase.from("meal_plans").insert({
+      user_id: user.id,
+      recipe_id: recipe.id,
+      date,
+      meal_type: mealType,
+    });
+    queryClient.invalidateQueries({ queryKey: ["mealPlans", user?.id, weekStart.toISOString()] });
+    setPickerOpen(false);
+    setPickerSlot(null);
+  }
+  // Fetch favorites with TanStack Query (for favorites filter in RecipePickerSheet)
+  const { data: favorites = [] } = useQuery({
+    queryKey: ["favorites", user?.id],
+    queryFn: async () => {
+      if (!user) return [];
+      const { data } = await supabase
+        .from("favorites")
+        .select("recipe_id")
+        .eq("user_id", user.id);
+      return data ? data.map((f: any) => f.recipe_id) : [];
+    },
+    enabled: !!user,
+  });
   if (userLoading) {
     // Show skeleton UI (same as loadingMealPlans)
     return (
@@ -258,64 +286,84 @@ export default function MealPlanPage() {
           ))}
         </div>
       ) : (
-        <DndContext
-          sensors={sensors}
-          collisionDetection={closestCenter}
-          onDragStart={handleDragStart}
-          onDragOver={handleDragOver}
-          onDragEnd={handleDragEnd}
-        >
-          <div className="w-full max-w-4xl">
-            {/* Header row for meal types (hide on mobile) */}
-            <div className="hidden sm:grid grid-cols-5 gap-2 mb-2 px-2">
-              <div className="font-semibold text-sm text-muted-foreground">Date</div>
-              {mealTypes.map((type) => (
-                <div key={type} className="font-semibold text-sm text-muted-foreground capitalize text-center">{type}</div>
-              ))}
-            </div>
-            <div className="space-y-4">
-              {weekDates.map((date) => {
-                const dateStr = format(date, "yyyy-MM-dd");
-                const isPast = date < today;
-                const mealsForDate = mealPlans.filter((m) => m.date === dateStr);
-                return (
-                  <div key={dateStr} className={`border-b pb-2 px-2`}> 
-                    {/* Date label (always visible, styled for mobile/desktop) */}
-                    <div className="flex items-center min-h-[32px] gap-2 mb-2">
-                      <div className="text-base font-medium sm:min-w-[110px] pr-2">{format(date, "EEE, MMM d")}</div>
-                      {isPast && <span className="text-xs bg-muted px-2 py-0.5 rounded w-fit mt-1">Past</span>}
+        <>
+          <DndContext
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            onDragStart={handleDragStart}
+            onDragOver={handleDragOver}
+            onDragEnd={handleDragEnd}
+          >
+            <div className="w-full max-w-4xl">
+              {/* Header row for meal types (hide on mobile) */}
+              <div className="hidden sm:grid grid-cols-5 gap-2 mb-2 px-2">
+                <div className="font-semibold text-sm text-muted-foreground">Date</div>
+                {mealTypes.map((type) => (
+                  <div key={type} className="font-semibold text-sm text-muted-foreground capitalize text-center">{type}</div>
+                ))}
+              </div>
+              <div className="space-y-4">
+                {weekDates.map((date) => {
+                  const dateStr = format(date, "yyyy-MM-dd");
+                  const isPast = date < today;
+                  const mealsForDate = mealPlans.filter((m) => m.date === dateStr);
+                  return (
+                    <div key={dateStr} className={`border-b pb-2 px-2`}> 
+                      {/* Date label (always visible, styled for mobile/desktop) */}
+                      <div className="flex items-center min-h-[32px] gap-2 mb-2">
+                        <div className="text-base font-medium sm:min-w-[110px] pr-2">{format(date, "EEE, MMM d")}</div>
+                        {isPast && <span className="text-xs bg-muted px-2 py-0.5 rounded w-fit mt-1">Past</span>}
+                      </div>
+                      {/* Meal slots: grid on desktop, stacked on mobile */}
+                      <div className="grid sm:grid-cols-4 grid-cols-1 gap-2">
+                        {mealTypes.map((type) => {
+                          const meal = mealsForDate.find((m) => m.meal_type === type);
+                          const droppableId = `${dateStr}_${type}`;
+                          const isOver = overId === droppableId;
+                          return (
+                            <div key={droppableId} className="flex flex-col">
+                              {/* Show meal type label above each slot on mobile only */}
+                              <div className="sm:hidden text-xs font-semibold text-muted-foreground capitalize mb-1 ml-1">{type}</div>
+                              <DroppableMealSlot dateStr={dateStr} mealType={type} isOver={isOver} isPast={isPast}>
+                                {meal ? (
+                                  (() => {
+                                    const recipe = allRecipes.find((r) => r.id.toString() === meal.recipe_id?.toString());
+                                    if (!recipe) return null;
+                                    return <DraggableMealCard meal={meal} recipe={recipe} disabled={isPast} handleRemoveMeal={handleRemoveMeal} />;
+                                  })()
+                                ) : (
+                                  <PlaceholderCard mealType={type} onClick={() => {
+                                    setPickerSlot({ date: dateStr, mealType: type });
+                                    setPickerOpen(true);
+                                  }} />
+                                )}
+                              </DroppableMealSlot>
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
-                    {/* Meal slots: grid on desktop, stacked on mobile */}
-                    <div className="grid sm:grid-cols-4 grid-cols-1 gap-2">
-                      {mealTypes.map((type) => {
-                        const meal = mealsForDate.find((m) => m.meal_type === type);
-                        const droppableId = `${dateStr}_${type}`;
-                        const isOver = overId === droppableId;
-                        return (
-                          <div key={droppableId} className="flex flex-col">
-                            {/* Show meal type label above each slot on mobile only */}
-                            <div className="sm:hidden text-xs font-semibold text-muted-foreground capitalize mb-1 ml-1">{type}</div>
-                            <DroppableMealSlot dateStr={dateStr} mealType={type} isOver={isOver} isPast={isPast}>
-                              {meal ? (
-                                (() => {
-                                  const recipe = allRecipes.find((r) => r.id.toString() === meal.recipe_id?.toString());
-                                  if (!recipe) return null;
-                                  return <DraggableMealCard meal={meal} recipe={recipe} disabled={isPast} handleRemoveMeal={handleRemoveMeal} />;
-                                })()
-                              ) : (
-                                <PlaceholderCard mealType={type} />
-                              )}
-                            </DroppableMealSlot>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        </DndContext>
+          </DndContext>
+          {/* Recipe Picker Sheet */}
+          <RecipePickerSheet
+            open={pickerOpen}
+            onOpenChange={(open) => {
+              setPickerOpen(open);
+              if (!open) setPickerSlot(null);
+            }}
+            allRecipes={allRecipes}
+            favorites={favorites}
+            date={pickerSlot?.date || ""}
+            mealType={pickerSlot?.mealType || ""}
+            onAdd={(recipe) => {
+              if (pickerSlot) handleAddMealPlan(recipe, pickerSlot.date, pickerSlot.mealType);
+            }}
+          />
+        </>
       )}
     </main>
   );
