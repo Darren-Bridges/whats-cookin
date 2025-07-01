@@ -22,9 +22,10 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 import { AddRecipeDialog } from "@/components/AddRecipeDialog";
 import { CUISINES } from "@/constants/cuisines";
 import { MOODS } from "@/constants/moods";
+import { ALLERGENS } from "@/constants/allergens";
 
 const moods = ["All", ...MOODS];
-const allergens = ["peanuts", "gluten", "dairy", "eggs"];
+const allergens = ["none", ...ALLERGENS];
 
 export default function Home() {
   const [search, setSearch] = useState("");

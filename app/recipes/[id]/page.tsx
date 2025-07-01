@@ -20,6 +20,7 @@ import { AuthDialog, AuthDialogHandle } from "@/components/AuthDialog";
 import { Label } from "@/components/ui/label";
 import { CUISINES } from "@/constants/cuisines";
 import { MOODS } from "@/constants/moods";
+import { ALLERGENS } from "@/constants/allergens";
 
 export default function RecipeDetails() {
   const params = useParams();
@@ -315,7 +316,7 @@ function EditRecipeForm({ recipe, onClose, onUpdated }: { recipe: any, onClose: 
       <div>
         <Label>Allergens</Label>
         <div className="flex flex-wrap gap-2 mt-1">
-          {["peanuts", "gluten", "dairy", "eggs", "soy"].map(a => (
+          {ALLERGENS.map(a => (
             <Button key={a} type="button" variant={selectedAllergens.includes(a) ? "default" : "outline"} size="sm" onClick={() => handleAllergenToggle(a)}>
               {a}
             </Button>

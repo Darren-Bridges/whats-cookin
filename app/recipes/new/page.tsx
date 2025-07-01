@@ -8,9 +8,10 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@
 import { supabase } from "@/lib/supabaseClient";
 import { CUISINES } from "@/constants/cuisines";
 import { MOODS } from "@/constants/moods";
+import { ALLERGENS } from "@/constants/allergens";
 
 const moods = MOODS;
-const allergens = ["peanuts", "gluten", "dairy", "eggs", "soy"];
+const allergens = ALLERGENS;
 const prices = ["$", "$$", "$$$"];
 
 export default function NewRecipePage() {

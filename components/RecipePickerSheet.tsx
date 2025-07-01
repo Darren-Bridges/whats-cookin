@@ -9,9 +9,10 @@ import { Toggle } from "@/components/ui/toggle";
 import { Heart } from "lucide-react";
 import { CUISINES } from "@/constants/cuisines";
 import { MOODS } from "@/constants/moods";
+import { ALLERGENS } from "@/constants/allergens";
 
 const moods = ["All", ...MOODS];
-const allergens = ["peanuts", "gluten", "dairy", "eggs", "soy"];
+const allergens = ["none", ...ALLERGENS];
 
 export interface RecipePickerSheetProps {
   open: boolean;
