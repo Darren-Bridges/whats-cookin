@@ -92,7 +92,6 @@ export default function Home() {
   const [mealPlanSuccess, setMealPlanSuccess] = useState("");
   const mealTypes = ["breakfast", "lunch", "dinner", "snack"];
   const [mealPlanOpenId, setMealPlanOpenId] = useState<string | number | null>(null);
-  const [showBottomSearch, setShowBottomSearch] = useState(false);
 
   // Fetch favorites with TanStack Query
   const queryClient = useQueryClient();
@@ -109,39 +108,20 @@ export default function Home() {
     enabled: !!user,
   });
 
-  // Fetch user recipes with TanStack Query
-  const { data: userRecipes = [], isLoading: loadingUserRecipes } = useQuery({
+  // Fetch user recipes from Supabase
+  const { data: userRecipes = [], isLoading: loadingUserRecipes, refetch: refetchUserRecipes } = useQuery({
     queryKey: ["userRecipes", user?.id],
     queryFn: async () => {
       if (!user) return [];
       const { data } = await supabase
         .from("recipes")
         .select("*")
-        .eq("user_id", user.id);
+        .eq("user_id", user.id)
+        .order("created_at", { ascending: false });
       return data || [];
     },
     enabled: !!user,
   });
-
-  // Handle scroll to show/hide bottom search
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      
-      // Show bottom search when user has scrolled down significantly
-      // and there's still content below
-      if (scrollY > 200 && scrollY + windowHeight < documentHeight - 100) {
-        setShowBottomSearch(true);
-      } else {
-        setShowBottomSearch(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Mutations for add/remove favorite
   const toggleFavorite = useMutation({
@@ -258,236 +238,145 @@ export default function Home() {
   });
 
   return (
-    <>
-      {/* Top Search and Filters - Always visible */}
-      <div className="w-full px-2 sm:px-4 py-4">
-        <Card className="w-full max-w-4xl mx-auto p-6 rounded-xl shadow space-y-4">
-          <CardContent className="p-0">
-            <div className="flex flex-col gap-2">
-              {/* Search bar on one line */}
-              <Input
-                id="search"
-                type="text"
-                placeholder="Search recipes or ingredients..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="mt-1"
-              />
-              {/* Accordion trigger and Add Recipe button on one line */}
-              <div className="flex flex-col sm:flex-row gap-2 items-stretch justify-between">
-                <Accordion type="single" collapsible className="flex-1">
-                  <AccordionItem value="filters">
-                    <AccordionTrigger className="text-base font-medium flex flex-row items-center gap-2 [&>svg]:hidden">
-                      + Add filters
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div className="flex flex-col gap-4 mt-2">
-                        <div className="flex flex-col md:flex-row gap-4">
-                          <div>
-                            <Label htmlFor="cuisine">Cuisine</Label>
-                            <MultiSelect
-                              options={cuisineOptions}
-                              selected={cuisines}
-                              onChange={setCuisines}
-                              placeholder="Select cuisines..."
-                              className="mt-1"
-                            />
-                          </div>
-                          <div>
-                            <Label htmlFor="mood">Mood</Label>
-                            <MultiSelect
-                              options={moodOptions}
-                              selected={moods}
-                              onChange={setMoods}
-                              placeholder="Select moods..."
-                              className="mt-1"
-                            />
-                          </div>
-                          <div>
-                            <Label htmlFor="allergen">Allergens (exclude)</Label>
-                            <MultiSelect
-                              options={allergenOptions}
-                              selected={allergens}
-                              onChange={setAllergens}
-                              placeholder="Select allergens to exclude..."
-                              className="mt-1"
-                            />
-                          </div>
+    <main className="flex min-h-screen flex-col items-center px-2 sm:px-4 bg-background text-foreground pt-2 w-full">
+      {/* Search and Filters */}
+      <Card className="w-full max-w-4xl p-6 rounded-xl shadow space-y-4 mb-8 mt-8">
+        <CardContent className="p-0">
+          <div className="flex flex-col gap-2">
+            {/* Search bar on one line */}
+            <Input
+              id="search"
+              type="text"
+              placeholder="Search recipes or ingredients..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="mt-1"
+            />
+            {/* Accordion trigger and Add Recipe button on one line */}
+            <div className="flex flex-col sm:flex-row gap-2 items-stretch justify-between">
+              <Accordion type="single" collapsible className="flex-1">
+                <AccordionItem value="filters">
+                  <AccordionTrigger className="text-base font-medium flex flex-row items-center gap-2 [&>svg]:hidden">
+                    + Add filters
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className="flex flex-col gap-4 mt-2">
+                      <div className="flex flex-col md:flex-row gap-4">
+                        <div>
+                          <Label htmlFor="cuisine">Cuisine</Label>
+                          <MultiSelect
+                            options={cuisineOptions}
+                            selected={cuisines}
+                            onChange={setCuisines}
+                            placeholder="Select cuisines..."
+                            className="mt-1"
+                          />
                         </div>
                         <div>
-                          <Label htmlFor="ingredients">Ingredients I Have</Label>
+                          <Label htmlFor="mood">Mood</Label>
                           <MultiSelect
-                            options={ingredientOptions}
-                            selected={availableIngredients}
-                            onChange={setAvailableIngredients}
-                            placeholder="Select ingredients you have..."
+                            options={moodOptions}
+                            selected={moods}
+                            onChange={setMoods}
+                            placeholder="Select moods..."
+                            className="mt-1"
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="allergen">Allergens (exclude)</Label>
+                          <MultiSelect
+                            options={allergenOptions}
+                            selected={allergens}
+                            onChange={setAllergens}
+                            placeholder="Select allergens to exclude..."
                             className="mt-1"
                           />
                         </div>
                       </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-                {user && (
-                  <div className="flex items-center sm:mt-0 mt-1">
-                    <Link href="/recipes/new">
-                      <Button variant="default">Add Recipe</Button>
-                    </Link>
-                  </div>
-                )}
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      <main className="flex min-h-screen flex-col items-center px-2 sm:px-4 bg-background text-foreground pt-4 w-full">
-        {/* Favorites Toggle */}
-        {user && (
-          <div className="w-full max-w-6xl flex justify-end mb-4 pr-2">
-            <Toggle
-              pressed={showFavorites}
-              onPressedChange={setShowFavorites}
-              aria-label="Show Favorites"
-            >
-              <Heart className={showFavorites ? "fill-primary text-primary" : "text-muted-foreground"} />
-              <span className="ml-2">Favorites</span>
-            </Toggle>
-          </div>
-        )}
-        {/* Recipe List */}
-        {loadingFavorites || loadingUserRecipes ? (
-          <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-1 pb-8">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <Card key={i} className="h-full flex flex-col">
-                <CardContent className="flex-1 flex flex-col gap-2">
-                  <Skeleton className="h-8 w-2/3 mb-2" />
-                  <Skeleton className="h-4 w-1/2 mb-2" />
-                  <Skeleton className="h-4 w-full mb-1" />
-                  <Skeleton className="h-4 w-1/3 mb-1" />
-                  <div className="flex gap-2 mt-2">
-                    <Skeleton className="h-8 w-8 rounded-full" />
-                    <Skeleton className="h-8 w-8 rounded-full" />
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        ) : filteredRecipes.length === 0 ? (
-          <div className="text-center text-muted-foreground col-span-full">No recipes found.</div>
-        ) : (
-          <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-1 pb-8">
-            {filteredRecipes.map((recipe) => {
-              const isFavorite = favorites.some((id: string | number) => String(id) === String(recipe.id));
-              const mealPlanOpen = mealPlanOpenId === recipe.id;
-              return (
-                <RecipeCard
-                  key={recipe.id}
-                  recipe={recipe}
-                  user={user}
-                  isFavorite={isFavorite}
-                  onToggleFavorite={() => handleToggleFavorite(recipe.id)}
-                  mealPlanOpen={mealPlanOpen}
-                  setMealPlanOpen={(open) => setMealPlanOpenId(open ? recipe.id : null)}
-                  mealPlanDialog={
-                    <AddToMealPlanDialog
-                      recipeId={recipe.id}
-                      open={mealPlanOpen}
-                      setOpen={(open) => setMealPlanOpenId(open ? recipe.id : null)}
-                    />
-                  }
-                />
-              );
-            })}
-          </div>
-        )}
-      </main>
-
-      {/* Bottom Search and Filters - Appears when scrolling */}
-      {showBottomSearch && (
-        <div className="fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-t shadow-lg">
-          <div className="w-full px-2 sm:px-4 py-4">
-            <Card className="w-full max-w-4xl mx-auto p-4 rounded-xl shadow space-y-3">
-              <CardContent className="p-0">
-                <div className="flex flex-col gap-2">
-                  {/* Compact search bar */}
-                  <Input
-                    id="bottom-search"
-                    type="text"
-                    placeholder="Search recipes or ingredients..."
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    className="mt-1"
-                  />
-                  {/* Compact filters */}
-                  <div className="flex flex-col sm:flex-row gap-2 items-stretch justify-between">
-                    <Accordion type="single" collapsible className="flex-1">
-                      <AccordionItem value="bottom-filters">
-                        <AccordionTrigger className="text-sm font-medium flex flex-row items-center gap-2 [&>svg]:hidden">
-                          + Filters
-                        </AccordionTrigger>
-                        <AccordionContent>
-                          <div className="flex flex-col gap-3 mt-2">
-                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                              <div>
-                                <Label htmlFor="bottom-cuisine" className="text-sm">Cuisine</Label>
-                                <MultiSelect
-                                  options={cuisineOptions}
-                                  selected={cuisines}
-                                  onChange={setCuisines}
-                                  placeholder="Cuisines..."
-                                  className="mt-1"
-                                />
-                              </div>
-                              <div>
-                                <Label htmlFor="bottom-mood" className="text-sm">Mood</Label>
-                                <MultiSelect
-                                  options={moodOptions}
-                                  selected={moods}
-                                  onChange={setMoods}
-                                  placeholder="Moods..."
-                                  className="mt-1"
-                                />
-                              </div>
-                              <div>
-                                <Label htmlFor="bottom-allergen" className="text-sm">Allergens</Label>
-                                <MultiSelect
-                                  options={allergenOptions}
-                                  selected={allergens}
-                                  onChange={setAllergens}
-                                  placeholder="Exclude..."
-                                  className="mt-1"
-                                />
-                              </div>
-                            </div>
-                            <div>
-                              <Label htmlFor="bottom-ingredients" className="text-sm">Ingredients I Have</Label>
-                              <MultiSelect
-                                options={ingredientOptions}
-                                selected={availableIngredients}
-                                onChange={setAvailableIngredients}
-                                placeholder="Available..."
-                                className="mt-1"
-                              />
-                            </div>
-                          </div>
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
-                    {user && (
-                      <div className="flex items-center sm:mt-0 mt-1">
-                        <Link href="/recipes/new">
-                          <Button variant="default" size="sm">Add Recipe</Button>
-                        </Link>
+                      <div>
+                        <Label htmlFor="ingredients">Ingredients I Have</Label>
+                        <MultiSelect
+                          options={ingredientOptions}
+                          selected={availableIngredients}
+                          onChange={setAvailableIngredients}
+                          placeholder="Select ingredients you have..."
+                          className="mt-1"
+                        />
                       </div>
-                    )}
-                  </div>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+              {user && (
+                <div className="flex items-center sm:mt-0 mt-1">
+                  <Link href="/recipes/new">
+                    <Button variant="default">Add Recipe</Button>
+                  </Link>
+                </div>
+              )}
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+      {/* Favorites Toggle */}
+      {user && (
+        <div className="w-full max-w-6xl flex justify-end mb-4 pr-2">
+          <Toggle
+            pressed={showFavorites}
+            onPressedChange={setShowFavorites}
+            aria-label="Show Favorites"
+          >
+            <Heart className={showFavorites ? "fill-primary text-primary" : "text-muted-foreground"} />
+            <span className="ml-2">Favorites</span>
+          </Toggle>
+        </div>
+      )}
+      {/* Recipe List */}
+      {loadingFavorites || loadingUserRecipes ? (
+        <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-1 pb-8">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <Card key={i} className="h-full flex flex-col">
+              <CardContent className="flex-1 flex flex-col gap-2">
+                <Skeleton className="h-8 w-2/3 mb-2" />
+                <Skeleton className="h-4 w-1/2 mb-2" />
+                <Skeleton className="h-4 w-full mb-1" />
+                <Skeleton className="h-4 w-1/3 mb-1" />
+                <div className="flex gap-2 mt-2">
+                  <Skeleton className="h-8 w-8 rounded-full" />
+                  <Skeleton className="h-8 w-8 rounded-full" />
                 </div>
               </CardContent>
             </Card>
-          </div>
+          ))}
+        </div>
+      ) : filteredRecipes.length === 0 ? (
+        <div className="text-center text-muted-foreground col-span-full">No recipes found.</div>
+      ) : (
+        <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-1 pb-8">
+          {filteredRecipes.map((recipe) => {
+            const isFavorite = favorites.some((id: string | number) => String(id) === String(recipe.id));
+            const mealPlanOpen = mealPlanOpenId === recipe.id;
+            return (
+              <RecipeCard
+                key={recipe.id}
+                recipe={recipe}
+                user={user}
+                isFavorite={isFavorite}
+                onToggleFavorite={() => handleToggleFavorite(recipe.id)}
+                mealPlanOpen={mealPlanOpen}
+                setMealPlanOpen={(open) => setMealPlanOpenId(open ? recipe.id : null)}
+                mealPlanDialog={
+                  <AddToMealPlanDialog
+                    recipeId={recipe.id}
+                    open={mealPlanOpen}
+                    setOpen={(open) => setMealPlanOpenId(open ? recipe.id : null)}
+                  />
+                }
+              />
+            );
+          })}
         </div>
       )}
-    </>
+    </main>
   );
 }
