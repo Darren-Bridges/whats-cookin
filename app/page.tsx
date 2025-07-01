@@ -29,11 +29,53 @@ const moodOptions: MultiSelectOption[] = MOODS.map(mood => ({ value: mood, label
 const allergenOptions: MultiSelectOption[] = ALLERGENS.map(allergen => ({ value: allergen, label: allergen }));
 const cuisineOptions: MultiSelectOption[] = CUISINES.map(cuisine => ({ value: cuisine, label: cuisine }));
 
+// Get all unique ingredients from sample recipes for the available ingredients filter
+const getAllIngredients = () => {
+  const ingredientSet = new Set<string>();
+  
+  sampleRecipes.forEach(recipe => {
+    recipe.ingredients.forEach((ingredient: any) => {
+      if (typeof ingredient === 'string') {
+        ingredientSet.add(ingredient.toLowerCase());
+      } else if (ingredient.name) {
+        ingredientSet.add(ingredient.name.toLowerCase());
+      }
+    });
+  });
+  
+  // Create a more user-friendly list by consolidating similar ingredients
+  const consolidatedIngredients = new Map<string, string>();
+  
+  Array.from(ingredientSet).sort().forEach(ingredient => {
+    // Create a base ingredient name for matching
+    const baseName = ingredient.split(' ')[0]; // e.g., "onion" from "red onion"
+    
+    if (!consolidatedIngredients.has(baseName)) {
+      // Use the shortest version as the base
+      consolidatedIngredients.set(baseName, ingredient);
+    } else {
+      // If we already have a base, keep the shorter one
+      const existing = consolidatedIngredients.get(baseName)!;
+      if (ingredient.length < existing.length) {
+        consolidatedIngredients.set(baseName, ingredient);
+      }
+    }
+  });
+  
+  return Array.from(consolidatedIngredients.values()).map(ingredient => ({
+    value: ingredient,
+    label: ingredient.charAt(0).toUpperCase() + ingredient.slice(1)
+  }));
+};
+
+const ingredientOptions: MultiSelectOption[] = getAllIngredients();
+
 export default function Home() {
   const [search, setSearch] = useState("");
   const [cuisines, setCuisines] = useState<string[]>([]);
   const [moods, setMoods] = useState<string[]>([]);
   const [allergens, setAllergens] = useState<string[]>([]);
+  const [availableIngredients, setAvailableIngredients] = useState<string[]>([]);
   const [authOpen, setAuthOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -165,13 +207,34 @@ export default function Home() {
   const filteredRecipes = allRecipes.filter((recipe) => {
     const matchesSearch =
       recipe.name.toLowerCase().includes(search.toLowerCase()) ||
-      recipe.ingredients.some((ing: string) => ing.toLowerCase().includes(search.toLowerCase()));
+      recipe.ingredients.some((ing: any) => {
+        if (typeof ing === 'string') {
+          return ing.toLowerCase().includes(search.toLowerCase());
+        }
+        return ing.name.toLowerCase().includes(search.toLowerCase());
+      });
     const matchesCuisine = cuisines.length === 0 || cuisines.includes(recipe.cuisine);
     const matchesMood = moods.length === 0 || moods.includes(recipe.mood);
     const excludesAllergen = allergens.length === 0 || !recipe.allergens.some((allergen: string) => allergens.includes(allergen));
+    
+    // Check if recipe contains all selected available ingredients
+    const canMakeWithAvailableIngredients = availableIngredients.length === 0 ||
+      availableIngredients.every((available) => {
+        const availableLower = available.toLowerCase();
+        return recipe.ingredients.some((ingredient: any) => {
+          const ingredientName = typeof ingredient === 'string' ? ingredient.toLowerCase() : ingredient.name.toLowerCase();
+          return (
+            ingredientName.includes(availableLower) ||
+            availableLower.includes(ingredientName) ||
+            ingredientName.split(' ').some((word: string) => word === availableLower) ||
+            availableLower.split(' ').some((word: string) => word === ingredientName)
+          );
+        });
+      });
+    
     const isFavorite = favorites.some((id: string | number) => String(id) === String(recipe.id));
     if (showFavorites && user) return isFavorite;
-    return matchesSearch && matchesCuisine && matchesMood && excludesAllergen;
+    return matchesSearch && matchesCuisine && matchesMood && excludesAllergen && canMakeWithAvailableIngredients;
   });
 
   return (
@@ -197,34 +260,46 @@ export default function Home() {
                     + Add filters
                   </AccordionTrigger>
                   <AccordionContent>
-                    <div className="flex flex-col md:flex-row gap-4 mt-2">
-                      <div>
-                        <Label htmlFor="cuisine">Cuisine</Label>
-                        <MultiSelect
-                          options={cuisineOptions}
-                          selected={cuisines}
-                          onChange={setCuisines}
-                          placeholder="Select cuisines..."
-                          className="mt-1"
-                        />
+                    <div className="flex flex-col gap-4 mt-2">
+                      <div className="flex flex-col md:flex-row gap-4">
+                        <div>
+                          <Label htmlFor="cuisine">Cuisine</Label>
+                          <MultiSelect
+                            options={cuisineOptions}
+                            selected={cuisines}
+                            onChange={setCuisines}
+                            placeholder="Select cuisines..."
+                            className="mt-1"
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="mood">Mood</Label>
+                          <MultiSelect
+                            options={moodOptions}
+                            selected={moods}
+                            onChange={setMoods}
+                            placeholder="Select moods..."
+                            className="mt-1"
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="allergen">Allergens (exclude)</Label>
+                          <MultiSelect
+                            options={allergenOptions}
+                            selected={allergens}
+                            onChange={setAllergens}
+                            placeholder="Select allergens to exclude..."
+                            className="mt-1"
+                          />
+                        </div>
                       </div>
                       <div>
-                        <Label htmlFor="mood">Mood</Label>
+                        <Label htmlFor="ingredients">Ingredients I Have</Label>
                         <MultiSelect
-                          options={moodOptions}
-                          selected={moods}
-                          onChange={setMoods}
-                          placeholder="Select moods..."
-                          className="mt-1"
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="allergen">Allergens (exclude)</Label>
-                        <MultiSelect
-                          options={allergenOptions}
-                          selected={allergens}
-                          onChange={setAllergens}
-                          placeholder="Select allergens to exclude..."
+                          options={ingredientOptions}
+                          selected={availableIngredients}
+                          onChange={setAvailableIngredients}
+                          placeholder="Select ingredients you have..."
                           className="mt-1"
                         />
                       </div>

@@ -136,7 +136,14 @@ export const sampleRecipes = [
     mood: "Hearty",
     allergens: ["gluten", "dairy"],
     price: "$$",
-    ingredients: ["penne", "sausage", "tomato", "cream", "onion", "parmesan"],
+    ingredients: [
+      { name: "penne", quantity: { amount: 100, unit: "g", ingredient: "penne" } },
+      { name: "sausage", quantity: { amount: 200, unit: "g", ingredient: "sausage" } },
+      { name: "tomato", quantity: { amount: 100, unit: "g", ingredient: "tomato" } },
+      { name: "cream", quantity: { amount: 50, unit: "ml", ingredient: "cream" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "parmesan", quantity: { amount: 30, unit: "g", ingredient: "parmesan" } }
+    ],
     time: 35,
     steps: [
       "Cook penne according to package instructions.",
@@ -152,7 +159,13 @@ export const sampleRecipes = [
     mood: "Classic",
     allergens: ["gluten", "egg", "dairy"],
     price: "$$",
-    ingredients: ["spaghetti", "eggs", "parmesan", "pancetta", "black pepper"],
+    ingredients: [
+      { name: "spaghetti", quantity: { amount: 100, unit: "g", ingredient: "spaghetti" } },
+      { name: "eggs", quantity: { amount: 2, unit: "eggs", ingredient: "eggs" } },
+      { name: "parmesan", quantity: { amount: 30, unit: "g", ingredient: "parmesan" } },
+      { name: "pancetta", quantity: { amount: 50, unit: "g", ingredient: "pancetta" } },
+      { name: "black pepper", quantity: { amount: 1, unit: "tsp", ingredient: "black pepper" } }
+    ],
     time: 25,
     steps: [
       "Cook spaghetti and reserve some pasta water.",
@@ -168,7 +181,14 @@ export const sampleRecipes = [
     mood: "Savory",
     allergens: ["soy", "egg"],
     price: "$$",
-    ingredients: ["rice", "chicken", "soy sauce", "sriracha", "carrot", "cucumber"],
+    ingredients: [
+      { name: "rice", quantity: { amount: 100, unit: "g", ingredient: "rice" } },
+      { name: "chicken", quantity: { amount: 200, unit: "g", ingredient: "chicken" } },
+      { name: "soy sauce", quantity: { amount: 50, unit: "ml", ingredient: "soy sauce" } },
+      { name: "sriracha", quantity: { amount: 20, unit: "ml", ingredient: "sriracha" } },
+      { name: "carrot", quantity: { amount: 1, unit: "pieces", ingredient: "carrot" } },
+      { name: "cucumber", quantity: { amount: 1, unit: "pieces", ingredient: "cucumber" } }
+    ],
     time: 30,
     steps: [
       "Cook rice and set aside.",
@@ -184,7 +204,17 @@ export const sampleRecipes = [
     mood: "Comfort",
     allergens: ["gluten", "egg"],
     price: "$$$",
-    ingredients: ["rice", "chicken breast", "panko breadcrumbs", "egg", "flour", "curry roux", "carrot", "potato", "onion"],
+    ingredients: [
+      { name: "rice", quantity: { amount: 100, unit: "g", ingredient: "rice" } },
+      { name: "chicken breast", quantity: { amount: 200, unit: "g", ingredient: "chicken breast" } },
+      { name: "panko breadcrumbs", quantity: { amount: 30, unit: "g", ingredient: "panko breadcrumbs" } },
+      { name: "egg", quantity: { amount: 1, unit: "eggs", ingredient: "egg" } },
+      { name: "flour", quantity: { amount: 30, unit: "g", ingredient: "flour" } },
+      { name: "curry roux", quantity: { amount: 50, unit: "g", ingredient: "curry roux" } },
+      { name: "carrot", quantity: { amount: 1, unit: "pieces", ingredient: "carrot" } },
+      { name: "potato", quantity: { amount: 1, unit: "pieces", ingredient: "potato" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } }
+    ],
     time: 50,
     steps: [
       "Cook rice and set aside.",
@@ -200,7 +230,20 @@ export const sampleRecipes = [
     mood: "Party",
     allergens: ["dairy", "gluten"],
     price: "$$",
-    ingredients: ["olive oil", "red onion", "Scotch bonnet chilli", "chopped tomato", "tomato sauce", "allspice", "tortilla chips", "jalapeno chilli", "mozzarella", "coriander", "guacamole", "soured cream"],
+    ingredients: [
+      { name: "olive oil", quantity: { amount: 2, unit: "tbsp", ingredient: "olive oil" } },
+      { name: "red onion", quantity: { amount: 1, unit: "pieces", ingredient: "red onion" } },
+      { name: "Scotch bonnet chilli", quantity: { amount: 1, unit: "pieces", ingredient: "Scotch bonnet chilli" } },
+      { name: "chopped tomato", quantity: { amount: 200, unit: "g", ingredient: "chopped tomato" } },
+      { name: "tomato sauce", quantity: { amount: 100, unit: "ml", ingredient: "tomato sauce" } },
+      { name: "allspice", quantity: { amount: 1, unit: "tsp", ingredient: "allspice" } },
+      { name: "tortilla chips", quantity: { amount: 200, unit: "g", ingredient: "tortilla chips" } },
+      { name: "jalapeno chilli", quantity: { amount: 2, unit: "pieces", ingredient: "jalapeno chilli" } },
+      { name: "mozzarella", quantity: { amount: 150, unit: "g", ingredient: "mozzarella" } },
+      { name: "coriander", quantity: { amount: 10, unit: "g", ingredient: "coriander" } },
+      { name: "guacamole", quantity: { amount: 100, unit: "g", ingredient: "guacamole" } },
+      { name: "soured cream", quantity: { amount: 100, unit: "ml", ingredient: "soured cream" } }
+    ],
     time: 25,
     steps: [
       "Heat oven to 220C/200C fan/gas 7. Heat the oil in a frying pan, then soften the onion and chilli for a few mins.",
@@ -216,7 +259,18 @@ export const sampleRecipes = [
     mood: "Adventurous",
     allergens: [],
     price: "$$",
-    ingredients: ["jerk seasoning", "olive oil", "lime juice", "chicken breasts", "yellow pepper", "rocket leaves", "mango chunks", "red pepper", "spring onions", "red chilli"],
+    ingredients: [
+      { name: "jerk seasoning", quantity: { amount: 2, unit: "tbsp", ingredient: "jerk seasoning" } },
+      { name: "olive oil", quantity: { amount: 3, unit: "tbsp", ingredient: "olive oil" } },
+      { name: "lime juice", quantity: { amount: 30, unit: "ml", ingredient: "lime juice" } },
+      { name: "chicken breasts", quantity: { amount: 400, unit: "g", ingredient: "chicken breasts" } },
+      { name: "yellow pepper", quantity: { amount: 2, unit: "pieces", ingredient: "yellow pepper" } },
+      { name: "rocket leaves", quantity: { amount: 50, unit: "g", ingredient: "rocket leaves" } },
+      { name: "mango chunks", quantity: { amount: 200, unit: "g", ingredient: "mango chunks" } },
+      { name: "red pepper", quantity: { amount: 1, unit: "pieces", ingredient: "red pepper" } },
+      { name: "spring onions", quantity: { amount: 4, unit: "pieces", ingredient: "spring onions" } },
+      { name: "red chilli", quantity: { amount: 1, unit: "pieces", ingredient: "red chilli" } }
+    ],
     time: 35,
     steps: [
       "Mix together the jerk seasoning, olive oil and lime juice. Toss the chicken in it and leave to marinate in the fridge for at least 20 mins, or up to 24 hours.",
@@ -232,7 +286,24 @@ export const sampleRecipes = [
     mood: "Comfort",
     allergens: ["soy"],
     price: "$$",
-    ingredients: ["chicken thighs", "lime", "hot sauce", "spring onions", "ginger", "garlic", "onion", "scotch bonnet chillies", "thyme", "soy sauce", "vegetable oil", "brown sugar", "allspice", "basmati rice", "coconut milk", "kidney beans"],
+    ingredients: [
+      { name: "chicken thighs", quantity: { amount: 1200, unit: "g", ingredient: "chicken thighs" } },
+      { name: "lime", quantity: { amount: 2, unit: "pieces", ingredient: "lime" } },
+      { name: "hot sauce", quantity: { amount: 30, unit: "ml", ingredient: "hot sauce" } },
+      { name: "spring onions", quantity: { amount: 6, unit: "pieces", ingredient: "spring onions" } },
+      { name: "ginger", quantity: { amount: 20, unit: "g", ingredient: "ginger" } },
+      { name: "garlic", quantity: { amount: 6, unit: "cloves", ingredient: "garlic" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "scotch bonnet chillies", quantity: { amount: 3, unit: "pieces", ingredient: "scotch bonnet chillies" } },
+      { name: "thyme", quantity: { amount: 2, unit: "tsp", ingredient: "thyme" } },
+      { name: "soy sauce", quantity: { amount: 60, unit: "ml", ingredient: "soy sauce" } },
+      { name: "vegetable oil", quantity: { amount: 60, unit: "ml", ingredient: "vegetable oil" } },
+      { name: "brown sugar", quantity: { amount: 30, unit: "g", ingredient: "brown sugar" } },
+      { name: "allspice", quantity: { amount: 2, unit: "tsp", ingredient: "allspice" } },
+      { name: "basmati rice", quantity: { amount: 300, unit: "g", ingredient: "basmati rice" } },
+      { name: "coconut milk", quantity: { amount: 400, unit: "ml", ingredient: "coconut milk" } },
+      { name: "kidney beans", quantity: { amount: 400, unit: "g", ingredient: "kidney beans" } }
+    ],
     time: 120,
     steps: [
       "To make the jerk marinade, combine the spring onions, ginger, garlic, onion, scotch bonnet chillies, dried thyme, lime juice, soy sauce, vegetable oil, brown sugar and ground allspice in a food processor along with 1 tsp salt, and blend to a purée.",
@@ -251,7 +322,18 @@ export const sampleRecipes = [
     mood: "Celebration",
     allergens: [],
     price: "$$",
-    ingredients: ["orange juice", "lime juice", "golden rum", "sugar syrup", "grenadine syrup", "bitters", "ice cubes", "nutmeg", "orange slices", "maraschino cherries"],
+    ingredients: [
+      { name: "orange juice", quantity: { amount: 500, unit: "ml", ingredient: "orange juice" } },
+      { name: "lime juice", quantity: { amount: 100, unit: "ml", ingredient: "lime juice" } },
+      { name: "golden rum", quantity: { amount: 300, unit: "ml", ingredient: "golden rum" } },
+      { name: "sugar syrup", quantity: { amount: 100, unit: "ml", ingredient: "sugar syrup" } },
+      { name: "grenadine syrup", quantity: { amount: 50, unit: "ml", ingredient: "grenadine syrup" } },
+      { name: "bitters", quantity: { amount: 10, unit: "ml", ingredient: "bitters" } },
+      { name: "ice cubes", quantity: { amount: 20, unit: "pieces", ingredient: "ice cubes" } },
+      { name: "nutmeg", quantity: { amount: 1, unit: "tsp", ingredient: "nutmeg" } },
+      { name: "orange slices", quantity: { amount: 4, unit: "pieces", ingredient: "orange slices" } },
+      { name: "maraschino cherries", quantity: { amount: 8, unit: "pieces", ingredient: "maraschino cherries" } }
+    ],
     time: 70,
     steps: [
       "Pour the juices, rum, sugar syrup, grenadine and bitters into a large jug and give it a good stir. Pop into the fridge to chill for 1 hr.",
@@ -265,7 +347,13 @@ export const sampleRecipes = [
     mood: "Indulgent",
     allergens: ["eggs", "dairy"],
     price: "$",
-    ingredients: ["egg whites", "caster sugar", "strawberries", "double cream", "icing sugar"],
+    ingredients: [
+      { name: "egg whites", quantity: { amount: 4, unit: "eggs", ingredient: "egg whites" } },
+      { name: "caster sugar", quantity: { amount: 200, unit: "g", ingredient: "caster sugar" } },
+      { name: "strawberries", quantity: { amount: 400, unit: "g", ingredient: "strawberries" } },
+      { name: "double cream", quantity: { amount: 300, unit: "ml", ingredient: "double cream" } },
+      { name: "icing sugar", quantity: { amount: 50, unit: "g", ingredient: "icing sugar" } }
+    ],
     time: 90,
     steps: [
       "Heat oven to 120C/100C fan/gas 1 and line a large baking tray with parchment paper. Whisk the egg whites in a clean bowl using an electric whisk or tabletop mixer until they reach stiff peaks, then add the sugar in 3 lots, re-whisking to stiff peaks every time.",
@@ -281,7 +369,18 @@ export const sampleRecipes = [
     mood: "Comfort",
     allergens: ["gluten", "eggs", "dairy"],
     price: "$$",
-    ingredients: ["bacon", "portabello mushrooms", "cherry tomatoes", "olive oil", "granary bread", "pork sausages", "eggs", "cider vinegar", "orange juice", "blueberries"],
+    ingredients: [
+      { name: "bacon", quantity: { amount: 200, unit: "g", ingredient: "bacon" } },
+      { name: "portabello mushrooms", quantity: { amount: 4, unit: "pieces", ingredient: "portabello mushrooms" } },
+      { name: "cherry tomatoes", quantity: { amount: 200, unit: "g", ingredient: "cherry tomatoes" } },
+      { name: "olive oil", quantity: { amount: 30, unit: "ml", ingredient: "olive oil" } },
+      { name: "granary bread", quantity: { amount: 4, unit: "slices", ingredient: "granary bread" } },
+      { name: "pork sausages", quantity: { amount: 4, unit: "pieces", ingredient: "pork sausages" } },
+      { name: "eggs", quantity: { amount: 2, unit: "eggs", ingredient: "eggs" } },
+      { name: "cider vinegar", quantity: { amount: 15, unit: "ml", ingredient: "cider vinegar" } },
+      { name: "orange juice", quantity: { amount: 200, unit: "ml", ingredient: "orange juice" } },
+      { name: "blueberries", quantity: { amount: 100, unit: "g", ingredient: "blueberries" } }
+    ],
     time: 25,
     steps: [
       "Lay the bacon, mushrooms and tomatoes on a foil-lined tray. Brush the tops of the mushrooms with 3 tsp of the oil and both sides of the bread with the remaining oil. Set aside. Heat the grill to very hot. Lay the sausages on a small foil-lined tray. Grill for about 10 mins until cooked, turning occasionally.",
@@ -298,7 +397,21 @@ export const sampleRecipes = [
     mood: "Comfort",
     allergens: ["gluten", "fish"],
     price: "$$",
-    ingredients: ["sunflower oil", "fish fillets", "Maris Piper potatoes", "malt vinegar", "self-raising flour", "cornflour", "turmeric", "lager", "cornichons", "capers", "shallot", "parsley", "mayonnaise"],
+    ingredients: [
+      { name: "sunflower oil", quantity: { amount: 1000, unit: "ml", ingredient: "sunflower oil" } },
+      { name: "fish fillets", quantity: { amount: 400, unit: "g", ingredient: "fish fillets" } },
+      { name: "Maris Piper potatoes", quantity: { amount: 800, unit: "g", ingredient: "Maris Piper potatoes" } },
+      { name: "malt vinegar", quantity: { amount: 15, unit: "ml", ingredient: "malt vinegar" } },
+      { name: "self-raising flour", quantity: { amount: 150, unit: "g", ingredient: "self-raising flour" } },
+      { name: "cornflour", quantity: { amount: 50, unit: "g", ingredient: "cornflour" } },
+      { name: "turmeric", quantity: { amount: 1, unit: "tsp", ingredient: "turmeric" } },
+      { name: "lager", quantity: { amount: 200, unit: "ml", ingredient: "lager" } },
+      { name: "cornichons", quantity: { amount: 30, unit: "g", ingredient: "cornichons" } },
+      { name: "capers", quantity: { amount: 20, unit: "g", ingredient: "capers" } },
+      { name: "shallot", quantity: { amount: 1, unit: "pieces", ingredient: "shallot" } },
+      { name: "parsley", quantity: { amount: 10, unit: "g", ingredient: "parsley" } },
+      { name: "mayonnaise", quantity: { amount: 100, unit: "ml", ingredient: "mayonnaise" } }
+    ],
     time: 45,
     steps: [
       "Cut the potatoes into chips and soak in cold water for 5 mins, then wash until the water runs clear. Tip into a pan of cold water with a pinch of salt and 1 tsp malt vinegar. Bring to a simmer, then turn down the heat and simmer gently for 10-12 mins until cooked through but not falling apart. Drain gently, then place on a tray in a single layer and chill until needed.",
@@ -315,7 +428,16 @@ export const sampleRecipes = [
     mood: "Comfort",
     allergens: ["gluten", "eggs", "dairy"],
     price: "$",
-    ingredients: ["self-raising flour", "baking powder", "golden caster sugar", "eggs", "melted butter", "milk", "vegetable oil", "maple syrup"],
+    ingredients: [
+      { name: "self-raising flour", quantity: { amount: 200, unit: "g", ingredient: "self-raising flour" } },
+      { name: "baking powder", quantity: { amount: 1.5, unit: "tsp", ingredient: "baking powder" } },
+      { name: "golden caster sugar", quantity: { amount: 15, unit: "g", ingredient: "golden caster sugar" } },
+      { name: "eggs", quantity: { amount: 3, unit: "eggs", ingredient: "eggs" } },
+      { name: "melted butter", quantity: { amount: 25, unit: "g", ingredient: "melted butter" } },
+      { name: "milk", quantity: { amount: 200, unit: "ml", ingredient: "milk" } },
+      { name: "vegetable oil", quantity: { amount: 5, unit: "ml", ingredient: "vegetable oil" } },
+      { name: "maple syrup", quantity: { amount: 60, unit: "ml", ingredient: "maple syrup" } }
+    ],
     time: 20,
     steps: [
       "Mix 200g self-raising flour, 1 ½ tsp baking powder, 1 tbsp golden caster sugar and a pinch of salt together in a large bowl.",
@@ -332,7 +454,19 @@ export const sampleRecipes = [
     mood: "Adventurous",
     allergens: ["gluten", "dairy"],
     price: "$$",
-    ingredients: ["chicken breasts", "olive oil", "smoked bacon", "avocados", "ciabatta rolls", "cheese", "baby spinach", "mayonnaise", "ground cumin", "ground coriander", "paprika"],
+    ingredients: [
+      { name: "chicken breasts", quantity: { amount: 400, unit: "g", ingredient: "chicken breasts" } },
+      { name: "olive oil", quantity: { amount: 30, unit: "ml", ingredient: "olive oil" } },
+      { name: "smoked bacon", quantity: { amount: 200, unit: "g", ingredient: "smoked bacon" } },
+      { name: "avocados", quantity: { amount: 2, unit: "pieces", ingredient: "avocados" } },
+      { name: "ciabatta rolls", quantity: { amount: 4, unit: "pieces", ingredient: "ciabatta rolls" } },
+      { name: "cheese", quantity: { amount: 100, unit: "g", ingredient: "cheese" } },
+      { name: "baby spinach", quantity: { amount: 50, unit: "g", ingredient: "baby spinach" } },
+      { name: "mayonnaise", quantity: { amount: 60, unit: "ml", ingredient: "mayonnaise" } },
+      { name: "ground cumin", quantity: { amount: 1, unit: "tsp", ingredient: "ground cumin" } },
+      { name: "ground coriander", quantity: { amount: 1, unit: "tsp", ingredient: "ground coriander" } },
+      { name: "paprika", quantity: { amount: 1, unit: "tsp", ingredient: "paprika" } }
+    ],
     time: 25,
     steps: [
       "Mix the seasoning ingredients together with a good grinding of black pepper and a sprinkling of salt, then set aside in a large dish. Heat grill to high. On a board, flatten out the chicken slightly, then drizzle half the oil over and toss in the seasoning until completely coated. Heat the remaining oil in a large frying pan, sizzle the chicken for 5 mins on each side until firm, push to one side of the pan, then fry the bacon for a few mins until cooked.",
@@ -347,7 +481,22 @@ export const sampleRecipes = [
     mood: "Indulgent",
     allergens: ["gluten", "dairy"],
     price: "$$$",
-    ingredients: ["macaroni", "whole milk", "bay leaves", "butter", "plain flour", "Dijon mustard", "thyme leaves", "truffle paste", "porcini powder", "taleggio cheese", "mozzarella", "mature cheddar", "breadcrumbs", "parmesan"],
+    ingredients: [
+      { name: "macaroni", quantity: { amount: 300, unit: "g", ingredient: "macaroni" } },
+      { name: "whole milk", quantity: { amount: 500, unit: "ml", ingredient: "whole milk" } },
+      { name: "bay leaves", quantity: { amount: 2, unit: "pieces", ingredient: "bay leaves" } },
+      { name: "butter", quantity: { amount: 50, unit: "g", ingredient: "butter" } },
+      { name: "plain flour", quantity: { amount: 50, unit: "g", ingredient: "plain flour" } },
+      { name: "Dijon mustard", quantity: { amount: 15, unit: "ml", ingredient: "Dijon mustard" } },
+      { name: "thyme leaves", quantity: { amount: 5, unit: "g", ingredient: "thyme leaves" } },
+      { name: "truffle paste", quantity: { amount: 20, unit: "g", ingredient: "truffle paste" } },
+      { name: "porcini powder", quantity: { amount: 10, unit: "g", ingredient: "porcini powder" } },
+      { name: "taleggio cheese", quantity: { amount: 100, unit: "g", ingredient: "taleggio cheese" } },
+      { name: "mozzarella", quantity: { amount: 100, unit: "g", ingredient: "mozzarella" } },
+      { name: "mature cheddar", quantity: { amount: 100, unit: "g", ingredient: "mature cheddar" } },
+      { name: "breadcrumbs", quantity: { amount: 50, unit: "g", ingredient: "breadcrumbs" } },
+      { name: "parmesan", quantity: { amount: 50, unit: "g", ingredient: "parmesan" } }
+    ],
     time: 50,
     steps: [
       "Cook the macaroni following pack instructions until al dente. Drain, rinse with cold water and set aside to cool.",
@@ -362,7 +511,18 @@ export const sampleRecipes = [
     mood: "Comfort",
     allergens: ["gluten", "dairy"],
     price: "$",
-    ingredients: ["vegetable oil", "onion", "red peppers", "minced beef", "chopped tomatoes", "Nando's PERi-BBQ sauce", "cheese slices", "burger buns", "crispy onions", "iceberg lettuce"],
+    ingredients: [
+      { name: "vegetable oil", quantity: { amount: 15, unit: "ml", ingredient: "vegetable oil" } },
+      { name: "onion", quantity: { amount: 1, unit: "pieces", ingredient: "onion" } },
+      { name: "red peppers", quantity: { amount: 2, unit: "pieces", ingredient: "red peppers" } },
+      { name: "minced beef", quantity: { amount: 500, unit: "g", ingredient: "minced beef" } },
+      { name: "chopped tomatoes", quantity: { amount: 400, unit: "g", ingredient: "chopped tomatoes" } },
+      { name: "Nando's PERi-BBQ sauce", quantity: { amount: 100, unit: "ml", ingredient: "Nando's PERi-BBQ sauce" } },
+      { name: "cheese slices", quantity: { amount: 4, unit: "pieces", ingredient: "cheese slices" } },
+      { name: "burger buns", quantity: { amount: 4, unit: "pieces", ingredient: "burger buns" } },
+      { name: "crispy onions", quantity: { amount: 50, unit: "g", ingredient: "crispy onions" } },
+      { name: "iceberg lettuce", quantity: { amount: 100, unit: "g", ingredient: "iceberg lettuce" } }
+    ],
     time: 35,
     steps: [
       "Heat the oil in a deep frying pan, and tip in the mince, breaking it up with a wooden spoon as you go, until browned all over. Stir in the onion and pepper and cook for 8-10 mins until softened. Tip in the tomatoes and Nando's PERi-BBQ sauce, and season. Simmer for 20-25 mins until the sauce has thickened.",
@@ -376,7 +536,19 @@ export const sampleRecipes = [
     mood: "Healthy",
     allergens: [],
     price: "$$",
-    ingredients: ["smoked paprika", "ground coriander", "garlic", "rapeseed oil", "chicken thighs", "vegetable bouillon", "brown rice", "leeks", "oregano", "bay leaves", "mixed frozen vegetables"],
+    ingredients: [
+      { name: "smoked paprika", quantity: { amount: 2, unit: "tsp", ingredient: "smoked paprika" } },
+      { name: "ground coriander", quantity: { amount: 2, unit: "tsp", ingredient: "ground coriander" } },
+      { name: "garlic", quantity: { amount: 4, unit: "cloves", ingredient: "garlic" } },
+      { name: "rapeseed oil", quantity: { amount: 15, unit: "ml", ingredient: "rapeseed oil" } },
+      { name: "chicken thighs", quantity: { amount: 600, unit: "g", ingredient: "chicken thighs" } },
+      { name: "vegetable bouillon", quantity: { amount: 500, unit: "ml", ingredient: "vegetable bouillon" } },
+      { name: "brown rice", quantity: { amount: 200, unit: "g", ingredient: "brown rice" } },
+      { name: "leeks", quantity: { amount: 2, unit: "pieces", ingredient: "leeks" } },
+      { name: "oregano", quantity: { amount: 2, unit: "tsp", ingredient: "oregano" } },
+      { name: "bay leaves", quantity: { amount: 2, unit: "pieces", ingredient: "bay leaves" } },
+      { name: "mixed frozen vegetables", quantity: { amount: 200, unit: "g", ingredient: "mixed frozen vegetables" } }
+    ],
     time: 45,
     steps: [
       "Put the spices, garlic and oil in a large bowl and mix well. Add the chicken and turn in the mixture until well coated. Heat a large non-stick pan that has a lid, then fry the chicken, uncovered (without extra oil) over a medium-high heat for 5 mins until browned, turning the chicken halfway to brown on both sides. Remove from the pan and set aside on a plate.",
@@ -391,7 +563,20 @@ export const sampleRecipes = [
     mood: "Healthy",
     allergens: [],
     price: "$",
-    ingredients: ["brown rice", "tomato purée", "cumin seeds", "hot chilli powder", "vegetable bouillon powder", "black beans", "tomatoes", "red onion", "coriander", "limes", "avocados", "sweetcorn"],
+    ingredients: [
+      { name: "brown rice", quantity: { amount: 200, unit: "g", ingredient: "brown rice" } },
+      { name: "tomato purée", quantity: { amount: 30, unit: "g", ingredient: "tomato purée" } },
+      { name: "cumin seeds", quantity: { amount: 1, unit: "tsp", ingredient: "cumin seeds" } },
+      { name: "hot chilli powder", quantity: { amount: 1, unit: "tsp", ingredient: "hot chilli powder" } },
+      { name: "vegetable bouillon powder", quantity: { amount: 10, unit: "g", ingredient: "vegetable bouillon powder" } },
+      { name: "black beans", quantity: { amount: 400, unit: "g", ingredient: "black beans" } },
+      { name: "tomatoes", quantity: { amount: 200, unit: "g", ingredient: "tomatoes" } },
+      { name: "red onion", quantity: { amount: 1, unit: "pieces", ingredient: "red onion" } },
+      { name: "coriander", quantity: { amount: 20, unit: "g", ingredient: "coriander" } },
+      { name: "limes", quantity: { amount: 2, unit: "pieces", ingredient: "limes" } },
+      { name: "avocados", quantity: { amount: 2, unit: "pieces", ingredient: "avocados" } },
+      { name: "sweetcorn", quantity: { amount: 200, unit: "g", ingredient: "sweetcorn" } }
+    ],
     time: 30,
     steps: [
       "Tip the rice and 600ml water into a pan, then stir in the tomato purée, cumin, chilli and bouillon powder. Cover and cook over a low heat for 20 mins until the rice is tender, and it has absorbed the liquid. Remove from the heat and stir in the black beans.",
@@ -406,7 +591,18 @@ export const sampleRecipes = [
     mood: "Healthy",
     allergens: ["peanuts", "soy"],
     price: "$",
-    ingredients: ["rice noodles", "Marmite", "vegetable oil", "chestnut mushrooms", "leek", "soy sauce", "red chilli", "mint leaves", "salted peanuts", "sriracha"],
+    ingredients: [
+      { name: "rice noodles", quantity: { amount: 200, unit: "g", ingredient: "rice noodles" } },
+      { name: "Marmite", quantity: { amount: 10, unit: "g", ingredient: "Marmite" } },
+      { name: "vegetable oil", quantity: { amount: 15, unit: "ml", ingredient: "vegetable oil" } },
+      { name: "chestnut mushrooms", quantity: { amount: 200, unit: "g", ingredient: "chestnut mushrooms" } },
+      { name: "leek", quantity: { amount: 1, unit: "pieces", ingredient: "leek" } },
+      { name: "soy sauce", quantity: { amount: 30, unit: "ml", ingredient: "soy sauce" } },
+      { name: "red chilli", quantity: { amount: 1, unit: "pieces", ingredient: "red chilli" } },
+      { name: "mint leaves", quantity: { amount: 10, unit: "g", ingredient: "mint leaves" } },
+      { name: "salted peanuts", quantity: { amount: 30, unit: "g", ingredient: "salted peanuts" } },
+      { name: "sriracha", quantity: { amount: 15, unit: "ml", ingredient: "sriracha" } }
+    ],
     time: 25,
     steps: [
       "Tip the noodles into a bowl and cover with boiling water. Leave to stand for 10 mins, then drain, rinse in cold water and set aside.",
