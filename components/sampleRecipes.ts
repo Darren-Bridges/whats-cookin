@@ -86,12 +86,12 @@ export const sampleRecipes = [
     mood: "Comfort",
     allergens: ["gluten", "dairy"],
     price: "$$",
-    ingredients: ["spaghetti", "ground beef", "tomato sauce", "onion", "garlic", "parmesan"],
+    ingredients: ["spaghetti", "ground beef", "tomato sauce", "onion", "garlic", "carrot", "mixed herbs", "parmesan"],
     time: 45,
     steps: [
       "Cook spaghetti according to package instructions.",
       "Sauté onion and garlic, add ground beef and brown.",
-      "Add tomato sauce and simmer.",
+      "Add tomato sauce, carrot, and mixed herbs, simmer.",
       "Serve sauce over spaghetti and top with parmesan."
     ]
   },
@@ -102,7 +102,7 @@ export const sampleRecipes = [
     mood: "Hearty",
     allergens: ["gluten", "dairy"],
     price: "$$",
-    ingredients: ["penne", "Italian sausage", "tomato", "cream", "onion", "parmesan"],
+    ingredients: ["penne", "sausage", "tomato", "cream", "onion", "parmesan"],
     time: 35,
     steps: [
       "Cook penne according to package instructions.",
@@ -118,7 +118,7 @@ export const sampleRecipes = [
     mood: "Classic",
     allergens: ["gluten", "egg", "dairy"],
     price: "$$",
-    ingredients: ["spaghetti", "egg yolks", "parmesan", "pancetta", "black pepper"],
+    ingredients: ["spaghetti", "eggs", "parmesan", "pancetta", "black pepper"],
     time: 25,
     steps: [
       "Cook spaghetti and reserve some pasta water.",
@@ -134,13 +134,13 @@ export const sampleRecipes = [
     mood: "Savory",
     allergens: ["soy", "egg"],
     price: "$$",
-    ingredients: ["rice", "chicken thigh", "soy sauce", "mirin", "onion", "egg"],
+    ingredients: ["rice", "chicken", "soy sauce", "sriracha", "carrot", "cucumber"],
     time: 30,
     steps: [
       "Cook rice and set aside.",
-      "Sauté onion and chicken, add soy sauce and mirin.",
-      "Pour beaten egg over and cook gently.",
-      "Serve over rice."
+      "Peel and slice cucumber and carrot.",
+      "Sauté chicken, add soy sauce and sriracha.",
+      "Serve over rice with cucumber and carrot."
     ]
   },
   {
