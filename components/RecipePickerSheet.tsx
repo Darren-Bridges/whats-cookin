@@ -2,7 +2,7 @@
 import React, { useState, useMemo } from "react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Input } from "@/components/ui/input";
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
+import { MultiSelect, MultiSelectOption } from "@/components/ui/multi-select";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Toggle } from "@/components/ui/toggle";
@@ -11,8 +11,9 @@ import { CUISINES } from "@/constants/cuisines";
 import { MOODS } from "@/constants/moods";
 import { ALLERGENS } from "@/constants/allergens";
 
-const moods = ["All", ...MOODS];
-const allergens = ["none", ...ALLERGENS];
+const moodOptions: MultiSelectOption[] = MOODS.map(mood => ({ value: mood, label: mood }));
+const allergenOptions: MultiSelectOption[] = ALLERGENS.map(allergen => ({ value: allergen, label: allergen }));
+const cuisineOptions: MultiSelectOption[] = CUISINES.map(cuisine => ({ value: cuisine, label: cuisine }));
 
 export interface RecipePickerSheetProps {
   open: boolean;
@@ -36,26 +37,24 @@ export function RecipePickerSheet({
   loading = false,
 }: RecipePickerSheetProps) {
   const [search, setSearch] = useState("");
-  const [cuisine, setCuisine] = useState("All");
-  const [mood, setMood] = useState("All");
-  const [allergen, setAllergen] = useState("none");
+  const [cuisines, setCuisines] = useState<string[]>([]);
+  const [moods, setMoods] = useState<string[]>([]);
+  const [allergens, setAllergens] = useState<string[]>([]);
   const [showFavorites, setShowFavorites] = useState(false);
-
-  const filterCuisines = useMemo(() => ["All", ...CUISINES], []);
 
   const filteredRecipes = useMemo(() => {
     return allRecipes.filter((recipe) => {
       const matchesSearch =
         recipe.name.toLowerCase().includes(search.toLowerCase()) ||
         recipe.ingredients.some((ing: string) => ing.toLowerCase().includes(search.toLowerCase()));
-      const matchesCuisine = cuisine === "All" || recipe.cuisine === cuisine;
-      const matchesMood = mood === "All" || recipe.mood === mood;
-      const excludesAllergen = allergen === "none" || !recipe.allergens.includes(allergen);
+      const matchesCuisine = cuisines.length === 0 || cuisines.includes(recipe.cuisine);
+      const matchesMood = moods.length === 0 || moods.includes(recipe.mood);
+      const excludesAllergen = allergens.length === 0 || !recipe.allergens.some((allergen: string) => allergens.includes(allergen));
       const isFavorite = favorites.some((id) => String(id) === String(recipe.id));
       if (showFavorites) return isFavorite && matchesSearch && matchesCuisine && matchesMood && excludesAllergen;
       return matchesSearch && matchesCuisine && matchesMood && excludesAllergen;
     });
-  }, [allRecipes, search, cuisine, mood, allergen, showFavorites, favorites]);
+  }, [allRecipes, search, cuisines, moods, allergens, showFavorites, favorites]);
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
@@ -74,49 +73,49 @@ export function RecipePickerSheet({
             onChange={(e) => setSearch(e.target.value)}
             className="mt-1"
           />
-          <div className="flex flex-col sm:flex-row gap-2 items-stretch justify-between">
-            <div className="flex-1 flex gap-2">
-              <Select value={cuisine} onValueChange={setCuisine}>
-                <SelectTrigger className="w-32">
-                  <SelectValue placeholder="Cuisine" />
-                </SelectTrigger>
-                <SelectContent>
-                  {filterCuisines.map((c) => (
-                    <SelectItem key={c} value={c}>{c}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              <Select value={mood} onValueChange={setMood}>
-                <SelectTrigger className="w-32">
-                  <SelectValue placeholder="Mood" />
-                </SelectTrigger>
-                <SelectContent>
-                  {moods.map((m) => (
-                    <SelectItem key={m} value={m}>{m}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              <Select value={allergen} onValueChange={setAllergen}>
-                <SelectTrigger className="w-40">
-                  <SelectValue placeholder="Allergens (exclude)" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="none">Allergens (exclude)</SelectItem>
-                  {allergens.map((a) => (
-                    <SelectItem key={a} value={a}>{a}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+          <div className="flex flex-col gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <div>
+                <label className="text-sm font-medium mb-1 block">Cuisine</label>
+                <MultiSelect
+                  options={cuisineOptions}
+                  selected={cuisines}
+                  onChange={setCuisines}
+                  placeholder="Select cuisines..."
+                  className="w-full"
+                />
+              </div>
+              <div>
+                <label className="text-sm font-medium mb-1 block">Mood</label>
+                <MultiSelect
+                  options={moodOptions}
+                  selected={moods}
+                  onChange={setMoods}
+                  placeholder="Select moods..."
+                  className="w-full"
+                />
+              </div>
+              <div>
+                <label className="text-sm font-medium mb-1 block">Allergens (exclude)</label>
+                <MultiSelect
+                  options={allergenOptions}
+                  selected={allergens}
+                  onChange={setAllergens}
+                  placeholder="Select allergens to exclude..."
+                  className="w-full"
+                />
+              </div>
             </div>
-            <Toggle
-              pressed={showFavorites}
-              onPressedChange={setShowFavorites}
-              aria-label="Show Favorites"
-              className="ml-2"
-            >
-              <Heart className={showFavorites ? "fill-primary text-primary" : "text-muted-foreground"} />
-              <span className="ml-2">Favorites</span>
-            </Toggle>
+            <div className="flex justify-end">
+              <Toggle
+                pressed={showFavorites}
+                onPressedChange={setShowFavorites}
+                aria-label="Show Favorites"
+              >
+                <Heart className={showFavorites ? "fill-primary text-primary" : "text-muted-foreground"} />
+                <span className="ml-2">Favorites</span>
+              </Toggle>
+            </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[40vh] overflow-y-auto">
             {filteredRecipes.length === 0 ? (

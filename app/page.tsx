@@ -20,18 +20,20 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { RecipeCard } from "@/components/RecipeCard";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { AddRecipeDialog } from "@/components/AddRecipeDialog";
+import { MultiSelect, MultiSelectOption } from "@/components/ui/multi-select";
 import { CUISINES } from "@/constants/cuisines";
 import { MOODS } from "@/constants/moods";
 import { ALLERGENS } from "@/constants/allergens";
 
-const moods = ["All", ...MOODS];
-const allergens = ["none", ...ALLERGENS];
+const moodOptions: MultiSelectOption[] = MOODS.map(mood => ({ value: mood, label: mood }));
+const allergenOptions: MultiSelectOption[] = ALLERGENS.map(allergen => ({ value: allergen, label: allergen }));
+const cuisineOptions: MultiSelectOption[] = CUISINES.map(cuisine => ({ value: cuisine, label: cuisine }));
 
 export default function Home() {
   const [search, setSearch] = useState("");
-  const [cuisine, setCuisine] = useState("All");
-  const [mood, setMood] = useState("All");
-  const [allergen, setAllergen] = useState("none");
+  const [cuisines, setCuisines] = useState<string[]>([]);
+  const [moods, setMoods] = useState<string[]>([]);
+  const [allergens, setAllergens] = useState<string[]>([]);
   const [authOpen, setAuthOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -48,8 +50,6 @@ export default function Home() {
   const [mealPlanSuccess, setMealPlanSuccess] = useState("");
   const mealTypes = ["breakfast", "lunch", "dinner", "snack"];
   const [mealPlanOpenId, setMealPlanOpenId] = useState<string | number | null>(null);
-
-  const filterCuisines = ["All", ...CUISINES];
 
   // Fetch favorites with TanStack Query
   const queryClient = useQueryClient();
@@ -166,9 +166,9 @@ export default function Home() {
     const matchesSearch =
       recipe.name.toLowerCase().includes(search.toLowerCase()) ||
       recipe.ingredients.some((ing: string) => ing.toLowerCase().includes(search.toLowerCase()));
-    const matchesCuisine = cuisine === "All" || recipe.cuisine === cuisine;
-    const matchesMood = mood === "All" || recipe.mood === mood;
-    const excludesAllergen = allergen === "none" || !recipe.allergens.includes(allergen);
+    const matchesCuisine = cuisines.length === 0 || cuisines.includes(recipe.cuisine);
+    const matchesMood = moods.length === 0 || moods.includes(recipe.mood);
+    const excludesAllergen = allergens.length === 0 || !recipe.allergens.some((allergen: string) => allergens.includes(allergen));
     const isFavorite = favorites.some((id: string | number) => String(id) === String(recipe.id));
     if (showFavorites && user) return isFavorite;
     return matchesSearch && matchesCuisine && matchesMood && excludesAllergen;
@@ -200,43 +200,33 @@ export default function Home() {
                     <div className="flex flex-col md:flex-row gap-4 mt-2">
                       <div>
                         <Label htmlFor="cuisine">Cuisine</Label>
-                        <Select value={cuisine} onValueChange={setCuisine}>
-                          <SelectTrigger id="cuisine" className="mt-1">
-                            <SelectValue placeholder="Cuisine" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {filterCuisines.map((c) => (
-                              <SelectItem key={c} value={c}>{c}</SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
+                        <MultiSelect
+                          options={cuisineOptions}
+                          selected={cuisines}
+                          onChange={setCuisines}
+                          placeholder="Select cuisines..."
+                          className="mt-1"
+                        />
                       </div>
                       <div>
                         <Label htmlFor="mood">Mood</Label>
-                        <Select value={mood} onValueChange={setMood}>
-                          <SelectTrigger id="mood" className="mt-1">
-                            <SelectValue placeholder="Mood" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {moods.map((m) => (
-                              <SelectItem key={m} value={m}>{m}</SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
+                        <MultiSelect
+                          options={moodOptions}
+                          selected={moods}
+                          onChange={setMoods}
+                          placeholder="Select moods..."
+                          className="mt-1"
+                        />
                       </div>
                       <div>
-                        <Label htmlFor="allergen">Allergens</Label>
-                        <Select value={allergen} onValueChange={setAllergen}>
-                          <SelectTrigger id="allergen" className="mt-1">
-                            <SelectValue placeholder="Allergens (exclude)" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="none">Allergens (exclude)</SelectItem>
-                            {allergens.map((a) => (
-                              <SelectItem key={a} value={a}>{a}</SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
+                        <Label htmlFor="allergen">Allergens (exclude)</Label>
+                        <MultiSelect
+                          options={allergenOptions}
+                          selected={allergens}
+                          onChange={setAllergens}
+                          placeholder="Select allergens to exclude..."
+                          className="mt-1"
+                        />
                       </div>
                     </div>
                   </AccordionContent>
