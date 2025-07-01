@@ -7,7 +7,7 @@ const nextConfig: NextConfig = withPWA({
     register: true,
     skipWaiting: true,
     disable: process.env.NODE_ENV === "development",
-    manifest: "/manifest.json",
+    manifest: "manifest.json",
   },
 });
 
