@@ -8,8 +8,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Toggle } from "@/components/ui/toggle";
 import { Heart } from "lucide-react";
 import { CUISINES } from "@/constants/cuisines";
+import { MOODS } from "@/constants/moods";
 
-const moods = ["All", "Adventurous", "Comfort", "Healthy", "Spicy", "Breakfast", "Hearty", "Classic", "Savory"];
+const moods = ["All", ...MOODS];
 const allergens = ["peanuts", "gluten", "dairy", "eggs", "soy"];
 
 export interface RecipePickerSheetProps {

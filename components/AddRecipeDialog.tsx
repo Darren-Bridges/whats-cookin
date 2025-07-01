@@ -7,8 +7,9 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import { supabase } from "@/lib/supabaseClient";
 import { CUISINES } from "@/constants/cuisines";
+import { MOODS } from "@/constants/moods";
 
-const moods = ["Adventurous", "Comfort", "Healthy", "Spicy", "Breakfast", "Hearty", "Classic", "Savory"];
+const moods = MOODS;
 const allergens = ["peanuts", "gluten", "dairy", "eggs", "soy"];
 const prices = ["$", "$$", "$$$"];
 

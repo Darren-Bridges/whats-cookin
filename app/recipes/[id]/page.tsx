@@ -18,6 +18,8 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Skeleton } from '@/components/ui/skeleton';
 import { AuthDialog, AuthDialogHandle } from "@/components/AuthDialog";
 import { Label } from "@/components/ui/label";
+import { CUISINES } from "@/constants/cuisines";
+import { MOODS } from "@/constants/moods";
 
 export default function RecipeDetails() {
   const params = useParams();
@@ -287,7 +289,7 @@ function EditRecipeForm({ recipe, onClose, onUpdated }: { recipe: any, onClose: 
           <Select value={cuisine} onValueChange={setCuisine}>
             <SelectTrigger><SelectValue placeholder="Select cuisine" /></SelectTrigger>
             <SelectContent>
-              {['Thai', 'Italian', 'Fusion', 'Indian', 'American', 'Japanese'].map(c => <SelectItem key={c} value={c}>{c}</SelectItem>)}
+              {CUISINES.map(c => <SelectItem key={c} value={c}>{c}</SelectItem>)}
             </SelectContent>
           </Select>
         </div>
@@ -296,7 +298,7 @@ function EditRecipeForm({ recipe, onClose, onUpdated }: { recipe: any, onClose: 
           <Select value={mood} onValueChange={setMood}>
             <SelectTrigger><SelectValue placeholder="Select mood" /></SelectTrigger>
             <SelectContent>
-              {["Adventurous", "Comfort", "Healthy", "Spicy", "Breakfast", "Hearty", "Classic", "Savory"].map(m => <SelectItem key={m} value={m}>{m}</SelectItem>)}
+              {MOODS.map(m => <SelectItem key={m} value={m}>{m}</SelectItem>)}
             </SelectContent>
           </Select>
         </div>

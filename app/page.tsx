@@ -21,8 +21,9 @@ import { RecipeCard } from "@/components/RecipeCard";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { AddRecipeDialog } from "@/components/AddRecipeDialog";
 import { CUISINES } from "@/constants/cuisines";
+import { MOODS } from "@/constants/moods";
 
-const moods = ["All", "Adventurous", "Comfort", "Healthy", "Spicy", "Breakfast"];
+const moods = ["All", ...MOODS];
 const allergens = ["peanuts", "gluten", "dairy", "eggs"];
 
 export default function Home() {
